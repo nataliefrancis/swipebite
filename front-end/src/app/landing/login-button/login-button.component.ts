@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginButtonService } from './login-button.service';
+import { LandingService } from '../landing-service.service';
 
 @Component({
   selector: 'app-login-button',
@@ -10,13 +10,13 @@ export class LoginButtonComponent implements OnInit {
 
 	newUser = String;
 
-  constructor( private loginButtonService : LoginButtonService ) { }
+  constructor( private landingService : LandingService ) { }
 
   ngOnInit() {
   }
 
 authenticateUser() {
-	this.loginButtonService.authenticateUser()
+	this.landingService.authenticateUser()
 }
 
 // saveUser(newUser) {
@@ -32,6 +32,4 @@ authenticateUser() {
 
 
 }
-
-
 
