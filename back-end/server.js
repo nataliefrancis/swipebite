@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-// require('dotenv').config();
+require('dotenv').config();
+
 let port = process.env.PORT || 3000;
 
 //CORS setup to allow other ports from this host
