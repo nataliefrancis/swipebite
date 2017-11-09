@@ -17,6 +17,9 @@ export class LoginButtonComponent implements OnInit {
 
 authenticateUser() {
 	this.landingService.authenticateUser()
+	.subscribe(response => {
+		console.log(response.json());
+	});
 }
 
 // saveUser(newUser) {
