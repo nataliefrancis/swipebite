@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { LandingModule } from './landing/landing.module';
 import { HttpModule } from '@angular/http';
+import { LoginButtonService } from './landing-page/login-button/login-button.service';
 
 
 
@@ -15,6 +16,7 @@ import { LoginButtonComponent } from './landing-page/login-button/login-button.c
     AppComponent,
     LandingPageComponent,
     LoginButtonComponent,
+    LoginButtonService
     // LoginButtonComponent
   ],
   imports: [
