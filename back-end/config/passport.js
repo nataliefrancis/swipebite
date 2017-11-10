@@ -1,4 +1,4 @@
-// const passport = require('passport');
+const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const clientID 	= process.env.clientID; // || require('./env') );
 const clientSecret 	= process.env.clientSecret; // || require('./env') );
