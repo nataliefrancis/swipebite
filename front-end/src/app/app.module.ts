@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+  
 import  { AppRoutingModule } from './app-routing.module';
 import  { MainFoodRoutingModule } from './mainFood/mainFood-routing.module';
 
@@ -19,7 +20,8 @@ import { MainFoodModule } from './mainFood/mainFood.module';
     AppRoutingModule,
     MainFoodRoutingModule,
     MainFoodModule,
-    HttpModule
+    HttpModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
