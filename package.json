@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "cd front-end && ng build --aot -prod -op ../back-end/dist && cd ..",
-    "start": "node back-end/server.js"
+    "start": "cd back-end && npm install && node server.js"
   },
   "keywords": [],
   "author": "",

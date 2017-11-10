@@ -1,0 +1,10 @@
+h1 {
+	font-family: 'Heebo', sans-serif;
+	color: white;
+}
+header {
+	width: 100%;
+	background-color: #D76721;
+	margin-bottom: 15%;
+	padding: 1%;
+}
