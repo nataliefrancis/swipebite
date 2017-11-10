@@ -6,21 +6,30 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { FoodPicComponent } from './foodPic/foodPic.component';
 
 import { MainFoodService } from './mainFood.service';
+import { NavbarComponent } from './navbar/navbar.component';
+
+import { NgbModule, NgbDropdownModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgbModule,
+    NgbCollapseModule,
+    NgbDropdownModule
+
   ],
   declarations: [
   	ButtonsComponent,
-  	FoodPicComponent
+  	FoodPicComponent,
+  	NavbarComponent
   ],
   providers: [ MainFoodService ],
   exports: [ 
     ButtonsComponent,
-    FoodPicComponent
+    FoodPicComponent,
+    NavbarComponent
   ]
 })
 export class MainFoodModule { }

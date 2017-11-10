@@ -26,20 +26,7 @@ body, html {
 	font-family: Heebo;
 }
 
-#dropDown{
-	text-align: left;
-	background-color: rgba(215, 103, 33, 0.8);
-	width: 90%;
-	height: 100%;
-	margin-top: 0;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-bottom: 5%;
-	font-size: 18px;
-	padding: 3%;
-	color: white;
-	font-family: Poppins;
-}
+
 
 .distance{
 	text-align: left;

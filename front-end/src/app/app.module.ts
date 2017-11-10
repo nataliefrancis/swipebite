@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbDropdownModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
   
 import  { AppRoutingModule } from './app-routing.module';
 import  { MainFoodRoutingModule } from './mainFood/mainFood-routing.module';
@@ -21,7 +21,10 @@ import { MainFoodModule } from './mainFood/mainFood.module';
     MainFoodRoutingModule,
     MainFoodModule,
     HttpModule,
-    NgbModule
+    NgbModule.forRoot(),
+    NgbCollapseModule,
+    NgbDropdownModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
