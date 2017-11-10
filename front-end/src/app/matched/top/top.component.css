@@ -1,0 +1,45 @@
+.matchedContainer {
+	margin-top: 70px;
+	margin-left: 30px;
+	height: 500px;
+	width: 300px;
+	border-radius: 5px;
+	background-color: rgba(215, 103, 33, .70);
+}
+
+h1 {
+	padding-top: 30px;
+	font-family: 'Heebo', sans-serif;
+	color: white;
+}
+
+.foodImage {
+	background-color: white;
+	width: 60%;
+	margin-left: 20%;
+}
+#foodPicture{
+    height: 50%;
+    width: 85%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
+    padding: 3px;
+}
+
+.matchedDescription {
+	margin-top: 20px;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+}
+
+.map {
+	margin-top: 20px;
+	margin-left: 21%;
+	width: 60%;
+	height: 20%;
+	background-color: white;
+	border-radius: 3px;
+}
+

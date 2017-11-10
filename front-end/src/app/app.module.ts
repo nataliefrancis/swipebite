@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatchedModule } from './matched/matched.module';
+import { HttpModule } from '@angular/http';
+
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +11,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    MatchedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
