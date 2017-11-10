@@ -8,8 +8,9 @@ require('dotenv').config();
 
 let port = process.env.PORT || 3000;
 
-//CORS setup to allow other ports from this host
+// MIDDLEWARE
 
+//CORS setup to allow other ports from this host
 //Only needed if not on Heroku/prod
 if(!process.env.DYNO) {
 	app.use(function(req, res, next) {
@@ -22,8 +23,14 @@ if(!process.env.DYNO) {
 
 app.use(express.static(__dirname + '/dist'));
 
+// ROUTES
+
 //back end routes
-app.use('/auth', routes);
+app.use('/auth', function(req, res, next) {
+	//routes
+	// console.log(res.header());
+	console.log(req.headers);
+});
 
 //front end routes
 app.get('/*', function(req, res) {
