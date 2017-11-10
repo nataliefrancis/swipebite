@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const routes = require('./config/routes');
 const passport = require('./config/passport');
+let port = process.env.PORT || 3000;
 // const cors = require('cors');
 // let corsOptions = {
 // 	origin: 'http://localhost:3000', //4200 origin is null, 3000 not equivalent to origin 4200
@@ -11,9 +12,9 @@ const passport = require('./config/passport');
 // 	preFlightContinue: true
 // };
 
-require('dotenv').config();
+// require('dotenv').config();
 
-let port = process.env.PORT || 3000;
+
 
 // MIDDLEWARE
 
