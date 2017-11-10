@@ -1,11 +1,12 @@
-button {
+a {
 	background-color: #D76721;
 	color: white;
 	border-radius: 4px;
 	font-family: 'Poppins', sans-serif;
 	border-style: none;
 	padding: 3%;
-	margin-top: 20%;
+	margin-top: 10%;
 	display: block;
-	margin-left: 34%;
+	margin-left: 33%;
+	width: 30%;
 }
