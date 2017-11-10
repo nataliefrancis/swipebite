@@ -2,21 +2,24 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./config/routes');
-const passport = require('./config/passport');
+const passport = require('./config/passport'); //(passport)
 let port = process.env.PORT || 3000;
-// const cors = require('cors');
-// let corsOptions = {
-// 	origin: 'http://localhost:3000', //4200 origin is null, 3000 not equivalent to origin 4200
-// 	allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
-// 	methods: 'POST, GET, OPTIONS, PUT, DELETE',
-// 	preFlightContinue: true
-// };
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
-// require('dotenv').config();
+// BODY PARSER
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
+// PASSPORT SETUP
+app.use(session({ secret: 'Swipebite' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-
-// MIDDLEWARE
+////////////////
+// MIDDLEWARE //
+////////////////
 
 //CORS setup to allow other ports from this host
 //Only needed if on localhost/not on Heroku
@@ -25,37 +28,28 @@ if(!process.env.DYNO) {
 	  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
 	  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
 	  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-	  // res.header('Access-Control-Allow-Credentials', true);
-	  console.log(req);
-		console.log(res);
 	  next();
 	});
 }
 
-// if(!process.env.DYNO) {
-// 	app.use(function(req, res, next) {
-// 		cors(corsOptions);
-// 		next();
-// 	});
-// }
+// PERSISTS THE CURRENT USER
+app.use((req,res,next) => {
+	res.locals.currentUser = req.user;
+	console.log(req.user);
+	next();
+});
 
-// app.options('/auth', cors(corsOptions));
+////////////
+// ROUTES //
+////////////
 
-app.use(express.static(__dirname + '/dist'));
-
-// ROUTES
-
-//back end routes
+// BACK END ROUTES
 app.use('/auth', routes);
 
-//cors(corsOptions),
-	//function(req, res, next) {
-	
-	//console.log(res.headers);
-	//console.log(req.headers);
-//}
+// SERVE UP FRONT END
+app.use(express.static(__dirname + '/dist'));
 
-//front end routes
+// FRONT END ROUTES
 app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
