@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./config/routes');
-const passport = require('./config/passport'); //(passport)
+const passport = require('passport'); 
 let port = process.env.PORT || 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -13,9 +13,9 @@ const cookieParser = require('cookie-parser');
 // app.use(bodyParser.json());
 
 // PASSPORT SETUP
-// app.use(session({ secret: 'Swipebite' }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({ secret: 'Swipebite' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 ////////////////
 // MIDDLEWARE //
@@ -25,12 +25,14 @@ const cookieParser = require('cookie-parser');
 //Only needed if on localhost/not on Heroku
 if(!process.env.DYNO) {
 	app.use(function(req, res, next) {
-	  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-	  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
-	  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+	  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+	  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	  next();
 	});
 }
+
+require('./config/passport')(passport);
 
 // PERSISTS THE CURRENT USER
 // app.use((req,res,next) => {
