@@ -9,9 +9,16 @@ router.get('/logout', (req, res) => {
 
 // auth with Google
 router.get('/google', 
-	passport.authenticate('google', {
-	scope: ['profile']
-}));
+	passport.authenticate('google', 
+		{ scope: ['profile'] }
+	)
+);
+
+//(req, res) => {
+	// console.log(req);
+	// console.log(res);
+		
+	//} 
 
 // callback route for google to redirect to
 router.get('/google/redirect', (req, res) => {
