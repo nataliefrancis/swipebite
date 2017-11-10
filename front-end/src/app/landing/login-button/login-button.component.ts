@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from '../landing-service.service';
+import { isDevMode } from '@angular/core';
 
 @Component({
   selector: 'app-login-button',
@@ -9,10 +10,18 @@ import { LandingService } from '../landing-service.service';
 export class LoginButtonComponent implements OnInit {
 
 	newUser = String;
+  baseUrl : string;
 
   constructor( private landingService : LandingService ) { }
 
   ngOnInit() {
+
+    if(isDevMode()) {
+    this.baseUrl = 'http://localhost:3000';
+  } else {
+    this.baseUrl = '';
+  }
+
   }
 
 authenticateUser() {
