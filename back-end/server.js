@@ -9,13 +9,13 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 // BODY PARSER
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
 
 // PASSPORT SETUP
-app.use(session({ secret: 'Swipebite' }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({ secret: 'Swipebite' }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 ////////////////
 // MIDDLEWARE //
@@ -33,11 +33,11 @@ if(!process.env.DYNO) {
 }
 
 // PERSISTS THE CURRENT USER
-app.use((req,res,next) => {
-	res.locals.currentUser = req.user;
-	console.log(req.user);
-	next();
-});
+// app.use((req,res,next) => {
+// 	res.locals.currentUser = req.user;
+// 	console.log(req.user);
+// 	next();
+// });
 
 ////////////
 // ROUTES //
