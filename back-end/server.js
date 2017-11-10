@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const routes = require('./config/routes');
+const passport = require('./config/passport');
 
 require('dotenv').config();
 
@@ -20,6 +22,10 @@ if(!process.env.DYNO) {
 
 app.use(express.static(__dirname + '/dist'));
 
+//back end routes
+app.use('/auth', routes);
+
+//front end routes
 app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
