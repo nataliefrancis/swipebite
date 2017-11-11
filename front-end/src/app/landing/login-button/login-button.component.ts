@@ -9,28 +9,37 @@ import { isDevMode } from '@angular/core';
 })
 export class LoginButtonComponent implements OnInit {
 
-	newUser = String;
+	newUser : string;
   baseUrl : string;
+  location : any;
 
   constructor( private landingService : LandingService ) { }
 
   ngOnInit() {
+     if(window.navigator.geolocation){
+      window.navigator.geolocation.getCurrentPosition(position => {
+        this.location = position.coords;
+        console.log(position.coords); 
+      });
+   }
+    // if(window.navigator.geolocation){
+    //   window.navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
+    // };
 
     if(isDevMode()) {
-    this.baseUrl = 'http://localhost:3000';
-  } else {
+      this.baseUrl = 'http://localhost:3000'
+    } else {
     this.baseUrl = '';
+    }
   }
-
-  }
-
-authenticateUser() {
-	this.landingService.authenticateUser()
-	.subscribe(response => {
-		console.log(response.json());
-	});
 }
 
+// authenticateUser() {
+// 	this.landingService.authenticateUser()
+// 	.subscribe(response => {
+// 		console.log(response.json());
+// 	});
+// }
 // saveUser(newUser) {
 //       console.log("saving user");
 //       console.log(newUser);
@@ -41,7 +50,3 @@ authenticateUser() {
 //         window.location.href = "/auth/google" + user.id;
 //       })
 //     }
-
-
-}
-
