@@ -35,18 +35,29 @@ if(!process.env.DYNO) {
 require('./config/passport')(passport);
 
 // PERSISTS THE CURRENT USER
-// app.use((req,res,next) => {
-// 	res.locals.currentUser = req.user;
-// 	console.log(req.user);
-// 	next();
-// });
+app.use((req,res,next) => {
+	res.locals.currentUser = req.user;
+	console.log(req.user);
+	next();
+});
+
+// AUTHENTICATE CURRENT USER
+// const authCheck = (req, res, next) => {
+// 	if(!req.user) {
+// 		//if user is not logged in
+// 		res.redirect('/auth/login');
+// 	} else {
+// 		// if logged in
+// 		next();
+// 	}
+// };
 
 ////////////
 // ROUTES //
 ////////////
 
 // BACK END ROUTES
-app.use('/auth', routes);
+app.use('/', routes);
 
 // SERVE UP FRONT END
 app.use(express.static(__dirname + '/dist'));

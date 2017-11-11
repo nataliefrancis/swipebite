@@ -13,8 +13,12 @@ module.exports = function(passport) {
 		done(null, user);
 	});
 
-	passport.deserializeUser((obj, done) => {
-		done(null, obj);
+	passport.deserializeUser((id, done) => {
+		//video tutorial 15
+		// User.findById(id).then ((user) => {
+		// 	done(null, id);
+		// });
+		done(null, id);
 	});
 
 	/////////////////////
