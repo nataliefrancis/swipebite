@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstCardComponent } from './first-card/first-card.component';
 import { SecondCardComponent } from './second-card/second-card.component';
@@ -31,11 +31,11 @@ const aboutRoutes: Routes = [
 		}
 	]
 }
-]
+];
 
 	@NgModule({
   imports: [
-    CommonModule,
+    // CommonModule,
     RouterModule.forChild(aboutRoutes)
   ],
   declarations: [],

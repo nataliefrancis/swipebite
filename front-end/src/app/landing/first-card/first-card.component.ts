@@ -14,10 +14,11 @@ export class FirstCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  next() {
-  	console.log("Clicked");
+  // show() {
+  // 	console.log("Clicked");
+
+  // }
 
 
-  }
 
 }
