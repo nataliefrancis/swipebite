@@ -1,16 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { MainFoodService } from './mainFood.service';
 
 
 @Component({
-  selector: 'app-main-food',
-  templateUrl: './main-food.component.html',
-  styleUrls: ['./main-food.component.css']
+  selector: 'app-mainFood',
+  templateUrl: './mainFood.component.html',
+  styleUrls: ['./mainFood.component.css']
 })
 export class MainFoodComponent implements OnInit {
 
-  constructor() { }
+	user = [];
+
+  constructor(private mainFoodService : MainFoodService) { }
 
   ngOnInit() {
+  	this.mainFoodService.getUser()
+  		.subscribe(response => {
+  			console.log(response.json());
+  			this.user = response.json()
+  		});
   }
 
 }

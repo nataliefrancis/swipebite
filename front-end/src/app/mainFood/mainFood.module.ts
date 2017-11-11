@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { ButtonsComponent } from './buttons/buttons.component';
 import { FoodPicComponent } from './foodPic/foodPic.component';
+import { MainFoodComponent} from './mainFood.component';
 
 import { MainFoodService } from './mainFood.service';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,7 +24,8 @@ import { NgbModule, NgbDropdownModule, NgbCollapseModule } from '@ng-bootstrap/n
   declarations: [
   	ButtonsComponent,
   	FoodPicComponent,
-  	NavbarComponent
+  	NavbarComponent,
+    MainFoodComponent
   ],
   providers: [ MainFoodService ],
   exports: [ 

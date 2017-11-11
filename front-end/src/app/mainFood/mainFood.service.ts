@@ -6,6 +6,10 @@ export class MainFoodService {
 
 	baseUrl = 'http://localhost:3000';
 
-  constructor() { }
+	getUser() {
+		return this.http.get(`${this.baseUrl}/profile`)
+	}
+
+  constructor(private http: Http) { }
 
 }
