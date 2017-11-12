@@ -20,8 +20,8 @@ router.get('/auth/google',
 
 // callback route for google to redirect to
 router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
-	// res.json(req.user);
-	res.redirect('/api');
+	res.json(req.user);
+	// res.redirect('/api');
 });
 
 ///////////// PROFILE ROUTES //////////////
@@ -32,7 +32,7 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 
 ///////////// API ROUTES //////////////
 
-router.get('/api', apiController.index);
+router.get('/api/places', apiController.index);
 
 router.get('/api/redirect', (req, res) => {
 	res.json('ph heyyyyy');
