@@ -31,6 +31,13 @@ authenticateUser() {
 	});
 }
 
+callGooglePlacesAPI() {
+  this.landingService.callGooglePlacesAPI()
+  .subscribe(response => {
+    console.log(response.json());
+  });
+}
+
 // saveUser(newUser) {
 //       console.log("saving user");
 //       console.log(newUser);
