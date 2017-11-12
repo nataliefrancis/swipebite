@@ -12,13 +12,21 @@ module.exports.sequelize = sequelize;
 const User = sequelize.import('./user');
 const Restaurant = sequelize.import('./restaurant');
 const Food = sequelize.import('./food.js');
+const UserRestaurant = sequelize.import('./userRestaurant');
 
 // DB RELATIONSHIPS
-Food.hasMany(User);
-User.hasMany(Food);
+	//not currently making this relationship
+// Food.hasMany(User);
+// User.hasMany(Food);
 
 Food.belongsTo(Restaurant);
 Restaurant.hasMany(Food);
+
+User.hasMany(UserRestaurant);
+UserRestaurant.hasMany(User);
+
+Restaurant.hasMany(UserRestaurant);
+UserRestaurant.hasMany(Restaurant);
 
 module.exports.models = {
 	User : User,
