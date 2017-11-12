@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { FavoritesComponent } from './favorites/favorites.component';
@@ -19,7 +19,8 @@ import { WebpageComponent } from './webpage/webpage.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgbCollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

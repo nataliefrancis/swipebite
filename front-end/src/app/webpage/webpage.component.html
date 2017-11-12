@@ -1,37 +1,22 @@
-<div class="flex-container">
-    <img id="background" src="https://imageresizer.static9.net.au/W79Y5_2EGsVCUAo-pRHOYZemPWY=/smart/http%3A%2F%2Fprod.static9.net.au%2F_%2Fmedia%2F2017%2F08%2F29%2F09%2F31%2F21083040_287766031627765_14.jpg">
-</div>
-
-
-
-<!-- <div id="navigation">
-    <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-toggleable-md navbar-inverse">
-                <a href="#" class="navbar-brand text-primary" id="logo">GAMELOGO</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="#">Overview</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="#">Specs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="#">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="#">Purchase</a>
-                        </li>
-                     </ul>
-                </div>
-                        
-            </nav>
-        </div>
-    </div>
-</div> -->
-<!-- <button (click)="toggleCollapse()" class="navbar-toggler navbar-toggler-right" type="button">
- <div class="collapse" [class.show]="show"> -->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">swipe.Bite</a>
+  <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>

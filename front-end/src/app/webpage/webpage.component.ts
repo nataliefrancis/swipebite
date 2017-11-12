@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./webpage.component.css']
 })
 export class WebpageComponent implements OnInit {
-	show: boolean = false;
+	isCollapsed: boolean = true;
 
-	toggleCollapse(){
-		this.show = !this.show
-	}
+	// isCollapsed(){
+	// 	this.show = !this.show
+	// }
 
   constructor() { }
 
