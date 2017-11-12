@@ -1,8 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
 	let model = sequelize.define("food", {
-		foodType: Sequelize.STRING,
-		image: Sequelize.OBJECT, //not sure what type this will be
-		restaurant: Sequelize.INTEGER
+		photoref: Sequelize.STRING, //not sure what type this will be
+		width: Sequelize.INTEGER,
+		restaurantId: Sequelize.INTEGER,
+		wasSeen: Sequelize.BOOLEAN,
+		// foodType: Sequelize.STRING,
+		// favorited: Sequelize.ARRAY(Sequelize.INTEGER), //not sure if this is correct syntax
 	});
 	return model;
 };

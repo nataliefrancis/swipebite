@@ -3,7 +3,8 @@ module.exports = (sequelize, Sequelize) => {
 		googleId: Sequelize.STRING,
 		name: Sequelize.STRING,
 		photoUrl: Sequelize.STRING, //Should use CHAR?
-		favorites: Sequelize.ARRAY(Sequelize.NUMBER), //not sure if this is correct
+		lat: Sequelize.CHAR,
+		long: Sequelize.CHAR,
 		distance: Sequelize.INTEGER
 	});
 	return model;
