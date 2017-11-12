@@ -7,6 +7,7 @@ let port = process.env.PORT || 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+require('./config/passport')(passport);
 
 // BODY PARSER
 // app.use(bodyParser.urlencoded({extended: true}));
@@ -31,8 +32,6 @@ if(!process.env.DYNO) {
 	  next();
 	});
 }
-
-require('./config/passport')(passport);
 
 // PERSISTS THE CURRENT USER
 app.use((req,res,next) => {
