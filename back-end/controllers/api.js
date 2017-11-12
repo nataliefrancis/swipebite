@@ -36,16 +36,19 @@ function index(req, res) {
 				latitude: results.geometry.location.lat,
 				longitude: results.geometry.location.lng,
 				rating: results.rating,
-				// photos: photosArray = []
-					for (let j = 0; j < results.photos.length; j++) {
-						console.log(results.photos[j]);
-					}
-				// TODO: need to change to a loop to get ALL photos instead of the first one
-					//{ 
-					//	
-					//	}
+				photos: { 
+					photoReference: body.results[i].photos[0].photo_reference,
+					width: body.results[i].photos[0].width
+				}
 
+				// TODO: need to change to a loop to get ALL photos instead of the first one
+				//photosArray = []
+					// for (let j = 0; j < results.photos.length; j++) {
+					// 	console.log(results.photos[j]);
+					// }
+			
 					/*
+					SAMPLE CODE
 					var arr = [];
 				   for ( var counter = 1; counter <= count; counter++)
 				   {
@@ -56,19 +59,15 @@ function index(req, res) {
 				   }
 				   return arr;
 					*/
-					
-					//photoReference: body.results[i].photos[0].photo_reference,
-					//width: body.results[i].photos[0].width
-				//}
 			};
 
 			restaurantsArray.push(restaurantObject);
 		}
 
-		console.log(restaurantsArray.length);
-		console.log(restaurantsArray);
+		//console.log(restaurantsArray.length);
+		//console.log(restaurantsArray);
 
-		/*console.log(restaurantsArray[0]);
+		console.log(restaurantsArray[0]);
 		console.log('for photo details API call: ');
 		console.log(restaurantsArray[0].photos.width);
 		console.log(restaurantsArray[0].photos.photoReference);
@@ -87,9 +86,8 @@ function index(req, res) {
 		request(options, function(err, res, body) {
 			if (err) return err;
 
-			//console.log(body);
+			console.log(body);
 		});
-		*/
 
 	});
 }
