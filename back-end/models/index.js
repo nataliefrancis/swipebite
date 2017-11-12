@@ -31,5 +31,6 @@ UserRestaurant.hasMany(Restaurant);
 module.exports.models = {
 	User : User,
 	Restaurant: Restaurant,
-	Food: Food
+	Food: Food,
+	UserRestaurant: UserRestaurant
 };
