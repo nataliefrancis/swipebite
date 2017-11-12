@@ -8,8 +8,20 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || `postgres://${user_n
 module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;
 
+// IMPORT DB MODELS
 const User = sequelize.import('./user');
+const Restaurant = sequelize.import('./restaurant');
+const Food = sequelize.import('./food.js');
+
+// DB RELATIONSHIPS
+Food.hasMany(User);
+User.hasMany(Food);
+
+Food.belongsTo(Restaurant);
+Restaurant.hasMany(Food);
 
 module.exports.models = {
-	User : User
+	User : User,
+	Restaurant: Restaurant,
+	Food: Food
 };
