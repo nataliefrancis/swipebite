@@ -21,6 +21,10 @@ export class LandingService {
 		return this.http.get(`${this.baseUrl}/auth/google`);
 	}
 
+	callGooglePlacesAPI () {
+		return this.http.get(`${this.baseUrl}/api/places`);
+	}
+
 	// saveUser (newUser) {
 	// 	return this.http.post(`${this.baseUrl}/auth/google`, newUser);
 	// }

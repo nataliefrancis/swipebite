@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 // import { LandingModule } from './landing/landing.module';
 import { HttpModule } from '@angular/http';
 import { LandingModule } from './landing/landing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { LandingRoutingModule } from './landing/landing-routing.module';
 
 import { AppComponent } from './app.component';
 // import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -20,6 +22,8 @@ import { Injectable } from '@angular/core';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    LandingRoutingModule,
     HttpModule,
     LandingModule
     // LandingModule,

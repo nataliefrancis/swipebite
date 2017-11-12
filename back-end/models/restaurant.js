@@ -4,8 +4,8 @@ module.exports = (sequelize, Sequelize) => {
 		lat: Sequelize.CHAR,
 		long: Sequelize.CHAR,
 		url: Sequelize.STRING,
-		price: Sequelize.OBJECT,
-		rating: Sequelize.OBJECT,
+		price: Sequelize.STRING,
+		rating: Sequelize.STRING,
 		reviewLink: Sequelize.STRING,
 		open: Sequelize.BOOLEAN 
 	});
