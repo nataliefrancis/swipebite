@@ -13,11 +13,11 @@ function index(req, res) {
 		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			// TODO: need to update the location to grab it from the user's geolocation on the front end
-			location: '39.769001,-105.032038',
+			location: '39.743158,-104.970044',
 			// TODO: need to search the database for the user's distance setting (default: set to ??)
 			radius: '500',
 			type: 'restaurant', 
-			// opennow: 'true',
+			opennow: 'true',
 			key: process.env.clientSecret || keys.placesAPIKey
 		}
 	};
@@ -27,8 +27,22 @@ function index(req, res) {
 		body = JSON.parse(body);
 		let restaurantsArray = [];
 
+
+
 		for (let i = 0; i < body.results.length; i++) {
 			let results = body.results[i];
+
+			let photoReferenceAPI = '';
+			let widthAPI = '';
+
+			if (body.results[i].photos[0].photo_reference && body.results[i].photos[0].width) {
+				photoReferenceAPI = body.results[i].photos[0].photo_reference;
+				widthAPI = body.results[i].photos[0].width;
+			} else {
+				photoReferenceAPI = 'no photo reference';
+				widthAPI = 'no photo width';
+			}
+
 			let restaurantObject = {
 				name: results.name,
 				googleId: results.id,
@@ -37,8 +51,8 @@ function index(req, res) {
 				longitude: results.geometry.location.lng,
 				rating: results.rating,
 				photos: { 
-					photoReference: body.results[i].photos[0].photo_reference,
-					width: body.results[i].photos[0].width
+					photoReference: photoReferenceAPI,
+					width: widthAPI
 				}
 
 				// TODO: need to change to a loop to get ALL photos instead of the first one
@@ -69,8 +83,8 @@ function index(req, res) {
 
 		console.log(restaurantsArray[0]);
 		console.log('for photo details API call: ');
-		console.log(restaurantsArray[0].photos.width);
-		console.log(restaurantsArray[0].photos.photoReference);
+		//console.log(restaurantsArray[0].photos.width);
+		//console.log(restaurantsArray[0].photos.photoReference);
 
 		// calls 2nd API request but only AFTER the first is finished
 		let options = { 
