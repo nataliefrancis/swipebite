@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { isDevMode } from '@angular/core';
 
 @Injectable()
@@ -20,7 +20,9 @@ export class LandingService {
 	callGooglePlacesAPI (location) {
 		console.log('at the landing service');
 		console.log(location);
-		return this.http.post(`${this.baseUrl}/api/places`, location);
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		return this.http.post(`${this.baseUrl}/api/places`, location, {headers: headers});
 	}
 }
 

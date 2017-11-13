@@ -7,6 +7,7 @@ const keys = require('../config/env');
 function show(reqMaster, resMaster) {
 	console.log('hit the api.index controller');
 	console.log(reqMaster);
+	console.log(reqMaster.body);
 	//how to get the user if there's a new cookie everytime?
 	//let user = req.sessionStore.sessions;
 	// let user2 = req.sessionStore.sessions.ajuuA8IF4v7esAtNAZyDbbvOO6j3d9iC; 
@@ -152,21 +153,10 @@ function show(reqMaster, resMaster) {
 			request(options, function (err3, res3, body3) {
 			  if (err3) throw new Error(err3);
 
-
 			  resMaster.json({image: body3});
 			});
 		});		
-	});
-
-// rp(options)
-   //    	.then(function(response) {
-   //      	// let dangerRate = dangerTest(JSON.parse(res), riskGrid);
-   //      	response.send(body);
-   //    	})
-   //    	.catch(function(err) {
-   //      	console.error("Failed to get image from Google API", err);
-   //    	});
-	
+	});	
 }
 
 module.exports.show = show;
