@@ -9,26 +9,28 @@ export class LandingService {
 
 	constructor( private http : Http) { 
 
-	if(isDevMode()) {
-		this.baseUrl = 'http://localhost:3000';
-	} else {
-		this.baseUrl = '';
+		if(isDevMode()) {
+			this.baseUrl = 'http://localhost:3000';
+		} else {
+			this.baseUrl = '';
+		}
+
 	}
 
+	callGooglePlacesAPI (location) {
+		console.log('at the landing service');
+		console.log(location);
+		return this.http.post(`${this.baseUrl}/api/places`, location);
+	}
 }
 
-	authenticateUser () {
-		return this.http.get(`${this.baseUrl}/auth/google`);
-	}
+///////////////////// GRAVEYARD ////////////////////////////////
 
-	callGooglePlacesAPI () {
-		return this.http.get(`${this.baseUrl}/api/places`);
-	}
+// saveUser (newUser) {
+// 	return this.http.post(`${this.baseUrl}/auth/google`, newUser);
+// }
 
-	// saveUser (newUser) {
-	// 	return this.http.post(`${this.baseUrl}/auth/google`, newUser);
-	// }
+// 	authenticateUser () {
+// 	return this.http.get(`${this.baseUrl}/auth/google`);
+// }
 
- 
-
-}
