@@ -1,6 +1,10 @@
 const db = require('../models');
 const User = db.models.User;
 
+function index(req, res) {
+	console.log('you hit the user.index controller');
+}
+
 function create(req, res) {
 	console.log('hit the user.create controller');
 	console.log(req.body);
@@ -10,4 +14,20 @@ function create(req, res) {
 	});
 }
 
+function show(req, res) {
+	console.log('you hit the user.show controller');
+}
+
+function update(req, res) {
+	console.log('you hit the user.update controller');
+}
+
+function destroy(req, res) {
+	console.log('you hit the user.destroy controller');
+}
+
+module.exports.index = index;
 module.exports.create = create;
+module.exports.show = show;
+module.exports.update = update;
+module.exports.destroy = destroy;

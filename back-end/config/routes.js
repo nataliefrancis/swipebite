@@ -3,13 +3,69 @@ const passport = require('passport');
 const apiController = require('../controllers/api');
 const firebaseController = require('../controllers/firebase');
 const usersController = require('../controllers/user');
+const foodsController = require('../controllers/foods');
+const restaurantsController = require('../controllers/restaurants');
 
+////////////////////////////////////
 ////////// USER ROUTES /////////////
+////////////////////////////////////
 
-// creates a new user
-router.post(/users/, usersController.create);
+// index 
+router.get('/api/users', usersController.index);
 
+// create
+router.post('/api/users', usersController.create);
+
+// show
+router.get('/api/users/:id', usersController.show);
+
+// update 
+router.put('/api/users/:id', usersController.update);
+
+// destroy
+router.get('/api/users/:id', usersController.destroy);
+
+////////////////////////////////////
+////////// FOOD ROUTES /////////////
+////////////////////////////////////
+
+// index 
+router.get('/api/foods', foodsController.index);
+
+// create
+router.post('/api/foods', foodsController.create);
+
+// show
+router.get('/api/foods/:id', foodsController.show);
+
+// update 
+router.put('/api/foods/:id', foodsController.update);
+
+// destroy
+router.get('/api/foods/:id', foodsController.destroy);
+
+//////////////////////////////////////////
+////////// RESTAURANT ROUTES /////////////
+//////////////////////////////////////////
+
+// index 
+router.get('/api/restaurants', restaurantsController.index);
+
+// create
+router.post('/api/restaurants', restaurantsController.create);
+
+// show
+router.get('/api/restaurants/:id', restaurantsController.show);
+
+// update 
+router.put('/api/restaurants/:id', restaurantsController.update);
+
+// destroy
+router.get('/api/restaurants/:id', restaurantsController.destroy);
+
+////////////////////////////////////////
 ////////// PASSPORT ROUTES /////////////
+////////////////////////////////////////
 
 // auth logout
 router.get('/auth/logout', (req, res) => {
@@ -31,12 +87,14 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 	// res.redirect('/api');
 });
 
-///////////// API ROUTES //////////////
+/////////////////////////////////////////////////////
+///////////// GOOGLE PLACES API ROUTES //////////////
+/////////////////////////////////////////////////////
 
 router.post('/api/places', apiController.show);
 
-router.get('/api/redirect', (req, res) => {
-	res.json('oh heyyyyy');
-});
+// router.get('/api/redirect', (req, res) => {
+// 	res.json('oh heyyyyy');
+// });
 
 module.exports = router;
