@@ -6,12 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./webpage.component.css']
 })
 export class WebpageComponent implements OnInit {
-	isCollapsed: boolean = true;
+  isCollapsed: boolean = true;
 
-	// isCollapsed(){
-	// 	this.show = !this.show
-	// }
-
+  // isCollapsed(){
+  //   this.show = !this.show
+  // }
   constructor() { }
 
   ngOnInit() {
