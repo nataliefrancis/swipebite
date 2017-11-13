@@ -20,6 +20,8 @@ const routes: Routes = [
     },
     {
         path:'favorites',
+        // redirectTo: '/favorites',
+        pathMatch: 'full',
         component: FavoritesComponent
     }
 ];
