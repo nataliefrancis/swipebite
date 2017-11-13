@@ -9,15 +9,15 @@ import { isDevMode } from '@angular/core';
 })
 export class LoginButtonComponent implements OnInit {
 
-	newUser = String;
+	newUser : string;
   baseUrl : string;
   location : any;
 
   constructor( private landingService : LandingService ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
 
-    if (isDevMode()) {
+    if(isDevMode()) {
       this.baseUrl = 'http://localhost:3000';
     } else {
       this.baseUrl = '';
@@ -60,4 +60,3 @@ export class LoginButtonComponent implements OnInit {
 //         window.location.href = "/auth/google" + user.id;
 //       })
 //     }
-

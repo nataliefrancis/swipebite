@@ -1,13 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
 	let model = sequelize.define("restaurant", {
 		name: Sequelize.STRING,
-		lat: Sequelize.CHAR, //why do we need this ?
-		long: Sequelize.CHAR, //why do we need this ?
-		url: Sequelize.STRING, //optional
-		price: Sequelize.STRING, //where are we going to get this from?
+		googleId: Sequelize.STRING,
+		placeId: Sequelize.STRING,
+		latitude: Sequelize.STRING, 
+		longitude: Sequelize.STRING, 
+		address: Sequelize.STRING,
 		rating: Sequelize.STRING,
-		reviewLink: Sequelize.STRING,
-		open: Sequelize.BOOLEAN 
+		url: Sequelize.STRING //optional
 	});
 	return model;
 };
