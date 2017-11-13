@@ -110,7 +110,6 @@ function show(reqMaster, resMaster) {
 		  body2 = JSON.parse(body2);
 			let photosArray = [];
 			let result = body2.result;
-      
 		  ///////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
 			///////////////////////////////////////////////////////////

@@ -1,19 +1,19 @@
-const firebase = require('firebase');
-const keys = require('../config/env');
+// const firebase = require('firebase');
+// const keys = require('../config/env');
 
-function login(req, res) {
-	console.log('hitting the login controller');
-	let config = {
-	  apiKey: process.env.clientSecret || keys.firebaseAPIKey,
-	  // authDomain: "swipebite-185605.firebaseapp.com",
-	  databaseURL: "https://swipebite-185605.firebaseio.com/",
-	  storageBucket: "gs://swipebite-185605.appspot.com"
-	};
+// function login(req, res) {
+// 	console.log('hitting the login controller');
+// 	let config = {
+// 	  apiKey: process.env.clientSecret || keys.firebaseAPIKey,
+// 	  // authDomain: "swipebite-185605.firebaseapp.com",
+// 	  databaseURL: "https://swipebite-185605.firebaseio.com/",
+// 	  storageBucket: "gs://swipebite-185605.appspot.com"
+// 	};
 
-	console.log(config);
+// 	console.log(config);
 
-	// this call doesn't appear to be working!
-	firebase.initializeApp(config);
+// 	// this call doesn't appear to be working!
+// 	firebase.initializeApp(config);
 
 	/**
 	 * initApp handles setting up the Firebase context and registering
@@ -31,10 +31,10 @@ function login(req, res) {
 	 */
 
   // Listen for auth state changes.
-  firebase.auth().onAuthStateChanged(function(user) {
-	    console.log('User state change detected from the Background script of the Chrome Extension:', user);
-	});
-}
+//   firebase.auth().onAuthStateChanged(function(user) {
+// 	    console.log('User state change detected from the Background script of the Chrome Extension:', user);
+// 	});
+// }
 
 /*
 FROM DOG CHECK IN:
@@ -66,4 +66,4 @@ FROM DOG CHECK IN:
 
 */
 
-module.exports.login = login;
+// module.exports.login = login;
