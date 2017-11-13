@@ -19,14 +19,14 @@ const UserRestaurant = sequelize.import('./userRestaurant');
 // Food.hasMany(User);
 // User.hasMany(Food);
 
-Food.belongsTo(Restaurant);
-Restaurant.hasMany(Food);
+// Food.belongsTo(Restaurant);
+// Restaurant.hasMany(Food);
 
-User.hasMany(UserRestaurant);
-UserRestaurant.hasMany(User);
+// User.hasMany(UserRestaurant);
+// UserRestaurant.hasMany(User);
 
-Restaurant.hasMany(UserRestaurant);
-UserRestaurant.hasMany(Restaurant);
+// Restaurant.hasMany(UserRestaurant);
+// UserRestaurant.hasMany(Restaurant);
 
 module.exports.models = {
 	User : User,

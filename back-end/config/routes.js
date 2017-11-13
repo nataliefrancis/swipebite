@@ -20,22 +20,16 @@ router.get('/auth/google',
 
 // callback route for google to redirect to
 router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
-	// res.json(req.user);
-	res.redirect('/api');
+	res.json(req.user);
+	// res.redirect('/api');
 });
-
-///////////// PROFILE ROUTES //////////////
-
-// router.get('/profile', (req, res) => { //authCheck, see video 18
-// 	res.json("this is your user page, this is your profile" +req.user.name);
-// });
 
 ///////////// API ROUTES //////////////
 
-router.get('/api', apiController.index);
+router.post('/api/places', apiController.show);
 
 router.get('/api/redirect', (req, res) => {
-	res.json('ph heyyyyy');
+	res.json('oh heyyyyy');
 });
 
 module.exports = router;
