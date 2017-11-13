@@ -16,6 +16,13 @@ export class LoginButtonComponent implements OnInit {
   constructor( private landingService : LandingService ) { }
 
   ngOnInit() {
+
+    if(isDevMode()) {
+      this.baseUrl = 'http://localhost:3000';
+    } else {
+      this.baseUrl = '';
+    }
+
      if(window.navigator.geolocation){
       window.navigator.geolocation.getCurrentPosition(position => {
         this.location = position.coords;
@@ -26,11 +33,14 @@ export class LoginButtonComponent implements OnInit {
     //   window.navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
     // };
 
-    if(isDevMode()) {
-      this.baseUrl = 'http://localhost:3000'
-    } else {
-    this.baseUrl = '';
-    }
+    
+  }
+
+  callGooglePlacesAPI() {
+    this.landingService.callGooglePlacesAPI()
+      .subscribe(response => {
+        console.log(response.json());
+    });
   }
 }
 
@@ -41,13 +51,6 @@ export class LoginButtonComponent implements OnInit {
 // 		console.log(response.json());
 // 	});
 // }
-
-callGooglePlacesAPI() {
-  this.landingService.callGooglePlacesAPI()
-  .subscribe(response => {
-    console.log(response.json());
-  });
-}
 
 
 // saveUser(newUser) {

@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../models').models;
 const request = require('request');
 const requestPromise = require('request-promise');
 const keys = require('../config/env');
@@ -50,10 +50,27 @@ function index(req, res) {
 				placeId: results.place_id,
 				latitude: results.geometry.location.lat, 
 				longitude: results.geometry.location.lng,
-				rating: results.rating
+				address: null,
+				rating: results.rating,
+				url: null
 			};
 
 			restaurantsArray.push(restaurantObject);
+			// Creates a new restaurant in the DB
+			db.Restaurant.create({
+				name: restaurantObject.name,
+				googleId: restaurantObject.googleId,
+				placeId: restaurantObject.placeId,
+				latitude: restaurantObject.latitude, 
+				longitude: restaurantObject.longitude,
+				address: restaurantObject.address,
+				rating: restaurantObject.rating,
+				url: restaurantObject.url
+			}).then((restaurant, err) => {
+				if (err) { console.log(err); }
+				console.log('new restaurant create ' +restaurant);
+			});
+
 		}
 
 		// console.log(restaurantsArray.length);
@@ -69,23 +86,23 @@ function index(req, res) {
 		console.log('ID: ');
 		console.log(restaurantsArray[0].placeId);
 
-		let options = {
-			method: 'GET',
-			url: 'https://maps.googleapis.com/maps/api/place/details/json',
-			qs: {
-				placeid: restaurantsArray[0].placeId,
-				key: process.env.clientSecret || keys.placesAPIKey
-			}
-		};
+		// let options = {
+		// 	method: 'GET',
+		// 	url: 'https://maps.googleapis.com/maps/api/place/details/json',
+		// 	qs: {
+		// 		placeid: restaurantsArray[0].placeId,
+		// 		key: process.env.clientSecret || keys.placesAPIKey
+		// 	}
+		// };
 
-		request(options, function (error, response, body) {
-		  if (error) throw new Error(error);
+		// request(options, function (error, response, body) {
+		//   if (error) throw new Error(error);
 
 		  /////////////////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE RESTAURANTS TO CREATE A RESTAURANTS ARRAY //
 			/////////////////////////////////////////////////////////////////////
 
-		  console.log(body);
+		  // console.log(body);
 		  /*
 		  result.photos
 			result.photos.photo_reference
@@ -94,7 +111,7 @@ function index(req, res) {
 			reviews.text
 			website
 			*/
-		});
+		// });
 
 	});
 }
