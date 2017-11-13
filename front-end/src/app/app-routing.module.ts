@@ -15,13 +15,13 @@ const routes: Routes = [
     {
     	path: 'main',
         // redirectTo: '/main',
-        pathMatch: 'full',
+        // pathMatch: 'full',
         component: MainFoodComponent
     },
     {
         path:'favorites',
         // redirectTo: '/favorites',
-        pathMatch: 'full',
+        // pathMatch: 'full',
         component: FavoritesComponent
     }
 ];
