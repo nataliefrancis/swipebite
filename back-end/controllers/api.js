@@ -106,7 +106,7 @@ function show(reqMaster, resMaster) {
 			let photosArray = [];
 			let result = body2.result;
 
-			console.log(body.result);
+			console.log(body2.result);
 
 		  ///////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //

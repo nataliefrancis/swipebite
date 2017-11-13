@@ -7,7 +7,8 @@ module.exports = (sequelize, Sequelize) => {
 		longitude: Sequelize.STRING, 
 		address: Sequelize.STRING,
 		rating: Sequelize.STRING,
-		url: Sequelize.STRING //optional
+		url: Sequelize.STRING, //optional
+		foodPics: Sequelize.STRING
 	});
 	return model;
 };

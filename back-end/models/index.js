@@ -16,11 +16,11 @@ const UserRestaurant = sequelize.import('./userRestaurant');
 
 // DB RELATIONSHIPS
 	//not currently making this relationship
-// Food.hasMany(User);
-// User.hasMany(Food);
+Food.belongsTo(User);
+User.hasMany(Food);
 
 // Food.belongsTo(Restaurant);
-// Restaurant.hasMany(Food);
+// Restaurant.belongsTo(Food);
 
 // User.hasMany(UserRestaurant);
 // UserRestaurant.hasMany(User);
