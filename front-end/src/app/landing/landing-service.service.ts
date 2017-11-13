@@ -9,27 +9,27 @@ import { Observable } from 'rxjs/Observable';
 export class LandingService {
 
 	baseUrl : string;
-	private user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+	//private user: Observable<firebase.User>;
+  //private userDetails: firebase.User = null;
 
 	constructor( 
-		private _firebaseAuth: AngularFireAuth, 
+		//private _firebaseAuth: AngularFireAuth, 
 		private http : Http
 	) { 
 
-			this.user = _firebaseAuth.authState;
+			// this.user = _firebaseAuth.authState;
 
-	    this.user.subscribe(
-	      (user) => {
-	        if (user) {
-	          this.userDetails = user;
-	          console.log(this.userDetails);
-	        }
-	        else {
-            this.userDetails = null;
-          }
-	      }
-	    );
+	  //   this.user.subscribe(
+	  //     (user) => {
+	  //       if (user) {
+	  //         this.userDetails = user;
+	  //         console.log(this.userDetails);
+	  //       }
+	  //       else {
+   //          this.userDetails = null;
+   //        }
+	  //     }
+	  //   );
 
 	    // sets the base url
 			if(isDevMode()) {
@@ -40,9 +40,9 @@ export class LandingService {
 
 	}
 
-	createUser(newUser){
-  	return this.http.post(`${this.baseUrl}/users/`,newUser);
-  }
+	// createUser(newUser){
+ //  	return this.http.post(`${this.baseUrl}/users/`,newUser);
+ //  }
 
 	callGooglePlacesAPI (body) {
 		console.log('at the landing service');
@@ -56,13 +56,13 @@ export class LandingService {
 		return this.http.post(`${this.baseUrl}/api/places`, body); //, {headers: headers});
 	}
 
-	signInFirebaseGoogle() {
-		console.log('hitting firebase function on landing service');
-		return this._firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
-		// return this.http.get(`${this.baseUrl}/firebase/google`);
-	}
+	// signInFirebaseGoogle() {
+	// 	console.log('hitting firebase function on landing service');
+	// 	return this._firebaseAuth.auth.signInWithPopup(
+ //      new firebase.auth.GoogleAuthProvider()
+ //    )
+	// 	// return this.http.get(`${this.baseUrl}/firebase/google`);
+	// }
 }
 
 ///////////////////// GRAVEYARD ////////////////////////////////

@@ -2,21 +2,21 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./config/routes');
-// const passport = require('passport'); 
+const passport = require('passport'); 
 let port = process.env.PORT || 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 // BODY PARSER
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // PASSPORT SETUP
-// app.use(session({ secret: 'Swipebite' }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({ secret: 'Swipebite' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 ////////////////
 // MIDDLEWARE //

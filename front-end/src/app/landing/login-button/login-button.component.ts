@@ -42,10 +42,13 @@ export class LoginButtonComponent implements OnInit {
         console.log(response.json());
       });
     });
-  }
+  }  
+}
 
-  // CALLS FIREBASE SDK FOR GOOGLE AUTHENTICATION
-  signInFirebaseGoogle() {
+///////////////////////// GRAVEYARD ///////////////////////////////////////////
+
+// CALLS FIREBASE SDK FOR GOOGLE AUTHENTICATION
+  /*signInFirebaseGoogle() {
     console.log('hitting firebase function on login button component');
 
     this.landingService.signInFirebaseGoogle()
@@ -71,11 +74,7 @@ export class LoginButtonComponent implements OnInit {
       this.router.navigateByUrl('/map');
     })
     .catch((err) => console.log(err));
-  }
-    
-}
-
-///////////////////////// GRAVEYARD ///////////////////////////////////////////
+  }*/
 
 /*
 DOG CHECK IN
