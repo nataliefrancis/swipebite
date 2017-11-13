@@ -12,15 +12,15 @@ module.exports.sequelize = sequelize;
 const User = sequelize.import('./user');
 const Restaurant = sequelize.import('./restaurant');
 const Food = sequelize.import('./food.js');
-const UserRestaurant = sequelize.import('./userRestaurant');
+const UserFood = sequelize.import('./userFood');
 
 // DB RELATIONSHIPS
 	//not currently making this relationship
 Food.belongsTo(User);
 User.hasMany(Food);
 
-// Food.belongsTo(Restaurant);
-// Restaurant.belongsTo(Food);
+Food.belongsTo(Restaurant);
+Restaurant.hasMany(Food);
 
 // User.hasMany(UserRestaurant);
 // UserRestaurant.hasMany(User);
@@ -32,5 +32,5 @@ module.exports.models = {
 	User : User,
 	Restaurant: Restaurant,
 	Food: Food,
-	UserRestaurant: UserRestaurant
+	UserFood: UserFood
 };

@@ -5,7 +5,6 @@ module.exports = (sequelize, Sequelize) => {
 		restaurantId: Sequelize.INTEGER,
 		wasSeen: Sequelize.BOOLEAN,
 		//foodType: Sequelize.STRING
-		favoritedBy: Sequelize.INTEGER 
 	});
 	return model;
 };
