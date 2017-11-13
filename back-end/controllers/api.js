@@ -107,7 +107,14 @@ function show(reqMaster, resMaster) {
 			let photosArray = [];
 			let result = body2.result;
 
+			console.log(body.result);
+
+		  ///////////////////////////////////////////////////////////
+			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
+			///////////////////////////////////////////////////////////
+
 			// Loops through all the photos to create a photos array
+
 			// TODO: this needs to be turned to Sequelize to Create the Photos table rows
 
 			for (let i = 0; i < result.photos.length; i++) {
@@ -119,16 +126,32 @@ function show(reqMaster, resMaster) {
 				photosArray.push(photoObject);
 			}
 
+			console.log(photosArray);
+
+			//////////////////////////////////////////
+			// UPDATES DETAILS ABOUT THE RESTAURANT //
+			//////////////////////////////////////////
+
 			// Updates details about the restaurant in the database
-			// TODO: this needs to be turned to Sequelize to Update the database based on GoogleId or PlaceId
+
 
 			let restaurantObjectUpdate = {
-				url: result.website,
+				name: result.name,
+				googleId: result.id,
+				// placeId: result.placeId,
+				latitude: result.geometry.location.lat,
+				longitude: result.geometry.location.lng,
 				address: result.formatted_address,
 				rating: result.rating,
-				latitude: result.geometry.location.lat,
-				longitude: result.geometry.location.lng
+				url: result.website
 			};
+
+
+			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
+			.then((err) =>{
+				if (err) { console.log(err); }
+				if (!restaurantObjectUpdate) { console.log('restaurant is not found'); }
+			});
 
 			//////////////////////////////////////////////////////////////////////
 			// 3. GOOGLE PLACES **PHOTOS** API CALL FOR SAME RANDOM RESTAURANT  //
@@ -139,6 +162,7 @@ function show(reqMaster, resMaster) {
 
 			console.log(photosArray[k].width);
 			console.log(photosArray[k].photoref);
+
 
 			let options = { 
 				method: 'GET',
