@@ -1,8 +1,15 @@
 const router = require('express').Router();
 const passport = require('passport');
 const apiController = require('../controllers/api');
+const firebaseController = require('../controllers/firebase');
+const usersController = require('../controllers/user');
 
-//////////AUTH ROUTES /////////////
+////////// USER ROUTES /////////////
+
+// creates a new user
+router.post(/users/, usersController.create);
+
+////////// PASSPORT ROUTES /////////////
 
 // auth logout
 router.get('/auth/logout', (req, res) => {
