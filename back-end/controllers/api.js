@@ -107,14 +107,10 @@ function show(reqMaster, resMaster) {
 			let photosArray = [];
 			let result = body2.result;
 
-			console.log(body.result);
-
 		  ///////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
 			///////////////////////////////////////////////////////////
-
 			// Loops through all the photos to create a photos array
-
 			// TODO: this needs to be turned to Sequelize to Create the Photos table rows
 
 			for (let i = 0; i < result.photos.length; i++) {
@@ -126,15 +122,11 @@ function show(reqMaster, resMaster) {
 				photosArray.push(photoObject);
 			}
 
-			console.log(photosArray);
-
 			//////////////////////////////////////////
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
 			//////////////////////////////////////////
 
 			// Updates details about the restaurant in the database
-
-
 			let restaurantObjectUpdate = {
 				name: result.name,
 				googleId: result.id,
@@ -146,7 +138,7 @@ function show(reqMaster, resMaster) {
 				url: result.website
 			};
 
-
+			// updates restaurant info in the DB with additional details
 			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
 			.then((err) =>{
 				if (err) { console.log(err); }
@@ -162,7 +154,6 @@ function show(reqMaster, resMaster) {
 
 			console.log(photosArray[k].width);
 			console.log(photosArray[k].photoref);
-
 
 			let options = { 
 				method: 'GET',
