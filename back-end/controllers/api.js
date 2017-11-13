@@ -13,6 +13,8 @@ function index(req, res) {
 	// SETS UP THE OPTIONS TO MAKE THE GOOGLE PLACES API CALL FOR THAT SPECIFIC USER //
 	///////////////////////////////////////////////////////////////////////////////////
 
+	//DB calls to grab location and distance from that specific user
+
 	let options = { 
 		method: 'GET',
 		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
@@ -21,15 +23,15 @@ function index(req, res) {
 			location: '39.743158,-104.970044',
 			// TODO: need to search the database for the user's distance setting (default: set to ??)
 			radius: '500',
-			type: 'restaurant', 
+			type: 'restaurant', //can we add food? 
 			opennow: 'true',
 			key: process.env.clientSecret || keys.placesAPIKey
 		}
 	};
 
-	//////////////////////////////////////
-	// MAKES THE GOOGLE PLACES API CALL //
-	//////////////////////////////////////
+	/////////////////////////////////////////
+	// 1. MAKES THE GOOGLE PLACES API CALL //
+	/////////////////////////////////////////
 
 	request(options, function(err, res, body) {
 		if (err) return err;
@@ -39,7 +41,7 @@ function index(req, res) {
 		/////////////////////////////////////////////////////////////////////
 		// LOOPS THROUGH ALL THE RESTAURANTS TO CREATE A RESTAURANTS ARRAY //
 		/////////////////////////////////////////////////////////////////////
-		// TODO: convert this all to sequelize to CRUD to the database instead
+		// TODO: only save 1 random restaurant to the database
 
 		for (let i = 0; i < body.results.length; i++) {
 			let results = body.results[i];
@@ -48,26 +50,14 @@ function index(req, res) {
 				name: results.name,
 				googleId: results.id,
 				placeId: results.place_id,
-				latitude: results.geometry.location.lat, 
-				longitude: results.geometry.location.lng,
-				rating: results.rating
 			};
 
 			restaurantsArray.push(restaurantObject);
 		}
 
-		// console.log(restaurantsArray.length);
-		// console.log(restaurantsArray);
-
-		//////////////////////////////////////////////////
-		// MAKES THE GOOGLE PLACES **DETAILS** API CALL //
-		//////////////////////////////////////////////////
-		// TODO: change this to loop through ALL the restaurants for the call
-
-		console.log('RESTAURANT: ');
-		console.log(restaurantsArray[0]);
-		console.log('ID: ');
-		console.log(restaurantsArray[0].placeId);
+		////////////////////////////////////////////////////////////////////////
+		// 2. MAKES THE GOOGLE PLACES **DETAILS** API CALL FOR ONE RESTAURANT //
+		////////////////////////////////////////////////////////////////////////
 
 		let options = {
 			method: 'GET',
@@ -80,53 +70,74 @@ function index(req, res) {
 
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
+		  body = JSON.parse(body);
+			let photosArray = [];
+			let result = body.result;
 
-		  /////////////////////////////////////////////////////////////////////
-			// LOOPS THROUGH ALL THE RESTAURANTS TO CREATE A RESTAURANTS ARRAY //
-			/////////////////////////////////////////////////////////////////////
+		  ///////////////////////////////////////////////////////////
+			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
+			///////////////////////////////////////////////////////////
+			// TODO: this needs to be turned to Sequelize to Create the Photos table rows
 
-		  console.log(body);
-		  /*
-		  result.photos
-			result.photos.photo_reference
-			result.photos.width
-			reviews array
-			reviews.text
-			website
-			*/
+			for (let i = 0; i < result.photos.length; i++) {
+				let photoObject = {
+					photoref: result.photos[i].photo_reference,
+					width: result.photos[i].width,
+					wasSeen: false
+				};
+				photosArray.push(photoObject);
+			}
+
+			//console.log(photosArray);
+
+			//////////////////////////////////////////
+			// UPDATES DETAILS ABOUT THE RESTAURANT //
+			//////////////////////////////////////////
+			// TODO: this needs to be turned to Sequelize to Update the database based on GoogleId or PlaceId
+
+			let restaurantObjectUpdate = {
+				url: result.website,
+				address: result.formatted_address,
+				rating: result.rating,
+				latitude: result.geometry.location.lat,
+				longitude: result.geometry.location.lng
+			};
+
+			//console.log(restaurantObjectUpdate);
+
 		});
 
 	});
 }
 
-				
-				// if (body.results[i].photos[0].photo_reference && body.results[i].photos[0].width) {
-				// 	photoReferenceAPI = body.results[i].photos[0].photo_reference;
-				// 	widthAPI = body.results[i].photos[0].width;
-
-				// 	//loop through to add photo data to an array
-				// 	
-
-				// } else {
-				// 	photoReferenceAPI = 'no photo reference';
-				// 	widthAPI = 'no photo width';
-				// }
-					
-			
-					/*
-					SAMPLE CODE
-					var arr = [];
-				   for ( var counter = 1; counter <= count; counter++)
-				   {
-				      arr.push( {
-				        'src':'css/images/pictures/gal_'+id+'/' + counter + '.jpg',
-				        'thumb':'css/images/thumbnails/gal_'+id+'/' + counter + '.jpg'
-				      } );
-				   }
-				   return arr;
-					*/
-
 module.exports.index = index;
+
+				
+// if (body.results[i].photos[0].photo_reference && body.results[i].photos[0].width) {
+// 	photoReferenceAPI = body.results[i].photos[0].photo_reference;
+// 	widthAPI = body.results[i].photos[0].width;
+
+// 	//loop through to add photo data to an array
+// 	
+
+// } else {
+// 	photoReferenceAPI = 'no photo reference';
+// 	widthAPI = 'no photo width';
+// }
+	
+
+	/*
+	SAMPLE CODE
+	var arr = [];
+   for ( var counter = 1; counter <= count; counter++)
+   {
+      arr.push( {
+        'src':'css/images/pictures/gal_'+id+'/' + counter + '.jpg',
+        'thumb':'css/images/thumbnails/gal_'+id+'/' + counter + '.jpg'
+      } );
+   }
+   return arr;
+	*/
 
 /*
 

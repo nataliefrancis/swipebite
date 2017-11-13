@@ -11,32 +11,44 @@ export class LoginButtonComponent implements OnInit {
 
 	newUser = String;
   baseUrl : string;
+  location : any;
 
   constructor( private landingService : LandingService ) { }
 
   ngOnInit() {
 
-    if(isDevMode()) {
-    this.baseUrl = 'http://localhost:3000';
-  } else {
-    this.baseUrl = '';
+    if (isDevMode()) {
+      this.baseUrl = 'http://localhost:3000';
+    } else {
+      this.baseUrl = '';
+    }
+
+    // FINDS THE USER'S LOCATION FROM THE BROWSER WINDOW
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(position => {
+        this.location = position.coords;
+        console.log(this.location);
+      })
+    }
   }
 
+  callGooglePlacesAPI() {
+    this.landingService.callGooglePlacesAPI()
+    .subscribe(response => {
+      console.log(response.json());
+    });
   }
-
-authenticateUser() {
-	this.landingService.authenticateUser()
-	.subscribe(response => {
-		console.log(response.json());
-	});
 }
 
-callGooglePlacesAPI() {
-  this.landingService.callGooglePlacesAPI()
-  .subscribe(response => {
-    console.log(response.json());
-  });
-}
+///////////////////////// GRAVEYARD ///////////////////////////////////////////
+
+
+// authenticateUser() {
+//   this.landingService.authenticateUser()
+//   .subscribe(response => {
+//     console.log(response.json());
+//   });
+// }
 
 // saveUser(newUser) {
 //       console.log("saving user");
@@ -48,7 +60,4 @@ callGooglePlacesAPI() {
 //         window.location.href = "/auth/google" + user.id;
 //       })
 //     }
-
-
-}
 
