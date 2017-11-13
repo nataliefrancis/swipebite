@@ -7,21 +7,31 @@ import { MainFoodComponent } from './main-food/main-food.component';
 
 import { LandingModule } from './landing/landing.module';
 import { MainFoodModule } from './main-food/main-food.module';
+// import { MainFoodRoutingModule } from './main-food/main-food-routing.module';
+
+import { ButtonsComponent } from './main-food/buttons/buttons.component';
+import { FoodPicComponent } from './main-food/food-pic/food-pic.component';
+import { NavbarComponent } from './main-food/nav-bar/nav-bar.component';
 
 
 const routes: Routes = [
+    // {
+    //     path: '',
+    //     redirectTo: 'landing',
+    //     // loadChildren: './landing/landing.module',
+    //     pathMatch: 'full',
+    //     // component: LandingComponent
+    // },
     {
-        path: '',
-        redirectTo: 'landing',
-        // loadChildren: './landing/landing.module',
+    	path: '',
+        // redirectTo: 'main',
         pathMatch: 'full',
-        // component: LandingComponent
-    },
-    {
-    	path: 'landing/main',
-        redirectTo: '/main',
-        pathMatch: 'full',
-        // component: MainFoodComponent
+        children: [
+        {
+            path: '',
+            component: MainFoodComponent
+        }
+    ]
     },
     {
         path:'favorites',

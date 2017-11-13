@@ -9,19 +9,19 @@ import { MainFoodComponent } from './main-food.component';
 
 const aboutRoutes: Routes = [
 {
-	path: 'main',
+	path: '',
 	component: MainFoodComponent,
 	children: [
 		{
-			path: 'main',
+			path: '',
 			component: ButtonsComponent
 		},
 		{
-			path: 'main',
+			path: '',
 			component: FoodPicComponent
 		},
 		{
-			path: 'main',
+			path: '',
 			component: NavbarComponent
 		},
 	]
@@ -31,13 +31,15 @@ const aboutRoutes: Routes = [
 	@NgModule({
   imports: [
     // CommonModule,
-    ButtonsComponent,
-    FoodPicComponent,
-    NavbarComponent,
-    MainFoodComponent,
+    // ButtonsComponent,
+    // FoodPicComponent,
+    // NavbarComponent,
+    // MainFoodComponent,
     RouterModule.forChild(aboutRoutes)
   ],
   declarations: [],
-  exports: [RouterModule, MainFoodComponent]
+  exports: [RouterModule,
+  // MainFoodComponent
+  ]
 })
 export class MainFoodRoutingModule { }
