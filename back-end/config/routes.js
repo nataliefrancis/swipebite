@@ -7,7 +7,7 @@ const usersController = require('../controllers/user');
 ////////// USER ROUTES /////////////
 
 // creates a new user
-// router.post(/users/, usersController.create);
+router.post(/users/, usersController.create);
 
 ////////// PASSPORT ROUTES /////////////
 
