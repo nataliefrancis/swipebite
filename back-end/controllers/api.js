@@ -56,37 +56,42 @@ function index(req, res) {
 				rating: results.rating,
 				url: null
 			};
-
 			restaurantsArray.push(restaurantObject);
-			// Creates a new restaurant in the DB
-			db.Restaurant.create({
-				name: restaurantObject.name,
-				googleId: restaurantObject.googleId,
-				placeId: restaurantObject.placeId,
-				latitude: restaurantObject.latitude, 
-				longitude: restaurantObject.longitude,
-				address: restaurantObject.address,
-				rating: restaurantObject.rating,
-				url: restaurantObject.url
+		}
+
+		let n = Math.floor((Math.random() * restaurantsArray.length));
+		console.log(restaurantsArray.length);
+		console.log(n);
+		console.log(restaurantsArray);
+
+		// Creates a new restaurant in the DB
+		db.Restaurant.create({
+			name: restaurantsArray[n].name,
+			googleId: restaurantsArray[n].googleId,
+			placeId: restaurantsArray[n].placeId,
+			latitude: restaurantsArray[n].latitude, 
+			longitude: restaurantsArray[n].longitude,
+			address: restaurantsArray[n].address,
+			rating: restaurantsArray[n].rating,
+			url: restaurantsArray[n].url
 			}).then((restaurant, err) => {
 				if (err) { console.log(err); }
 				console.log('new restaurant create ' + restaurant);
 			});
 
-		}
 
 		////////////////////////////////////////////////////////////////////////
 		// 2. MAKES THE GOOGLE PLACES **DETAILS** API CALL FOR ONE RESTAURANT //
 		////////////////////////////////////////////////////////////////////////
 
-		// let options = {
-		// 	method: 'GET',
-		// 	url: 'https://maps.googleapis.com/maps/api/place/details/json',
-		// 	qs: {
-		// 		placeid: restaurantsArray[0].placeId,
-		// 		key: process.env.clientSecret || keys.placesAPIKey
-		// 	}
-		// };
+		let options = {
+			method: 'GET',
+			url: 'https://maps.googleapis.com/maps/api/place/details/json',
+			qs: {
+				placeid: restaurantsArray[n].placeId,
+				key: process.env.clientSecret || keys.placesAPIKey
+			}
+		};
 
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
@@ -108,7 +113,7 @@ function index(req, res) {
 				photosArray.push(photoObject);
 			}
 
-			//console.log(photosArray);
+			console.log(photosArray);
 
 			//////////////////////////////////////////
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
@@ -123,27 +128,10 @@ function index(req, res) {
 				longitude: result.geometry.location.lng
 			};
 
-			//console.log(restaurantObjectUpdate);
+			console.log(restaurantObjectUpdate);
 
 		});
 
-		// request(options, function (error, response, body) {
-		//   if (error) throw new Error(error);
-
-		  /////////////////////////////////////////////////////////////////////
-			// LOOPS THROUGH ALL THE RESTAURANTS TO CREATE A RESTAURANTS ARRAY //
-			/////////////////////////////////////////////////////////////////////
-
-		  // console.log(body);
-		  /*
-		  result.photos
-			result.photos.photo_reference
-			result.photos.width
-			reviews array
-			reviews.text
-			website
-			*/
-		// });
 
 	});
 }
