@@ -32,7 +32,7 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 
 ///////////// API ROUTES //////////////
 
-router.get('/api/places', apiController.index);
+router.get('/api/places', apiController.show);
 //this TOTALLY works, so it's definitely hitting the right route
 // (req, res) => {
 // 	res.json('oh heyyyyy');

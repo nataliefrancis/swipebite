@@ -4,7 +4,7 @@ const requestPromise = require('request-promise');
 const keys = require('../config/env');
 
 
-function index(req, res) {
+function show(req, res) {
 	console.log('hit the api.index controller');
 	//console.log('here is req.user.name: ');
 	// console.log(req.user.name);
@@ -29,20 +29,16 @@ function index(req, res) {
 		}
 	};
 
-	/////////////////////////////////////////
-	// 1. MAKES THE GOOGLE PLACES API CALL //
-	/////////////////////////////////////////
+	////////////////////////////////////////
+	// 1. ORIGINAL GOOGLE PLACES API CALL //
+	////////////////////////////////////////
 
 	request(options, function(err, res, body) {
 		if (err) return err;
 		body = JSON.parse(body);
 		let restaurantsArray = [];
 
-		/////////////////////////////////////////////////////////////////////
-		// LOOPS THROUGH ALL THE RESTAURANTS TO CREATE A RESTAURANTS ARRAY //
-		/////////////////////////////////////////////////////////////////////
-		// TODO: only save 1 random restaurant to the database
-
+		// Loops through all the returned restaurants to create a restaurants array 
 		for (let i = 0; i < body.results.length; i++) {
 			let results = body.results[i];
 
@@ -59,10 +55,8 @@ function index(req, res) {
 			restaurantsArray.push(restaurantObject);
 		}
 
+		// Randomly choose 1 restaurant from that restaurants array
 		let n = Math.floor((Math.random() * restaurantsArray.length));
-		console.log(restaurantsArray.length);
-		console.log(n);
-		console.log(restaurantsArray);
 
 		// Creates a new restaurant in the DB
 		db.Restaurant.create({
@@ -80,9 +74,9 @@ function index(req, res) {
 			});
 
 
-		////////////////////////////////////////////////////////////////////////
-		// 2. MAKES THE GOOGLE PLACES **DETAILS** API CALL FOR ONE RESTAURANT //
-		////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////
+		// 2. GOOGLE PLACES **DETAILS** API CALL FOR ONE RANDOM RESTAURANT //
+		/////////////////////////////////////////////////////////////////////
 
 		let options = {
 			method: 'GET',
@@ -99,9 +93,7 @@ function index(req, res) {
 			let photosArray = [];
 			let result = body.result;
 
-		  ///////////////////////////////////////////////////////////
-			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
-			///////////////////////////////////////////////////////////
+			// Loops through all the photos to create a photos array
 			// TODO: this needs to be turned to Sequelize to Create the Photos table rows
 
 			for (let i = 0; i < result.photos.length; i++) {
@@ -113,11 +105,7 @@ function index(req, res) {
 				photosArray.push(photoObject);
 			}
 
-			console.log(photosArray);
-
-			//////////////////////////////////////////
-			// UPDATES DETAILS ABOUT THE RESTAURANT //
-			//////////////////////////////////////////
+			// Updates details about the restaurant in the database
 			// TODO: this needs to be turned to Sequelize to Update the database based on GoogleId or PlaceId
 
 			let restaurantObjectUpdate = {
@@ -128,15 +116,37 @@ function index(req, res) {
 				longitude: result.geometry.location.lng
 			};
 
-			console.log(restaurantObjectUpdate);
+			//////////////////////////////////////////////////////////////////////
+			// 3. GOOGLE PLACES **PHOTOS** API CALL FOR SAME RANDOM RESTAURANT  //
+			//////////////////////////////////////////////////////////////////////
+
+			// Randomly choose 1 restaurant from that restaurants array
+			let k = Math.floor((Math.random() * photosArray.length));
+
+			console.log(photosArray[k].width);
+			console.log(photosArray[k].photoref);
+
+			let options = { 
+				method: 'GET',
+			  url: 'https://maps.googleapis.com/maps/api/place/photo',
+			  qs: { 
+						maxwidth: photosArray[k].width,
+			     photoreference: photosArray[k].photoref,
+			     key: process.env.clientSecret || keys.placesAPIKey
+					}
+			};
+
+			request(options, function (error, response, body) {
+			  if (error) throw new Error(error);
+
+			  console.log(body);
+			});
 
 		});
-
-
 	});
 }
 
-module.exports.index = index;
+module.exports.show = show;
 
 				
 // if (body.results[i].photos[0].photo_reference && body.results[i].photos[0].width) {
