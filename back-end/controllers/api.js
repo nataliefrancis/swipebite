@@ -99,6 +99,8 @@ function index(req, res) {
 			let photosArray = [];
 			let result = body.result;
 
+			console.log(body.result);
+
 		  ///////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
 			///////////////////////////////////////////////////////////
@@ -118,17 +120,23 @@ function index(req, res) {
 			//////////////////////////////////////////
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
 			//////////////////////////////////////////
-			// TODO: this needs to be turned to Sequelize to Update the database based on GoogleId or PlaceId
 
 			let restaurantObjectUpdate = {
-				url: result.website,
+				name: result.name,
+				googleId: result.id,
+				// placeId: result.placeId,
+				latitude: result.geometry.location.lat,
+				longitude: result.geometry.location.lng,
 				address: result.formatted_address,
 				rating: result.rating,
-				latitude: result.geometry.location.lat,
-				longitude: result.geometry.location.lng
+				url: result.website
 			};
 
-			console.log(restaurantObjectUpdate);
+			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
+			.then((err) =>{
+				if (err) { console.log(err); }
+				if (!restaurantObjectUpdate) { console.log('restaurant is not found'); }
+			});
 
 		});
 
