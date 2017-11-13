@@ -15,7 +15,7 @@ const routes: Routes = [
     {
     	path: 'main',
         // redirectTo: '/main',
-        // pathMatch: 'full',
+        pathMatch: 'full',
         component: MainFoodComponent
     },
     {

@@ -13,15 +13,15 @@ const aboutRoutes: Routes = [
 	component: MainFoodComponent,
 	children: [
 		{
-			path: '',
+			path: 'main',
 			component: ButtonsComponent
 		},
 		{
-			path: '',
+			path: 'main',
 			component: FoodPicComponent
 		},
 		{
-			path: '',
+			path: 'main',
 			component: NavbarComponent
 		},
 	]
@@ -31,9 +31,13 @@ const aboutRoutes: Routes = [
 	@NgModule({
   imports: [
     // CommonModule,
+    ButtonsComponent,
+    FoodPicComponent,
+    NavbarComponent,
+    MainFoodComponent,
     RouterModule.forChild(aboutRoutes)
   ],
   declarations: [],
-  exports: [RouterModule]
+  exports: [RouterModule, MainFoodComponent]
 })
 export class MainFoodRoutingModule { }
