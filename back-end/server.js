@@ -10,8 +10,8 @@ const cookieParser = require('cookie-parser');
 require('./config/passport')(passport);
 
 // BODY PARSER
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // PASSPORT SETUP
 app.use(session({ secret: 'Swipebite' }));
@@ -36,6 +36,7 @@ if(!process.env.DYNO) {
 // PERSISTS THE CURRENT USER
 app.use((req,res,next) => {
 	res.locals.currentUser = req.user;
+	console.log('req.user on server.js: ');
 	console.log(req.user);
 	next();
 });

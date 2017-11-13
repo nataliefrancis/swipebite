@@ -6,7 +6,8 @@ const keys = require('../config/env');
 
 function show(reqMaster, resMaster) {
 	console.log('hit the api.index controller');
-	console.log(reqMaster);
+	// console.log('reqMaster.body from api.js');
+	// console.log(reqMaster.body);
 	//how to get the user if there's a new cookie everytime?
 	//let user = req.sessionStore.sessions;
 	// let user2 = req.sessionStore.sessions.ajuuA8IF4v7esAtNAZyDbbvOO6j3d9iC; 
@@ -22,13 +23,15 @@ function show(reqMaster, resMaster) {
 	///////////////////////////////////////////////////////////////////////////////////
 
 	//DB calls to grab location and distance from that specific user
+	let latitude = reqMaster.body.latitude;
+	let longitude = reqMaster.body.longitude;
 
 	let options = { 
 		method: 'GET',
 		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			// TODO: need to update the location to grab it from the user's geolocation on the front end
-			location: '39.743158,-104.970044',
+			location: latitude + ',' + longitude,
 			// TODO: need to search the database for the user's distance setting (default: set to ??)
 			radius: '500',
 			type: 'restaurant', //can we add food? 
@@ -36,6 +39,8 @@ function show(reqMaster, resMaster) {
 			key: process.env.clientSecret || keys.placesAPIKey
 		}
 	};
+
+	// console.log(location);
 
 	////////////////////////////////////////
 	// 1. ORIGINAL GOOGLE PLACES API CALL //
@@ -105,15 +110,11 @@ function show(reqMaster, resMaster) {
 		  body2 = JSON.parse(body2);
 			let photosArray = [];
 			let result = body2.result;
-
-			console.log(body2.result);
-
+      
 		  ///////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
 			///////////////////////////////////////////////////////////
-
 			// Loops through all the photos to create a photos array
-
 			// TODO: this needs to be turned to Sequelize to Create the Photos table rows
 
 			for (let i = 0; i < result.photos.length; i++) {
@@ -125,15 +126,11 @@ function show(reqMaster, resMaster) {
 				photosArray.push(photoObject);
 			}
 
-			console.log(photosArray);
-
 			//////////////////////////////////////////
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
 			//////////////////////////////////////////
 
 			// Updates details about the restaurant in the database
-
-
 			let restaurantObjectUpdate = {
 				name: result.name,
 				googleId: result.id,
@@ -145,7 +142,7 @@ function show(reqMaster, resMaster) {
 				url: result.website
 			};
 
-
+			// updates restaurant info in the DB with additional details
 			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
 			.then((err) =>{
 				if (err) { console.log(err); }
@@ -162,7 +159,6 @@ function show(reqMaster, resMaster) {
 			console.log(photosArray[k].width);
 			console.log(photosArray[k].photoref);
 
-
 			let options = { 
 				method: 'GET',
 			  url: 'https://maps.googleapis.com/maps/api/place/photo',
@@ -176,21 +172,10 @@ function show(reqMaster, resMaster) {
 			request(options, function (err3, res3, body3) {
 			  if (err3) throw new Error(err3);
 
-
 			  resMaster.json({image: body3});
 			});
 		});		
-	});
-
-// rp(options)
-   //    	.then(function(response) {
-   //      	// let dangerRate = dangerTest(JSON.parse(res), riskGrid);
-   //      	response.send(body);
-   //    	})
-   //    	.catch(function(err) {
-   //      	console.error("Failed to get image from Google API", err);
-   //    	});
-	
+	});	
 }
 
 module.exports.show = show;
