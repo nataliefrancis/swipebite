@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-first-card',
   templateUrl: './first-card.component.html',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstCardComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  next() {
-  	console.log("Clicked");
-  }
+  // show() {
+  // 	console.log("Clicked");
+
+  // }
+
+
 
 }

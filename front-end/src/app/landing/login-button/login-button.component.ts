@@ -15,31 +15,44 @@ export class LoginButtonComponent implements OnInit {
 
   constructor( private landingService : LandingService ) { }
 
-  ngOnInit() {
-     if(window.navigator.geolocation){
-      window.navigator.geolocation.getCurrentPosition(position => {
-        this.location = position.coords;
-        console.log(position.coords); 
-      });
-   }
-    // if(window.navigator.geolocation){
-    //   window.navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
-    // };
+  ngOnInit() {    
 
     if(isDevMode()) {
-      this.baseUrl = 'http://localhost:3000'
+      this.baseUrl = 'http://localhost:3000';
     } else {
-    this.baseUrl = '';
+      this.baseUrl = '';
     }
+
+    // FINDS THE USER'S LOCATION FROM THE BROWSER WINDOW
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(position => {
+        this.location = position.coords;
+        console.log('this is the inital geolocation call');
+        console.log(this.location);
+      })
+    }
+  }
+
+  callGooglePlacesAPI() {
+    console.log('at the login-button component');
+    console.log(this.location);
+    this.landingService.callGooglePlacesAPI(this.location)
+    .subscribe(response => {
+      console.log(response.json());
+    });
   }
 }
 
+///////////////////////// GRAVEYARD ///////////////////////////////////////////
+
+
 // authenticateUser() {
-// 	this.landingService.authenticateUser()
-// 	.subscribe(response => {
-// 		console.log(response.json());
-// 	});
+//   this.landingService.authenticateUser()
+//   .subscribe(response => {
+//     console.log(response.json());
+//   });
 // }
+
 // saveUser(newUser) {
 //       console.log("saving user");
 //       console.log(newUser);
