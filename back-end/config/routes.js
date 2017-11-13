@@ -1,8 +1,17 @@
 const router = require('express').Router();
 const passport = require('passport');
 const apiController = require('../controllers/api');
+const firebaseController = require('../controllers/firebase');
 
-//////////AUTH ROUTES /////////////
+////////// FIREBASE ROUTES /////////////
+
+// auth with Google
+router.get('/firebase/google', firebaseController.login); 
+// (req, res) => { 
+// 	res.json('hitting the new firebase login route');
+// });
+
+////////// PASSPORT ROUTES /////////////
 
 // auth logout
 router.get('/auth/logout', (req, res) => {
@@ -27,11 +36,6 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 ///////////// API ROUTES //////////////
 
 router.post('/api/places', apiController.show);
-/*(req, res) => {
-	res.json('you hit the /api/places route: ');
-	console.log(req);
-});*/
-
 
 router.get('/api/redirect', (req, res) => {
 	res.json('oh heyyyyy');

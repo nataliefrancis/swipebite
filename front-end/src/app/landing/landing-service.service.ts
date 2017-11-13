@@ -28,6 +28,11 @@ export class LandingService {
 		// console.log(headers);
 		return this.http.post(`${this.baseUrl}/api/places`, body); //, {headers: headers});
 	}
+
+	signInFirebaseGoogle() {
+		console.log('hitting firebase function on landing service');
+		return this.http.get(`${this.baseUrl}/firebase/google`);
+	}
 }
 
 ///////////////////// GRAVEYARD ////////////////////////////////
@@ -36,7 +41,5 @@ export class LandingService {
 // 	return this.http.post(`${this.baseUrl}/auth/google`, newUser);
 // }
 
-// 	authenticateUser () {
-// 	return this.http.get(`${this.baseUrl}/auth/google`);
-// }
+
 

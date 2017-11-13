@@ -17,6 +17,7 @@ export class LoginButtonComponent implements OnInit {
 
   ngOnInit() {    
 
+    // SETS THE BASE URL
     if(isDevMode()) {
       this.baseUrl = 'http://localhost:3000';
     } else {
@@ -39,17 +40,18 @@ export class LoginButtonComponent implements OnInit {
       });
     });
   }
+
+  // CALLS FIREBASE SDK FOR GOOGLE AUTHENTICATION
+  signInFirebaseGoogle() {
+    console.log('hitting firebase function on login button component');
+    this.landingService.signInFirebaseGoogle()
+      .subscribe(response => {
+      console.log(response.json());
+    });
+  }
 }
 
 ///////////////////////// GRAVEYARD ///////////////////////////////////////////
-
-
-// authenticateUser() {
-//   this.landingService.authenticateUser()
-//   .subscribe(response => {
-//     console.log(response.json());
-//   });
-// }
 
 // saveUser(newUser) {
 //       console.log("saving user");
