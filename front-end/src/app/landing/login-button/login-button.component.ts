@@ -22,25 +22,39 @@ export class LoginButtonComponent implements OnInit {
     } else {
       this.baseUrl = '';
     }
+  }
 
-    // FINDS THE USER'S LOCATION FROM THE BROWSER WINDOW
+  // FINDS THE USER'S LOCATION FROM THE BROWSER WINDOW
+  getPosition() {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(position => {
         this.location = position.coords;
-        console.log('this is the inital geolocation call');
+        console.log('this is the getPosition function');
         console.log(this.location);
       })
     }
   }
 
+  /*
+  getPosition = (lat, lon) => {
+  navigator.geolocation.getCurrentPosition((position) => { 
+    this.lat = position.coords.latitude; 
+    this.lon = position.coords.longitude;
+   });
+  }
+  getCurrentLocation(): Observable<any> {
+    this.getPosition(this.lat, this.lon);
+  */
+
   callGooglePlacesAPI() {
     console.log('at the login-button component');
-    console.log(this.location);
-    this.landingService.callGooglePlacesAPI(this.location)
+    let location = this.getPosition();
+    this.landingService.callGooglePlacesAPI(location)
     .subscribe(response => {
       console.log(response.json());
     });
   }
+
 }
 
 ///////////////////////// GRAVEYARD ///////////////////////////////////////////
