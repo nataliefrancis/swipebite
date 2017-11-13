@@ -5,7 +5,7 @@ function login(req, res) {
 	console.log('hitting the login controller');
 	let config = {
 	  apiKey: process.env.clientSecret || keys.firebaseAPIKey,
-	  authDomain: "swipebite-185605.firebaseapp.com",
+	  // authDomain: "swipebite-185605.firebaseapp.com",
 	  databaseURL: "https://swipebite-185605.firebaseio.com/",
 	  storageBucket: "gs://swipebite-185605.appspot.com"
 	};
@@ -15,8 +15,25 @@ function login(req, res) {
 	// this call doesn't appear to be working!
 	firebase.initializeApp(config);
 
-	// START HERE WHEN YOU GET BACK:
-	//https://github.com/firebase/quickstart-js/blob/master/auth/chromextension/background.js
+	/**
+	 * initApp handles setting up the Firebase context and registering
+	 * callbacks for the auth status.
+	 *
+	 * The core initialization is in firebase.App - this is the glue class
+	 * which stores configuration. We provide an app name here to allow
+	 * distinguishing multiple app instances.
+	 *
+	 * This method also registers a listener with firebase.auth().onAuthStateChanged.
+	 * This listener is called when the user is signed in or out, and that
+	 * is where we update the UI.
+	 *
+	 * When signed in, we also authenticate to the Firebase Realtime Database.
+	 */
+
+  // Listen for auth state changes.
+  firebase.auth().onAuthStateChanged(function(user) {
+	    console.log('User state change detected from the Background script of the Chrome Extension:', user);
+	});
 }
 
 /*
@@ -45,55 +62,7 @@ FROM DOG CHECK IN:
  	.catch((err) => console.log(err));
  }
 
-// front-end/src/app/services/auth.service.ts
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs/Observable';
-
-@Injectable()
-export class AuthService {
-	private user: Observable<firebase.User>;
-	private userDetails: firebase.User = null;
-
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
-		this.user = _firebaseAuth.authState;
-
-		this.user.subscribe(
-  		(user) => {
-  			if (user) {
-  				this.userDetails = user;
-  				console.log(this.userDetails);
-  			}
-  			else {
-  			  	this.userDetails = null;
-         		}
-      	}
-    	  );
-    }
-
-signInWithGoogle() {
-	return this._firebaseAuth.auth.signInWithPopup(
-		new firebase.auth.GoogleAuthProvider()
-		)
-}
-
-  isLoggedIn() {
-  if (this.userDetails == null ) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-
-  logout() {
-    this._firebaseAuth.auth.signOut()
-    .then((res) => this.router.navigate(['/login']));
-  }
-}
 
 */
 

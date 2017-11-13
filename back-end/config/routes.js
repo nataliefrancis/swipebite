@@ -2,14 +2,12 @@ const router = require('express').Router();
 const passport = require('passport');
 const apiController = require('../controllers/api');
 const firebaseController = require('../controllers/firebase');
+const usersController = require('../controllers/user');
 
-////////// FIREBASE ROUTES /////////////
+////////// USER ROUTES /////////////
 
-// auth with Google
-router.get('/firebase/google', firebaseController.login); 
-// (req, res) => { 
-// 	res.json('hitting the new firebase login route');
-// });
+// creates a new user
+router.post(/users/, usersController.create);
 
 ////////// PASSPORT ROUTES /////////////
 
