@@ -17,8 +17,10 @@ export class LandingService {
 
 	}
 
-	callGooglePlacesAPI () {
-		return this.http.get(`${this.baseUrl}/api/places`);
+	callGooglePlacesAPI (location) {
+		console.log('at the landing service');
+		console.log(location);
+		return this.http.post(`${this.baseUrl}/api/places`, location);
 	}
 }
 
