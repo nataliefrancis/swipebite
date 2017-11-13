@@ -23,10 +23,6 @@
     "@angular/router": "^4.2.4",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
     "angular-font-awesome": "^3.0.3",
-<<<<<<< HEAD
-=======
-    "angularfire2": "^5.0.0-rc.3",
->>>>>>> 8e63225c5df8f18db466500d8c6280ac9353a55b
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "firebase": "^4.6.2",
