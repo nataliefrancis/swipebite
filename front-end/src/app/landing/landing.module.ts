@@ -10,15 +10,17 @@ import { FourthCardComponent } from './fourth-card/fourth-card.component';
 import { LandingComponent } from './landing.component';
 import { RouterModule } from '@angular/router';
 import { OnboardingButtonsComponent } from './onboarding-buttons/onboarding-buttons.component';
+import { LandingRoutingModule } from './landing-routing.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LandingRoutingModule
   ],
   declarations: [LoginButtonComponent, HeaderComponent, FirstCardComponent, SecondCardComponent, ThirdCardComponent, FourthCardComponent, LandingComponent, OnboardingButtonsComponent],
   providers: [LandingService],
-  exports: [ LoginButtonComponent, HeaderComponent, FirstCardComponent, OnboardingButtonsComponent]
+  exports: [ LoginButtonComponent, HeaderComponent, FirstCardComponent, SecondCardComponent, ThirdCardComponent, FourthCardComponent, OnboardingButtonsComponent, LandingComponent ]
 })
 export class LandingModule { }

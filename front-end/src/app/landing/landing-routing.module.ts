@@ -7,29 +7,37 @@ import { ThirdCardComponent } from './third-card/third-card.component';
 import { FourthCardComponent } from './fourth-card/fourth-card.component';
 import { LandingComponent } from './landing.component';
 
+import { OnboardingButtonsComponent} from './onboarding-buttons/onboarding-buttons.component';
+
+
 
 const aboutRoutes: Routes = [
 {
-	path: 'landing',
-	component: LandingComponent,
+	path: '',
+	//component: LandingComponent,
 	children: [
 		{
 			path: '',
-			component: FirstCardComponent
+			component: FirstCardComponent,
+			outlet: 'landingCard'
 		},
 		{
 			path: 'second',
-			component: SecondCardComponent
+			component: SecondCardComponent,
+			outlet: 'landingCard'
 		},
 		{
 			path: 'third',
-			component: ThirdCardComponent
+			component: ThirdCardComponent,
+			outlet: 'landingCard'
 		},
 		{
 			path: 'fourth',
-			component: FourthCardComponent
+			component: FourthCardComponent,
+			outlet: 'landingCard'
 		}
-	]
+	],
+	
 }
 ];
 

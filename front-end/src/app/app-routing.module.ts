@@ -15,30 +15,32 @@ import { NavbarComponent } from './main-food/nav-bar/nav-bar.component';
 
 
 const routes: Routes = [
-    // {
-    //     path: '',
-    //     redirectTo: 'landing',
-    //     // loadChildren: './landing/landing.module',
-    //     pathMatch: 'full',
-    //     // component: LandingComponent
-    // },
     {
-    	path: '',
+    	path: 'main',
         // redirectTo: 'main',
-        pathMatch: 'full',
-        children: [
-        {
-            path: '',
-            component: MainFoodComponent
-        }
-    ]
+        // pathMatch: 'full',
+        // children: [
+        //     {
+        //         path: '',
+        //         component: MainFoodComponent,
+
+        //     }
+        // ]
+        component: MainFoodComponent
     },
     {
-        path:'favorites',
-        // redirectTo: '/favorites',
+        path: 'landing',
+        //redirectTo: 'landing',
+        // loadChildren: './landing/landing.module',
         // pathMatch: 'full',
-        component: FavoritesComponent
+        component: LandingComponent,
     }
+    // {
+    //     path:'favorites',
+    //     // redirectTo: '/favorites',
+    //     // pathMatch: 'full',
+    //     component: FavoritesComponent
+    // }
 ];
 
 @NgModule({

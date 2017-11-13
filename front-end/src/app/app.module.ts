@@ -33,11 +33,11 @@ import { Injectable } from '@angular/core';
     NgbModule.forRoot(),
     NgbCollapseModule, 
     NgbDropdownModule,
-    AppRoutingModule,
     LandingRoutingModule,
     HttpModule,
     LandingModule,
-    MainFoodModule
+    MainFoodModule,
+    AppRoutingModule
   ],
  
    

@@ -9,7 +9,7 @@ import { MainFoodComponent } from './main-food.component';
 
 const aboutRoutes: Routes = [
 {
-	path: '',
+	path: 'main',
 	component: MainFoodComponent,
 	children: [
 		{
