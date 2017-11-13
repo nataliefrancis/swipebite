@@ -27,6 +27,11 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 ///////////// API ROUTES //////////////
 
 router.post('/api/places', apiController.show);
+/*(req, res) => {
+	res.json('you hit the /api/places route: ');
+	console.log(req);
+});*/
+
 
 router.get('/api/redirect', (req, res) => {
 	res.json('oh heyyyyy');

@@ -10,19 +10,23 @@ export class LandingService {
 	constructor( private http : Http) { 
 
 		if(isDevMode()) {
-			this.baseUrl = 'https://localhost:3000';
+			this.baseUrl = 'http://localhost:3000';
 		} else {
 			this.baseUrl = '';
 		}
 
 	}
 
-	callGooglePlacesAPI (location) {
+	callGooglePlacesAPI (body) {
 		console.log('at the landing service');
-		console.log(location);
-		let headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		return this.http.post(`${this.baseUrl}/api/places`, location, {headers: headers});
+		// location = JSON.stringify(location);
+		console.log(body);
+		console.log(typeof(body));
+		// let headers = new Headers();
+		// headers.append('Content-Type', 'application/json');
+		// console.log('these are the headers: ');
+		// console.log(headers);
+		return this.http.post(`${this.baseUrl}/api/places`, body); //, {headers: headers});
 	}
 }
 

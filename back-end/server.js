@@ -10,8 +10,8 @@ const cookieParser = require('cookie-parser');
 require('./config/passport')(passport);
 
 // BODY PARSER
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // PASSPORT SETUP
 app.use(session({ secret: 'Swipebite' }));

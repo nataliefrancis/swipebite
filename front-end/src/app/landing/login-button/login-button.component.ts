@@ -11,7 +11,7 @@ export class LoginButtonComponent implements OnInit {
 
 	newUser : string;
   baseUrl : string;
-  location : any;
+  coordinates : any;
 
   constructor( private landingService : LandingService ) { }
 
@@ -24,37 +24,21 @@ export class LoginButtonComponent implements OnInit {
     }
   }
 
-  // FINDS THE USER'S LOCATION FROM THE BROWSER WINDOW
-  getPosition() {
-    if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(position => {
-        this.location = position.coords;
-        console.log('this is the getPosition function');
-        console.log(this.location);
-      })
-    }
-  }
-
-  /*
-  getPosition = (lat, lon) => {
-  navigator.geolocation.getCurrentPosition((position) => { 
-    this.lat = position.coords.latitude; 
-    this.lon = position.coords.longitude;
-   });
-  }
-  getCurrentLocation(): Observable<any> {
-    this.getPosition(this.lat, this.lon);
-  */
-
+  // FINDS THE USER'S LOCATION FROM THE BROWSER WINDOW 
+  // AND SEND IT TO GOOGLE PLACES API
   callGooglePlacesAPI() {
-    console.log('at the login-button component');
-    let location = this.getPosition();
-    this.landingService.callGooglePlacesAPI(location)
-    .subscribe(response => {
-      console.log(response.json());
+    window.navigator.geolocation.getCurrentPosition(position => {
+      this.coordinates = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      }
+
+      this.landingService.callGooglePlacesAPI(this.coordinates)
+        .subscribe(response => {
+        console.log(response.json());
+      });
     });
   }
-
 }
 
 ///////////////////////// GRAVEYARD ///////////////////////////////////////////

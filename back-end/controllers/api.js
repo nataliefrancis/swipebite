@@ -6,8 +6,8 @@ const keys = require('../config/env');
 
 function show(reqMaster, resMaster) {
 	console.log('hit the api.index controller');
-	console.log(reqMaster);
-	console.log(reqMaster.body);
+	// console.log('reqMaster.body from api.js');
+	// console.log(reqMaster.body);
 	//how to get the user if there's a new cookie everytime?
 	//let user = req.sessionStore.sessions;
 	// let user2 = req.sessionStore.sessions.ajuuA8IF4v7esAtNAZyDbbvOO6j3d9iC; 
@@ -23,13 +23,15 @@ function show(reqMaster, resMaster) {
 	///////////////////////////////////////////////////////////////////////////////////
 
 	//DB calls to grab location and distance from that specific user
+	let latitude = reqMaster.body.latitude;
+	let longitude = reqMaster.body.longitude;
 
 	let options = { 
 		method: 'GET',
 		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			// TODO: need to update the location to grab it from the user's geolocation on the front end
-			location: '39.743158,-104.970044',
+			location: latitude + ',' + longitude,
 			// TODO: need to search the database for the user's distance setting (default: set to ??)
 			radius: '500',
 			type: 'restaurant', //can we add food? 
@@ -37,6 +39,8 @@ function show(reqMaster, resMaster) {
 			key: process.env.clientSecret || keys.placesAPIKey
 		}
 	};
+
+	// console.log(location);
 
 	////////////////////////////////////////
 	// 1. ORIGINAL GOOGLE PLACES API CALL //
