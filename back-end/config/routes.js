@@ -24,19 +24,9 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 	// res.redirect('/api');
 });
 
-///////////// PROFILE ROUTES //////////////
-
-// router.get('/profile', (req, res) => { //authCheck, see video 18
-// 	res.json("this is your user page, this is your profile" +req.user.name);
-// });
-
 ///////////// API ROUTES //////////////
 
-router.get('/api/places', apiController.show);
-//this TOTALLY works, so it's definitely hitting the right route
-// (req, res) => {
-// 	res.json('oh heyyyyy');
-// });
+router.post('/api/places', apiController.show);
 
 router.get('/api/redirect', (req, res) => {
 	res.json('oh heyyyyy');

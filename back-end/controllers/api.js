@@ -6,7 +6,7 @@ const keys = require('../config/env');
 
 function show(reqMaster, resMaster) {
 	console.log('hit the api.index controller');
-	console.log('here is req.user.name: ');
+	console.log(reqMaster);
 	//how to get the user if there's a new cookie everytime?
 	//let user = req.sessionStore.sessions;
 	// let user2 = req.sessionStore.sessions.ajuuA8IF4v7esAtNAZyDbbvOO6j3d9iC; 
@@ -62,6 +62,9 @@ function show(reqMaster, resMaster) {
 			};
 			restaurantsArray.push(restaurantObject);
 		}
+
+		console.log('number of restaurants: ');
+		console.log(restaurantsArray.length);
 
 		// Randomly choose 1 restaurant from that restaurants array
 		let n = Math.floor((Math.random() * restaurantsArray.length));
