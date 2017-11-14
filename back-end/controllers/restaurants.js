@@ -11,13 +11,7 @@ function create(req, res) {
 	let body = req.body;
 	console.log(body);
 	
-	// Restaurant.create(req.body).then(function(restaurant) {
-	// 	if(!restaurant) res.send("restaurant was not saved");
-	// 	res.json(restaurant);
-	// });
-	
-	//db.Restaurant.create({
-	let newRestaurant = {
+	Restaurant.create({
 		name: body.restaurant.name,
 		googleId: body.restaurant.googleId,
 		placeId: body.restaurant.placeId,
@@ -25,16 +19,12 @@ function create(req, res) {
 		longitude: body.restaurant.longitude,
 		address: body.restaurant.address,
 		rating: body.restaurant.rating,
-		website: body.restaurant.url,
-		photoUrl: body.image
-	};
-			
-			//}).then((restaurant, err) => {
-				//if (err) { console.log(err); }
-				//console.log('new restaurant create ' + restaurant);
-			//});
-	res.json(newRestaurant);
-}
+		url: body.restaurant.url
+		}).then((restaurant, err) => {
+				if (err) { res.json(err); }
+				res.json(restaurant);
+		}); 
+	}
 
 function show(req, res) {
 	res.json('hitting the restaurant.show controller');
