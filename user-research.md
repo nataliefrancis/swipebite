@@ -45,10 +45,10 @@ Because the features were so similar to our proposal though, we observed two use
 We were fortunate enough to get some feedback from a UX student that helped us bring to light a lot of user preferences we didn't initially think about. She helped us peg down the type of user we were trying to appeal to, namely stoners, vacationers, and business professionals on the go. She stressed to us the need to build trust with the users by pulling in good pictures and having trusted reviews. She also helped us visualize the basic layout. Below are pictures of the notes from our time with her.
 
 [picture 1]
-[picture 1]: https://github.com/nataliefrancis/swipebite/blob/user-stories/user-stories/UX-layout.jpg
+[picture 1]: swipebite/user-research-images/UX-layout.jpg
 
 [picture 2]
-[picture 2]: https://github.com/nataliefrancis/swipebite/blob/user-stories/user-stories/UX-stuff.jpg
+[picture 2]: swipebite/user-research-images/UX-stuff.jpg
 ---
 ## TAKEAWAYS
 Taking everything above into account, we have decided that we need to build a sleek app that appeals to a younger, more tech savvy group. Based on the competitor app, we want to expand on their idea in the following ways:
