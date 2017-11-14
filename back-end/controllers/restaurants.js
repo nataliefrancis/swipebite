@@ -22,6 +22,21 @@ function create(req, res) {
 		if(!restaurant) res.send("restaurant was not saved");
 		res.json(restaurant);
 	});
+	/*
+	db.Restaurant.create({
+			name: restaurantsArray[n].name,
+			googleId: restaurantsArray[n].googleId,
+			placeId: restaurantsArray[n].placeId,
+			latitude: restaurantsArray[n].latitude, 
+			longitude: restaurantsArray[n].longitude,
+			address: restaurantsArray[n].address,
+			rating: restaurantsArray[n].rating,
+			url: restaurantsArray[n].url
+			}).then((restaurant, err) => {
+				if (err) { console.log(err); }
+				console.log('new restaurant create ' + restaurant);
+			});
+	*/
 }
 
 function show(req, res) {
@@ -30,6 +45,14 @@ function show(req, res) {
 
 function update(req, res) {
 	res.json('hitting the restaurant.update controller');
+	/*
+	// updates restaurant info in the DB with additional details
+			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
+			.then((err) =>{
+				if (err) { console.log(err); }
+				if (!restaurantObjectUpdate) { console.log('restaurant is not found'); }
+			});
+	*/
 }
 
 //DELETE RESTAURANT
