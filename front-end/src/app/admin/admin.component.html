@@ -4,41 +4,47 @@
 <button (click)="grabsAllUsers()">Index Users</button>
 <button (click)="grabsAllFoods()">Index Foods</button>
 
+
+<!-- FOODS TESTING -->
 <h1>Foods:</h1>
 	<label *ngIf="oneFood" for="oneFood">{{oneFood.id}}</label>
 	<input *ngIf="oneFood" name="oneFood" type="text" value="{{oneFood.photoUrl}}">
 	<button *ngIf="oneFood" (click)="editOneFood(this.oneFood)">Update</button>
 <br />
 <div *ngFor="let food of foods" style="background-color: blue">
-	<img src="{{food.photoUrl}}" style="width:100px;">
-	<p>Food Id: {{ food.id }}</p>
-	<button data-id="{{food.id}}" (click)="showOneFood(this.food.id)">Edit</button>
-	<button data-id="{{food.id}}" (click)="deleteOneFood(this.food.id)">Delete</button>
+	<img *ngIf="food" src="{{food.photoUrl}}" style="width:100px;">
+	<p *ngIf="food">Food Id: {{ food.id }}</p>
+	<button *ngIf="food" data-id="{{food.id}}" (click)="showOneFood(food.id)">Edit</button>
+	<button *ngIf="food" data-id="{{food.id}}" (click)="deleteOneFood(food.id)">Delete</button>
 	<hr>
 </div>
 
+
+<!-- RESTAURANTS TESTING -->
 <h1>Restaurants: </h1>
 	<p *ngIf="oneRestaurant">{{oneRestaurant.id}}</p>
 	<p *ngIf="oneRestaurant">{{oneRestaurant.name}}</p>
 <br />
 <div *ngFor="let restaurant of restaurants" style="background-color: blue">
-	<p>Restaurant Name: {{ restaurant.name }}</p>
-	<p>Restaurant Id: {{ restaurant.id }}</p>
-	<button data-id="{{restaurant.id}}" (click)="showOneRestaurant(this.restaurant.id)">Edit</button>
-	<button data-id="{{restaurant.id}}" (click)="deleteOneRestaurant(this.restaurant.id)">Delete</button>
+	<p *ngIf="restaurant">Restaurant Name: {{ restaurant.name }}</p>
+	<p *ngIf="restaurant">Restaurant Id: {{ restaurant.id }}</p>
+	<button *ngIf="restaurant" data-id="{{restaurant.id}}" (click)="showOneRestaurant(restaurant.id)">Edit</button>
+	<button *ngIf="restaurant" data-id="{{restaurant.id}}" (click)="deleteOneRestaurant(restaurant.id)">Delete</button>
 	<hr>
 </div>
  
+
+<!-- USERS TESTING -->
 <h1>Users:</h1>
 	<p *ngIf="oneUser">{{oneUser.id}}</p>
 	<img *ngIf="oneUser" src="{{oneUser.photoUrl}}" alt="{{oneUser.id}}" style="width:100px;">
 <br />
 <div *ngFor="let user of users" style="background-color: blue">
-	<p>User Name: {{ user.name }}</p>
-	<img src="{{user.photoUrl}}" style="width:100px;">
-	<p>User Id: {{ user.id }}</p>
-	<button data-id="{{user.id}}" (click)="showOneUser(this.user.id)">Edit</button>
-	<button data-id="{{user.id}}" (click)="deleteOneUser(this.user.id)">Delete</button>
+	<p *ngIf="user">User Name: {{ user.name }}</p>
+	<img *ngIf="user" src="{{user.photoUrl}}" style="width:100px;">
+	<p *ngIf="user">User Id: {{ user.id }}</p>
+	<button *ngIf="user" data-id="{{user.id}}" (click)="showOneUser(user.id)">Edit</button>
+	<button *ngIf="user" data-id="{{user.id}}" (click)="deleteOneUser(user.id)">Delete</button>
 	<hr>
 </div>
 
