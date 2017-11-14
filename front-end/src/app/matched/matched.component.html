@@ -5,7 +5,7 @@
 
 <img src="{{oneFood.photoUrl}}" alt="" style="width: 400px">
 
-<a href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
+<a *ngIf="restaurant.address" href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
 
 <br />
 <button (click)="callsPreviousPage()">< Previous Page</button>

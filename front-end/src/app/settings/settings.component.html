@@ -3,4 +3,9 @@
 <img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
 <br />
 
+<form (ngSubmit)="updateDistance(newDistance)">
+   <input name="distance"  placeholder="Distance (in miles)" [(ngModel)]="newDistance">
+   <input type="submit" value="Update">
+</form>
+
 <button (click)="callsNextPage()">Admin / Next Page ></button>

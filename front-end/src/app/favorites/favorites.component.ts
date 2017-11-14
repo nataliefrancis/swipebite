@@ -22,11 +22,10 @@ export class FavoritesComponent implements OnInit {
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {
-    console.log(this.currentUser);
-    console.log('hitting determineCurrentUser function');
+    //console.log('hitting determineCurrentUser function');
     this.apiService.determineCurrentUser()
     .subscribe(response => {
-      console.log(response.json());
+      //console.log(response.json());
       this.currentUser = response.json();
     })
   }
