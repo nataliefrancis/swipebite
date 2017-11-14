@@ -79,8 +79,7 @@ export class AdminComponent implements OnInit {
   	this.apiService.updateFood(food)
   	.subscribe(response => {
   		console.log(response.json());
-  		this.router.navigate(['/admin']);
-  		// this.oneFood = response.json();
+  		this.oneFood = response.json();
   	})
   }
 

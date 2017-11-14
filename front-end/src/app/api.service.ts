@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   destroyOneRestaurant(restaurantId) {
-    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurantId}`);
+    return this.http.delete(`${this.baseUrl}/api/restaurants/${restaurantId}`);
   }
 
   /////////////////////////// FOOD ROUTES /////////////////////////////////
@@ -63,7 +63,7 @@ export class ApiService {
   }
 
   destroyOneFood(foodId) {
-    return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
+    return this.http.delete(`${this.baseUrl}/api/foods/${foodId}`);
   }
 
   ////////////////////////////// USER ROUTES //////////////////////////////////
@@ -85,6 +85,6 @@ export class ApiService {
   }
 
   destroyOneUser(userId) {
-    return this.http.get(`${this.baseUrl}/api/users/${userId}`);
+    return this.http.delete(`${this.baseUrl}/api/users/${userId}`);
   }
 }
