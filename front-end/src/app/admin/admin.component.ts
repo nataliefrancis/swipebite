@@ -31,6 +31,10 @@ export class AdminComponent implements OnInit {
   	})
   }
 
+  createRestaurant() {
+  	//need to create this route!
+  }
+
   showOneRestaurant(restaurantId) {
   	this.apiService.showOneRestaurant(restaurantId)
   	.subscribe(response => {
@@ -50,7 +54,7 @@ export class AdminComponent implements OnInit {
   }
 
   createFood() {
-
+  	//need to create this route!
   }
 
   showOneFood(foodId) {
@@ -72,12 +76,12 @@ export class AdminComponent implements OnInit {
   }
 
   deleteOneFood(foodId) {
-  	console.log(foodId);
+  	console.log('foodId at admin component:' + foodId);
   	this.apiService.destroyOneFood(foodId)
   	.subscribe(response => {
   		console.log(response.json());
   		console.log(this.foods);
-  		console.log(foodId);
+  		console.log('foodId after returning from the DB:' + foodId);
   		let foodIndex = this.foods.indexOf(foodId);
   		console.log(foodIndex);
   		this.foods.splice(foodIndex, 1);  	
@@ -114,6 +118,10 @@ export class AdminComponent implements OnInit {
   		console.log(response.json());
   		this.users = response.json();
   	})
+  }
+
+  createUser() {
+  	//need to create this route!
   }
 
   showOneUser(userId) {
