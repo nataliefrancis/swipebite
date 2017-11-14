@@ -35,10 +35,6 @@ const routes: Routes = [
     {
         path: 'favorites',
         component: FavoritesComponent
-    },
-    {
-        path: 'web',
-        component: WebpageComponent
     }
     // {
     // 	path: 'main',

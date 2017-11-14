@@ -40,3 +40,8 @@ a {
 	margin-left: 33%;
 	width: 30%;
 }
+
+button {
+	font-family: 'Poppins', sans-serif;
+	color: white;
+}
