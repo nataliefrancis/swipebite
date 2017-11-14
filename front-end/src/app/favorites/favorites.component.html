@@ -1,4 +1,11 @@
 <p> Favorites </p>
+
+<div *ngFor="let allFood of allFoods">
+	<img src="{{ allFood.photoUrl }}" style="width:100px;">
+	<p>Food Id: {{allFood.id}}</p>
+	<button data-id="{{allFood.id}}" (click)="deletesOneFood(this.allFood.id)">Delete</button>
+</div>
+
 <p>adds the index route to grab details on all of a user's favorite foods</p>
 <p>adds the destroy route to remove a food from the database</p>
 

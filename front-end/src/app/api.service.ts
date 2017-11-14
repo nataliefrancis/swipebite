@@ -34,8 +34,15 @@ export class ApiService {
   }
 
   showRestaurantAddress(id) {
-    console.log(id);
     return this.http.get(`${this.baseUrl}/api/restaurants/${id}`);
+  }
+
+  indexFoods() {
+    return this.http.get(`${this.baseUrl}/api/foods`);
+  }
+
+  destroyOneFood(foodId) {
+    return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
   }
 
 }

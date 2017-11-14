@@ -1,11 +1,12 @@
 let db = require('../models');
 let Restaurant = db.models.Restaurant;
 
+// INDEX OF RESTAURANTS -- ??
 function index(req, res) {
 	res.json('hitting the restaurant.index controller');
 }
 
-// CREATE A NEW RESTAURANT - USER FAVORITED
+// CREATE A NEW RESTAURANT - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
 	console.log('hitting the restaurant.create controller');
 	let body = req.body;
@@ -25,7 +26,7 @@ function create(req, res) {
 	}); 
 }
 
-// SHOW ONE - 
+// SHOW ONE RESTAURANT - MATCHED PAGE FOR GOOGLE MAPS LINK
 function show(req, res) {
 	console.log(req.params.id);
 
@@ -37,16 +38,7 @@ function show(req, res) {
 		});
 }
 
-// SHOW ONE - MATCHED PAGE
-/*function show(req, res) {
-	Food.findById(req.params.id)
-		.then(function(food) {
-			if(!food) res.send("food was not found");
-			console.log("you have hit the food show route");
-			res.json(food);
-	});
-}*/
-
+// UPDATE RESTAURANT -- ??
 function update(req, res) {
 	res.json('hitting the restaurant.update controller');
 	/*
@@ -59,7 +51,7 @@ function update(req, res) {
 	*/
 }
 
-//DELETE RESTAURANT
+// DELETE RESTAURANT -- ??
 function destroy(req, res) {
 	res.json('hitting the restaurant.destroy controller');
 	Restaurant.findById(req.params.id)
