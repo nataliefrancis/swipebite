@@ -25,6 +25,8 @@ We each asked two people the following questions:
 
    Natalie-2: This user doesn't usually use any food apps when choosing where to eat. They do however use google maps to find what's close to them then goes directly to their menu and judges based on that. They also use google when seeking out new places nearby they haven't tried. This user considers how busy the place is/will be (how quickly they will be seated), then the type of food, then the price when picking a place. This user would prefer a description (menu) over a picture of the food, though they admit ideally both would be even better. As a follow up they mentioned that they don't like when other people's reviews "pigeon hole" the filters as they have broad tastes and "don't care" if other people don't like something.
 
+   Emma-1: This user primarily uses google maps to find where to eat, though they like yelp the most when it comes to reviews. They think that the yelp reviews are trusted because it's crowd sourced and people post good and bad things, unlike other sites that only post when things are good. This user takes into account their mood, ratings, and distance when picking where to eat. When asked about Postmates, this user liked how they got to see real pictures of the food, but thought it was ultimately unreliable.
+
 
 ---
 ## COMPETING SITE
