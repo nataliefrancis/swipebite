@@ -12,12 +12,24 @@ let newRest = {
 	url: null
 };
 
+function index(req, res) {
+	res.json('hitting the restaurant.index controller');
+}
+
 // CREATE A NEW RESTAURANT - USER FAVORITED
 function create(req, res) {
 	Restaurant.create(req.body).then(function(restaurant) {
 		if(!restaurant) res.send("restaurant was not saved");
 		res.json(restaurant);
 	});
+}
+
+function show(req, res) {
+	res.json('hitting the restaurant.show controller');
+}
+
+function update(req, res) {
+	res.json('hitting the restaurant.update controller');
 }
 
 //DELETE RESTAURANT
@@ -32,11 +44,11 @@ function destroy(req, res) {
 	});
 }
 
+module.exports.index = index;
 module.exports.create = create;
+module.exports.show = show;
+module.exports.update = update;
 module.exports.destroy = destroy;
-
-
-
 
 ///////////////// COPY OF RESTAURANT MODEL FOR REFERENCE ////////////////
 
