@@ -16,11 +16,11 @@ import { MainFoodModule } from './main-food/main-food.module';
 import { LandingRoutingModule } from './landing/landing-routing.module';
 import { MainFoodRoutingModule } from './main-food/main-food-routing.module';
 
-import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+// import { environment } from '../environments/environment';
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabaseModule } from 'angularfire2/database';
+// import { AngularFireAuthModule } from 'angularfire2/auth';
+// import * as firebase from 'firebase/app';
  
 import { Injectable } from '@angular/core';
 
@@ -44,9 +44,9 @@ import { Injectable } from '@angular/core';
     HttpModule,
     LandingModule,
     MainFoodModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
+    // AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule,
   ],
  
    
