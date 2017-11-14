@@ -43,15 +43,16 @@ export class MainComponent implements OnInit {
   	// create Restaurant in the DB
   	this.apiService.createRestaurant(this.restaurant)
 			.subscribe(res1 => {
-				console.log(res1.json()); 
-				this.router.navigate(['/matched', this.restaurant]);
+				// console.log(res1.json()); 
+				this.router.navigate(['/matched']);
 
-				// TODO: saves the current food image to the database also
 				//after the restaurant has been created, creates Food in the DB
-				//this.apiService.createFood(this.restaurant)
-					// .subscribe(res2 => {
-					// 	console.log(res2.body);
-					// })
+				console.log('on swipeRight function: ');
+				console.log(this.restaurant);
+				this.apiService.createFood(this.restaurant)
+					.subscribe(res2 => {
+						console.log(res2.json());
+					})
 			});
 
   }

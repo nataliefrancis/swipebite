@@ -31,6 +31,7 @@ export class ApiService {
   createFood(body) {
     console.log('hitting the createFood function: ');
     console.log(body);
+    return this.http.post(`${this.baseUrl}/api/foods`, body);
   }
 
 }

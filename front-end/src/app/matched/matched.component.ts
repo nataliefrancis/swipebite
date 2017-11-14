@@ -17,4 +17,8 @@ export class MatchedComponent implements OnInit {
   	this.router.navigate(['/favorites']);
   }
 
+  callsPreviousPage() {
+  	this.router.navigate(['/main']);
+  }
+
 }

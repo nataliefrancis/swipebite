@@ -7,9 +7,8 @@ function index(req, res) {
 
 // CREATE A NEW RESTAURANT - USER FAVORITED
 function create(req, res) {
-	console.log('req.body on restaurant create controller');
+	console.log('hitting the restaurant.create controller');
 	let body = req.body;
-	console.log(body);
 	
 	Restaurant.create({
 		name: body.restaurant.name,
@@ -23,8 +22,8 @@ function create(req, res) {
 		}).then((restaurant, err) => {
 				if (err) { res.json(err); }
 				res.json(restaurant);
-		}); 
-	}
+	}); 
+}
 
 function show(req, res) {
 	res.json('hitting the restaurant.show controller');
