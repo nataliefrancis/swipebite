@@ -149,9 +149,7 @@ function show(reqMaster, resMaster) {
 				photo: photoInfo
 			};
 
-			console.log(serveUpRestaurantObject);
-
-			// SEND THE IMAGE URL TO THE FRONT END
+			// SERVE UP THE RESTAURANT AND ITS DETAILS TO THE FRONT END
 			resMaster.json(serveUpRestaurantObject); 
 		});		
 	});	

@@ -16,12 +16,21 @@ export class ApiService {
 
   }
 
+  callGooglePlacesAPI(body) {
+    // console.log('at the api service');
+    // console.log(body);
+   	return this.http.post(`${this.baseUrl}/api/places`, body); 
+  }
 
-  callGooglePlacesAPI (body) {
-    console.log('at the landing service');
+  createRestaurant(body) {
+    // console.log('at the createRestaurant function on api service: ');
+    // console.log(body);
+    return this.http.post(`${this.baseUrl}/api/restaurants`, body);
+  }
+
+  createFood(body) {
+    console.log('hitting the createFood function: ');
     console.log(body);
-    console.log(typeof(body));
-   	return this.http.post(`${this.baseUrl}/api/places`, body); //, {headers: headers});
   }
 
 }

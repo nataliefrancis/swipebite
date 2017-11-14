@@ -1,42 +1,39 @@
 let db = require('../models');
 let Restaurant = db.models.Restaurant;
 
-let newRest = {
-	name: 'See if this works',
-	googleId: null,
-	placeId: null,
-	latitude: null,
-	longitude: null,
-	address: null,
-	rating: null,
-	url: null
-};
-
 function index(req, res) {
 	res.json('hitting the restaurant.index controller');
 }
 
 // CREATE A NEW RESTAURANT - USER FAVORITED
 function create(req, res) {
-	Restaurant.create(req.body).then(function(restaurant) {
-		if(!restaurant) res.send("restaurant was not saved");
-		res.json(restaurant);
-	});
-	/*
-	db.Restaurant.create({
-			name: restaurantsArray[n].name,
-			googleId: restaurantsArray[n].googleId,
-			placeId: restaurantsArray[n].placeId,
-			latitude: restaurantsArray[n].latitude, 
-			longitude: restaurantsArray[n].longitude,
-			address: restaurantsArray[n].address,
-			rating: restaurantsArray[n].rating,
-			url: restaurantsArray[n].url
-			}).then((restaurant, err) => {
-				if (err) { console.log(err); }
-				console.log('new restaurant create ' + restaurant);
-			});
-	*/
+	console.log('req.body on restaurant create controller');
+	let body = req.body;
+	console.log(body);
+	
+	// Restaurant.create(req.body).then(function(restaurant) {
+	// 	if(!restaurant) res.send("restaurant was not saved");
+	// 	res.json(restaurant);
+	// });
+	
+	//db.Restaurant.create({
+	let newRestaurant = {
+		name: body.restaurant.name,
+		googleId: body.restaurant.googleId,
+		placeId: body.restaurant.placeId,
+		latitude: body.restaurant.latitude, 
+		longitude: body.restaurant.longitude,
+		address: body.restaurant.address,
+		rating: body.restaurant.rating,
+		website: body.restaurant.url,
+		photoUrl: body.image
+	};
+			
+			//}).then((restaurant, err) => {
+				//if (err) { console.log(err); }
+				//console.log('new restaurant create ' + restaurant);
+			//});
+	res.json(newRestaurant);
 }
 
 function show(req, res) {
@@ -57,6 +54,7 @@ function update(req, res) {
 
 //DELETE RESTAURANT
 function destroy(req, res) {
+	res.json('hitting the restaurant.destroy controller');
 	Restaurant.findById(req.params.id)
 	.then(function(restaurant){
 		if(!restaurant) res.send("restaurant was not found");
