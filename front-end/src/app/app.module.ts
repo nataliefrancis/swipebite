@@ -44,9 +44,9 @@ import { Injectable } from '@angular/core';
     HttpModule,
     LandingModule,
     MainFoodModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
+    // AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule,
   ],
  
    
