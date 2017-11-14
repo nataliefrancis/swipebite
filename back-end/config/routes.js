@@ -30,7 +30,7 @@ router.get('/api/users/:id', usersController.show);
 router.put('/api/users/:id', usersController.update);
 
 // destroy
-router.get('/api/users/:id', usersController.destroy);
+router.delete('/api/users/:id', usersController.destroy);
 
 ////////////////////////////////////
 ////////// FOOD ROUTES /////////////
@@ -49,7 +49,7 @@ router.get('/api/foods/:id', foodsController.show);
 router.put('/api/foods/:id', foodsController.update);
 
 // destroy
-router.get('/api/foods/:id', foodsController.destroy);
+router.delete('/api/foods/:id', foodsController.destroy);
 
 //////////////////////////////////////////
 ////////// RESTAURANT ROUTES /////////////
@@ -68,7 +68,7 @@ router.get('/api/restaurants/:id', restaurantsController.show);
 router.put('/api/restaurants/:id', restaurantsController.update);
 
 // destroy
-router.get('/api/restaurants/:id', restaurantsController.destroy);
+router.delete('/api/restaurants/:id', restaurantsController.destroy);
 
 ////////////////////////////////////////
 ////////// PASSPORT ROUTES /////////////
