@@ -37,7 +37,7 @@ export class ApiService {
   }
 
   updateRestaurant(restaurant) {
-    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurant.id}`, restaurant);
+    return this.http.put(`${this.baseUrl}/api/restaurants/${restaurant.id}`, restaurant);
   }
 
   destroyOneRestaurant(restaurantId) {
@@ -59,7 +59,7 @@ export class ApiService {
   }
 
   updateFood(food) {
-    return this.http.get(`${this.baseUrl}/api/foods/${food.id}`, food);
+    return this.http.put(`${this.baseUrl}/api/foods/${food.id}`, food);
   }
 
   destroyOneFood(foodId) {
@@ -81,7 +81,7 @@ export class ApiService {
   }
 
   updateUser(user) {
-    return this.http.get(`${this.baseUrl}/api/users/${user.id}`, user);
+    return this.http.put(`${this.baseUrl}/api/users/${user.id}`, user);
   }
 
   destroyOneUser(userId) {
