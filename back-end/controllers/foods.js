@@ -13,15 +13,14 @@ function index(req, res) {
 // SHOW ONE - MATCHED PAGE
 function show(req, res) {
 	Food.findById(req.params.id)
-	.then(function(food) {
-		if(!food) res.send("food was not found");
-		console.log("you have hit the food show route");
-		res.json(food);
+		.then(function(food) {
+			if(!food) res.send("food was not found");
+			console.log("you have hit the food show route");
+			res.json(food);
 	});
 }
 
-
-//CREATE A NEW FOOD - USER FAVORITED
+//CREATE A NEW FOOD - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
 	let body = req.body;
 
@@ -36,7 +35,7 @@ function create(req, res) {
 	});
 }
 
-// UPDATE - ??
+// UPDATE - UPDATE WASSEEN BOOLEAN
 function update(req, res) {
 	Food.findById(req.params.id)
 	.then(function(food) {

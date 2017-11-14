@@ -25,9 +25,27 @@ function create(req, res) {
 	}); 
 }
 
+// SHOW ONE - 
 function show(req, res) {
-	res.json('hitting the restaurant.show controller');
+	console.log(req.params.id);
+
+	Restaurant.findById(req.params.id)
+		.then((restaurant, err) => {
+			if(err) { res.json (err); }
+			console.log('hitting the restaurant.show controller');
+			res.json(restaurant);
+		});
 }
+
+// SHOW ONE - MATCHED PAGE
+/*function show(req, res) {
+	Food.findById(req.params.id)
+		.then(function(food) {
+			if(!food) res.send("food was not found");
+			console.log("you have hit the food show route");
+			res.json(food);
+	});
+}*/
 
 function update(req, res) {
 	res.json('hitting the restaurant.update controller');

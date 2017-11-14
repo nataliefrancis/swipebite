@@ -1,12 +1,9 @@
 <p>Matched</p>
 
-<p>Here is where your matched food image will appear</p>
-<!-- make an api call to the database to show matched food as soon as the page loads -->
-<p>OnInit, this component should do a show call with the id of the food you saved</p>
-<p>also needs to have a link to google maps that uses the restaurant's address so will need to do a call from the database for that info</p>
-<a href="https://www.google.com/maps/place/" target="_blank">Google Maps Link</a>
-<!-- sample dynamic link -->
-<!-- https://www.google.com/maps/place/3372+W+38th+Ave,+Denver,+CO+80211 -->
+<img src="{{oneFood.photoUrl}}" alt="">
 
+<a href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
+
+<br />
 <button (click)="callsPreviousPage()">< Previous Page</button>
 <button (click)="callsNextPage()">Next Page ></button>

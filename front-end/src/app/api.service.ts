@@ -7,31 +7,35 @@ export class ApiService {
 	baseUrl: string;
 
   constructor( private http: Http ) { 
-  	
   	if (isDevMode) {
   		this.baseUrl  = 'http://localhost:3000';
   	} else {
   		this.baseUrl = '';
   	}
-
   }
 
   callGooglePlacesAPI(body) {
-    // console.log('at the api service');
+    // console.log('at the googlecallplaces function on api service');
     // console.log(body);
    	return this.http.post(`${this.baseUrl}/api/places`, body); 
   }
 
   createRestaurant(body) {
-    // console.log('at the createRestaurant function on api service: ');
-    // console.log(body);
     return this.http.post(`${this.baseUrl}/api/restaurants`, body);
   }
 
   createFood(body) {
-    console.log('hitting the createFood function: ');
-    console.log(body);
     return this.http.post(`${this.baseUrl}/api/foods`, body);
+  }
+
+  showFood(id) {
+    console.log(id);
+    return this.http.get(`${this.baseUrl}/api/foods/${id}`);
+  }
+
+  showRestaurantAddress(id) {
+    console.log(id);
+    return this.http.get(`${this.baseUrl}/api/restaurants/${id}`);
   }
 
 }
