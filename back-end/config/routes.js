@@ -7,6 +7,12 @@ const firebaseController = require('../controllers/firebase');
 const foodsController = require('../controllers/foods');
 const restaurantsController = require('../controllers/restaurants');
 
+/////////////////////////////////////////////////////
+///////////// GOOGLE PLACES API ROUTES //////////////
+/////////////////////////////////////////////////////
+
+router.post('/api/places', apiController.show);
+
 ////////////////////////////////////
 ////////// USER ROUTES /////////////
 ////////////////////////////////////
@@ -87,11 +93,5 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 	res.json(req.user);
 	// res.redirect('/api');
 });
-
-/////////////////////////////////////////////////////
-///////////// GOOGLE PLACES API ROUTES //////////////
-/////////////////////////////////////////////////////
-
-router.post('/api/places', apiController.show);
 
 module.exports = router;

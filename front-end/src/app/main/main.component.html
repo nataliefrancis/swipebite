@@ -1,13 +1,13 @@
 <p>Main</p>
 
-<img src={{restaurant.image}} alt="picture from Google Places Images search" style="width:300px;">
+<img *ngIf="restaurant" src={{restaurant.image}} alt="picture from Google Places Images search" style="width:300px;">
 
 <br />
 <button (click)="swipeLeft()">NO</button>
 <button (click)="swipeRight()">YES</button>
 <br />
-<a href="{{restaurant.restaurant.url}}" target="_blank">{{restaurant.restaurant.name}}</a>
-<h3>{{restaurant.restaurant.rating}}</h3>
+<a *ngIf="restaurant" href="{{restaurant.restaurant.url}}" target="_blank">{{restaurant.restaurant.name}}</a>
+<h3 *ngIf="restaurant">{{restaurant.restaurant.rating}}</h3>
 <button (click)="callsNextPage()">Next Page ></button>
 
 

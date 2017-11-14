@@ -48,13 +48,7 @@ export class AdminComponent implements OnInit {
   	this.apiService.destroyOneRestaurant(restaurantId)
   	.subscribe(response => {
   		console.log(response.json());
-  		// this.oneFood = response.json();
-  		console.log('all the restaurants in the array:');
-  		console.log(this.restaurants);
-  		console.log('restaurantId after returning from the DB:' + restaurantId);
-  		let restaurantIndex = this.restaurants.indexOf(restaurantId);
-  		console.log('restaurant index: ' + restaurantIndex);
-  		this.restaurants.splice(restaurantIndex, 1);  	
+  		this.restaurants[restaurantId-1] = null;	
   	})
   }
 
@@ -75,14 +69,12 @@ export class AdminComponent implements OnInit {
   showOneFood(foodId) {
   	this.apiService.showOneFood(foodId)
   	.subscribe(response => {
-  		// console.log(response.json());
   		this.oneFood = response.json();
-  		console.log(this.oneFood.id);
-  		console.log(this.oneFood.photoUrl);
   	})
   }
 
   editOneFood(food) {
+  	console.log("this is what we're sending to the backend" + food);
   	this.apiService.updateFood(food)
   	.subscribe(response => {
   		console.log(response.json());
@@ -91,41 +83,12 @@ export class AdminComponent implements OnInit {
   }
 
   deleteOneFood(foodId) {
-  	console.log('foodId at admin component:' + foodId);
   	this.apiService.destroyOneFood(foodId)
   	.subscribe(response => {
   		console.log(response.json());
-  		// this.oneFood = response.json();
-  		console.log('all the food in the array:');
-  		console.log(this.foods);
-  		console.log('foodId after returning from the DB:' + foodId);
-  		let foodIndex = this.foods.indexOf(foodId);
-  		console.log('food index: ' + foodIndex);
-  		this.foods.splice(foodIndex, 1);  	
+  		this.foods[foodId-1] = null;	
   	})
   }
-
-  /*
-	grabAllFoods(userId) {
-  	console.log('grabbing all foods for user' + userId);
-
-    this.apiService.indexFoods()
-      .subscribe(response => {
-        console.log(response.json());
-        this.allFoods = response.json();
-      })
-  }
-
-  deletesOneFood(foodId) {
-  	console.log("I'm deleting food number:" + foodId);
-  	this.apiService.destroyOneFood(foodId)
-  		.subscribe(response => {
-  			console.log(response.json());
-  			let foodIndex = this.allFoods.indexOf(foodId);
-  			this.allFoods.splice(foodIndex, 1);
-  		})
-  }
-  */
 
   // USER CALLS //
 
@@ -150,17 +113,10 @@ export class AdminComponent implements OnInit {
   }
 
   deleteOneUser(userId) {
-  	console.log('userId at admin component:' + userId);
   	this.apiService.destroyOneUser(userId)
   	.subscribe(response => {
   		console.log(response.json());
-  		// this.oneFood = response.json();
-  		console.log('all the users in the array:');
-  		console.log(this.users);
-  		console.log('userId after returning from the DB:' + userId);
-  		let userIndex = this.users.indexOf(userId);
-  		console.log('user index: ' + userIndex);
-  		this.users.splice(userIndex, 1);  	
+  		this.users[userId-1] = null;	
   	})
   }
 

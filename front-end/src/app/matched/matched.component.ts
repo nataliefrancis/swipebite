@@ -12,17 +12,17 @@ export class MatchedComponent implements OnInit {
   oneFood;
   restaurant: {};
   //TODO: figure out how to make this number dynamic and correspond to the one you JUST crudded to the database
-  id: number = 2;
+  id: number = 1;
 
   constructor( private router: Router, private apiService: ApiService ) { }
 
   ngOnInit() {
     this.grabOneFood();
-    this.grabRestaurantAddress();
+    this.grabRestaurant();
   }
 
   // TODO: shouldn't actually use the food id directly but should look up the restaurantId based on the foodId and then use that to return the restaurant from the DB
-  grabRestaurantAddress() {
+  grabRestaurant() {
     console.log('trying to grab a restaurant address');
     this.apiService.showOneRestaurant(this.id)
       .subscribe(response => {

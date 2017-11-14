@@ -1,7 +1,7 @@
 let db = require('../models');
 let Restaurant = db.models.Restaurant;
 
-// INDEX OF RESTAURANTS - SENDS ALL
+// INDEX OF RESTAURANTS - ADMIN
 function index(req, res) {
 	Restaurant.findAll().then(function(restaurant) {
 		console.log("hitting the restaurant.index controller on the back end");
@@ -41,7 +41,7 @@ function show(req, res) {
 		});
 }
 
-// UPDATE RESTAURANT -- ??
+// UPDATE RESTAURANT -- ADMIN
 function update(req, res) {
 	res.json('hitting the restaurant.update controller on the back end');
 	/*
@@ -54,9 +54,10 @@ function update(req, res) {
 	*/
 }
 
-// DELETE RESTAURANT -- ??
+// DELETE RESTAURANT -- ADMIN
 function destroy(req, res) {
-	res.json('hitting the restaurant.destroy controller on the back end');
+	console.log('id on the back end:');
+	console.log(req.params.id);
 	Restaurant.findById(req.params.id)
 	.then(function(restaurant){
 		if(!restaurant) res.send("restaurant was not found");
