@@ -1,6 +1,6 @@
 .matchedContainer {
-	margin-top: 70px;
-	margin-left: 30px;
+	margin-top: -10px;
+	margin-left: 10%;
 	height: 500px;
 	width: 300px;
 	border-radius: 5px;
@@ -19,12 +19,12 @@ h1 {
 	margin-left: 20%;
 }
 #foodPicture{
-    height: 50%;
+    height: 90%;
     width: 85%;
-    margin-top: 5%;
+    margin-top: 4%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 0;
+    margin-bottom: 3%;
     padding: 3px;
 }
 
