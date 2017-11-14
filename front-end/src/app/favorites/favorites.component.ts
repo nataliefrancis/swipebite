@@ -11,15 +11,29 @@ export class FavoritesComponent implements OnInit {
 
 	userId: number = 1;
 	allFoods;
+  currentUser;
 
   constructor( private router: Router, private apiService: ApiService ) { }
 
   ngOnInit() {
-  	this.grabAllFoods(this.userId);
+    let currentUser = this.determineCurrentUser();
+    this.grabAllFoods(currentUser);
+  }
+
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    console.log(this.currentUser);
+    console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      console.log(response.json());
+      this.currentUser = response.json();
+    })
   }
 
   //TODO: make it so that this function ONLY grabs foods with a specific user id
   grabAllFoods(userId) {
+    console.log()
   	console.log('grabbing all foods for user' + userId);
 
     this.apiService.indexFoods()

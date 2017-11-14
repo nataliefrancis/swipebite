@@ -1,3 +1,6 @@
 <p>Settings</p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
 
 <button (click)="callsNextPage()">Admin / Next Page ></button>

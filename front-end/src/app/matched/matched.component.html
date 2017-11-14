@@ -1,6 +1,9 @@
 <p>Matched</p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
 
-<img src="{{oneFood.photoUrl}}" alt="">
+<img src="{{oneFood.photoUrl}}" alt="" style="width: 400px">
 
 <a href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
 

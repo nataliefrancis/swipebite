@@ -1,4 +1,7 @@
 <p> Favorites </p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
 
 <button (click)="callsNextPage()">Next Page ></button>
 

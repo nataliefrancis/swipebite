@@ -1,5 +1,7 @@
 <p>Main</p>
-<p *ngIf="currentUser">{{currentUser}}</p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
 
 <img *ngIf="restaurant" src={{restaurant.image}} alt="picture from Google Places Images search" style="width:300px;">
 

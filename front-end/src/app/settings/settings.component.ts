@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,9 +9,22 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+	currentUser;
+
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
+  	this.determineCurrentUser();
+  }
+
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      console.log(response.json());
+      this.currentUser = response.json();
+    })
   }
 
   callsNextPage() {

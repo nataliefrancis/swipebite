@@ -15,13 +15,25 @@ export class AdminComponent implements OnInit {
 	restaurants = [];
 	oneRestaurant;
 	createRestaurantBoolean = false;
-	users= [];
+	users = [];
 	oneUser;
 	createUserBoolean = false;
+  currentUser;
 
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
+    this.determineCurrentUser();
+  }
+
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      console.log(response.json());
+      this.currentUser = response.json();
+    })
   }
 
   // RESTAURANT CALLS //

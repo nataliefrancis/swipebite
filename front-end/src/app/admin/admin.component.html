@@ -1,4 +1,7 @@
 <p>Admin</p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
 
 <!-- MAKE A NEW RESTAURANT -->
 <button (click)="grabsAllRestaurants()">Index Restaurants</button>

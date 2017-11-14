@@ -1,5 +1,7 @@
 <p> landing </p>
-<p *ngIf="currentUser">{{currentUser}}</p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
 
 <a href="{{baseUrl}}/auth/google">Login with Google</a>
 <a href="{{baseUrl}}/auth/logout">Logout</a>

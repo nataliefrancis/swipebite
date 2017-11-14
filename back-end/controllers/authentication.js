@@ -22,7 +22,7 @@ const googleCallback = (req, res, next) => {
 const getLogout = (req, res) => {
 	console.log('hitting logout controller!');
 	req.logout();
-	res.json({'message':'successfully logged out!'});
+	res.redirect('/');
 };
 
 module.exports.googleLogin = googleLogin;
