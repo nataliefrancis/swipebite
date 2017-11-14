@@ -17,6 +17,10 @@ const routes: Routes = [
         component: WebpageComponent
     },
     {
+        path: 'landing',
+        component: LandingComponent
+    },
+    {
         path: 'settings',
         component: SettingsComponent
     },

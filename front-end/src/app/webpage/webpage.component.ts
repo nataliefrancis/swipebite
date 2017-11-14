@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-webpage',
@@ -11,9 +12,13 @@ export class WebpageComponent implements OnInit {
     // isCollapsed(){
     //     this.show = !this.show
     // }
-  constructor() { }
+  constructor( private router : Router) { }
 
  ngOnInit() {
+  }
+
+  callsNextPage() {
+  	this.router.navigate(['/landing']);
   }
 
 }
