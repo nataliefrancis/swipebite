@@ -81,8 +81,6 @@ export class ApiService {
   }
 
   updateUser(user) {
-    console.log('hitting the service on the front end');
-    console.log(user);
     return this.http.put(`${this.baseUrl}/api/users/${user.id}`, user);
   }
 
