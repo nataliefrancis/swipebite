@@ -5,37 +5,41 @@
 <button (click)="grabsAllFoods()">Index Foods</button>
 
 <h1>Foods:</h1>
-	<p>One Food: {{oneFood.id}}</p>
-	<img src="{{oneFood.photoUrl}}" alt="{{oneFood.id}}" style="width:100px;">
+	<label *ngIf="oneFood" for="oneFood">{{oneFood.id}}</label>
+	<input *ngIf="oneFood" name="oneFood" type="text" value="{{oneFood.photoUrl}}">
+	<button *ngIf="oneFood" (click)="editOneFood(this.oneFood)">Update</button>
 <br />
-<div *ngFor="let food of foods">
+<div *ngFor="let food of foods" style="background-color: blue">
 	<img src="{{food.photoUrl}}" style="width:100px;">
 	<p>Food Id: {{ food.id }}</p>
 	<button data-id="{{food.id}}" (click)="showOneFood(this.food.id)">Edit</button>
 	<button data-id="{{food.id}}" (click)="deleteOneFood(this.food.id)">Delete</button>
+	<hr>
 </div>
 
 <h1>Restaurants: </h1>
-	<p>One Restaurant: {{oneRestaurant.id}}</p>
-	<p>Restaurant Name: {{oneRestaurant.name}}</p>
+	<p *ngIf="oneRestaurant">{{oneRestaurant.id}}</p>
+	<p *ngIf="oneRestaurant">{{oneRestaurant.name}}</p>
 <br />
-<div *ngFor="let restaurant of restaurants">
+<div *ngFor="let restaurant of restaurants" style="background-color: blue">
 	<p>Restaurant Name: {{ restaurant.name }}</p>
 	<p>Restaurant Id: {{ restaurant.id }}</p>
 	<button data-id="{{restaurant.id}}" (click)="showOneRestaurant(this.restaurant.id)">Edit</button>
 	<button data-id="{{restaurant.id}}" (click)="deleteOneRestaurant(this.restaurant.id)">Delete</button>
+	<hr>
 </div>
  
 <h1>Users:</h1>
-	<p>One User: {{oneUser.id}}</p>
-	<img src="{{oneUser.photoUrl}}" alt="{{oneUser.id}}" style="width:100px;">
+	<p *ngIf="oneUser">{{oneUser.id}}</p>
+	<img *ngIf="oneUser" src="{{oneUser.photoUrl}}" alt="{{oneUser.id}}" style="width:100px;">
 <br />
-<div *ngFor="let user of users">
+<div *ngFor="let user of users" style="background-color: blue">
 	<p>User Name: {{ user.name }}</p>
 	<img src="{{user.photoUrl}}" style="width:100px;">
 	<p>User Id: {{ user.id }}</p>
 	<button data-id="{{user.id}}" (click)="showOneUser(this.user.id)">Edit</button>
 	<button data-id="{{user.id}}" (click)="deleteOneUser(this.user.id)">Delete</button>
+	<hr>
 </div>
 
 <button (click)="callsNextPage()">Next Page ></button>

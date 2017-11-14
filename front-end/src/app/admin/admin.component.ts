@@ -75,14 +75,12 @@ export class AdminComponent implements OnInit {
   showOneFood(foodId) {
   	this.apiService.showOneFood(foodId)
   	.subscribe(response => {
-  		// console.log(response.json());
   		this.oneFood = response.json();
-  		console.log(this.oneFood.id);
-  		console.log(this.oneFood.photoUrl);
   	})
   }
 
   editOneFood(food) {
+  	console.log("this is what we're sending to the backend" + food);
   	this.apiService.updateFood(food)
   	.subscribe(response => {
   		console.log(response.json());

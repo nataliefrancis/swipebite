@@ -25,9 +25,9 @@ function show(reqMaster, resMaster) {
 	///////////////////////////////////////////////////////////////////////////////////
 
 	//getting details for that specific user
-	let latitude = reqMaster.body.latitude;
-	let longitude = reqMaster.body.longitude;
-	let distance = '500';
+	let latitude = reqMaster.body.latitude || 39.765200;
+	let longitude = reqMaster.body.longitude || -104.986117;
+	let distance = '500' || '500' ; // change the first one to the variable we're pulling from the settings page
 
 	let options = { 
 		method: 'GET',
@@ -35,7 +35,7 @@ function show(reqMaster, resMaster) {
 		qs: {
 			location: latitude + ',' + longitude,
 			// TODO: need to search the database for the user's distance setting (default: set to ??)
-			radius: ( distance || '500' ),
+			radius: distance,
 			type: 'restaurant', //can we add food? 
 			opennow: 'true',
 			key: process.env.clientSecret || keys.placesAPIKey
@@ -49,6 +49,7 @@ function show(reqMaster, resMaster) {
 	request(options, function(err1, res1, body1) {
 		if (err1) return err1;
 		body1 = JSON.parse(body1);
+		console.log(body1);
 		let restaurantsArray = [];
 
 		// Loops through all the returned restaurants to create a restaurants array 
