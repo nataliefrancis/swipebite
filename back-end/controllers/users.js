@@ -9,25 +9,58 @@ function index(req, res) {
 	});
 }
 
+//CREATES A NEW USER
 function create(req, res) {
 	console.log('hit the user.create controller on the back end');
 	console.log(req.body);
-	User.create(req.body).then(function(user){
-		if(!user) res.send("user not saved");
-		else res.json(user);
+	let body = req.body;
+
+	User.create({
+		googleId: body.googleId,
+		name: body.name,
+		photoUrl: body.photoUrl
+
+	}).then(function(user, err){
+		if (err) { res.json(err); }
+		res.json(user);
 	});
 }
 
+//SHOW ONE USER
 function show(req, res) {
-	res.json('you hit the user.show controller on the back end');
+	console.log(req.params.id);
+
+	User.findById(req.params.id)
+		.then((user, err) => {
+			if(err) { res.json (err); }
+			console.log('youre hitting the user.show controller');
+			res.json(user);
+		});
 }
 
+//UPDATE A USER
 function update(req, res) {
-	res.json('you hit the user.update controller on the back end');
+	db.User.update(userUpdate, {where: {id: req.body.id}})
+		.then((user, err) => {
+			if (err) { res.json (err); }
+			if (!user) { console.log('User was not found'); }
+			res.json(user);
+		});
 }
 
+
+//DELETES A USER
 function destroy(req, res) {
 	res.json('you hit the user.destroy controller on the back end');
+	User.findById(req.params.id)
+		.then((user, err) =>{
+			if(err) { res.json (err); }
+			if(!user) {console.log('User was not found'); }
+			return user.destroy();
+		})
+		.then(() => {
+			res.send('User was deleted');
+		});
 }
 
 module.exports.index = index;
