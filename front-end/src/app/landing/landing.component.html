@@ -1,3 +1,6 @@
-<router-outlet></router-outlet>
-<app-onboarding-buttons></app-onboarding-buttons>
-<app-login-button></app-login-button>
+<p> landing </p>
+
+<a href="{{baseUrl}}/auth/google">Login with Google</a>
+<button type="submit" (click)= "callGooglePlacesAPI()">Call API</button>
+
+<button (click)="callsNextPage()">Next Page ></button>
