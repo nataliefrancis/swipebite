@@ -9,7 +9,12 @@
     border-radius: 3px;
 
 }
-
+.image {
+    height: 100px;
+    width: 30%;
+    background-color: black;
+    margin-left: 35%;
+}
 .location {
 	height: 120px;
 }
