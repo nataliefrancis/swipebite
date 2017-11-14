@@ -17,10 +17,10 @@ import { LandingRoutingModule } from './landing/landing-routing.module';
 import { MainFoodRoutingModule } from './main-food/main-food-routing.module';
 
 import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabaseModule } from 'angularfire2/database';
+// import { AngularFireAuthModule } from 'angularfire2/auth';
+// import * as firebase from 'firebase/app';
  
 import { Injectable } from '@angular/core';
 
