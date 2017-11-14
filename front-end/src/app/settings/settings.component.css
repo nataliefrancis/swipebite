@@ -1,69 +1,96 @@
 /*************
   Phone Only
 **************/
-@media only screen and (max-width: 766px) {
+@media only screen 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
 
+	/*page lettering*/
 	.Option {
-		background-color: #D3D3D3;
-		height: 60px;
-		width: 100%;
-		margin-top: 15px;
-		border-color: grey;
-		border-style: solid;
+	    background-color: #D3D3D3 ;
+	    height: 60px;
+	    width: 100%;
+	    margin-top: 15px;
+	    border-color: grey;
+	    border-style: solid;
 	    border-width: 2px;
 	    border-radius: 3px;
+
 	}
 
+	/*profile picture*/
+	.image {
+	    height: 100px;
+	    width: 30%;
+	    background-color: black;
+	    margin-left: 35%;
+	    border-radius: 70%;
+	}
+
+	/*page lettering*/
 	.location {
-		height: 120px;
+	    height: 120px;
 	}
 
+	/*enert button from distance*/
 	.submit {
-		font-family: 'Poppins', sans-serif;
-		background-color: #D76721;
-		color: white;
-		border-style: none;
-		border-radius: 3px;
+	    font-family: 'Poppins', sans-serif;
+	    background-color: #D76721 ;
+	    color: white;
+	    border-style: none;
+	    border-radius: 3px;
 	}
-
+	
+	/*distance text box*/
 	.distance {
-		height: 120px;
+	    height: 120px;
 	}
-
+	
+	/*logout button*/
 	.logout {
-		width: 30%;
-		height: 40px;
-		margin-left: 35%;
-		margin-top: 15%;
-		background-color: rgba(219,71,71, 1);
-		color: white;
-		border: none;
+	    width: 30%;
+	    height: 40px;
+	    margin-left: 35%;
+	    margin-top: 15%;
+	    background-color: rgba(219,71,71, 1);
+	    color: white;
+	    border: none;
 	}
 
-
+	/*profile settings*/
 	h2 {
-		color: grey;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
-	}
-	h3 {
-		color: grey;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
+	    color: grey;
+	    font-family: 'Poppins', sans-serif;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
 	}
 
-	h4 {
-		color: white;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
-		padding-top: 5px;
+	/*max. distance*/
+	h3 {
+	    color: grey;
+	    font-family: 'Poppins', sans-serif;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
 	}
+	
+	/*logout*/
+	h4 {
+	    color: white;
+	    font-family: 'Poppins', sans-serif;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
+	    padding-top: 5px;
+	}
+
+
+	/**************************
+		Slider Functionality
+	***************************/
+
 	#slidecontainer {
 	    width: 100%; /* Width of the outside container */
 	}
+
 	.slider:hover {
 	    opacity: 1; /* Fully shown on mouse-over */
 	}
@@ -72,7 +99,7 @@
 	    appearance: none;
 	    width: 100%; /* Full-width */
 	    height: 15px;
-	    border-radius: 10px; 
+	    border-radius: 10px;
 	    background: rgba(215, 103, 33, .5); /* slider bar color */
 	    outline: none; /* Remove outline */
 	    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
@@ -84,17 +111,17 @@
 	    appearance: none;
 	    width: 25px; /* Set a specific slider handle width */
 	    height: 25px;
-	    border-radius: 50%; 
+	    border-radius: 50%;
 	    height: 25px; /* Slider handle height */
-	    background: #D76721;; /* slider background color */
+	    background: #D76721 ;; /* slider background color */
 	    cursor: pointer; /* Cursor on hover */
 	}
 
 	.slider::-moz-range-thumb {
 	    width: 25px; /* Set a specific slider handle width */
 	    height: 15px;
-	    border-radius: 5px; 
-	    background: orange; 
+	    border-radius: 5px;
+	    background: orange;
 	    cursor: pointer; /* Cursor on hover */
 	}
 }
@@ -102,207 +129,180 @@
 /*************
     Ipad
 **************/
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
+/*adds extra margins, increases font size, recenters content*/
+@media only screen 
+  and (min-device-width: 668px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
 
+	/*page lettering*/
 	.Option {
-		background-color: #D3D3D3;
-		height: 60px;
-		width: 100%;
-		margin-top: 15px;
-		border-color: grey;
-		border-style: solid;
+	    background-color: #D3D3D3 ;
+	    height: 60px;
+	    width: 100%;
+	    margin-top: 15px;
+	    border-color: grey;
+	    border-style: solid;
 	    border-width: 2px;
 	    border-radius: 3px;
 	}
 
+	/*profile picture*/
+	.image {
+	    height: 200px;
+	    width: 25%;
+	    background-color: black;
+	    margin-left: 37%;
+	    border-radius: 0%;
+	    margin-bottom: 5%;
+	}
+
+	/*page lettering*/
 	.location {
-		height: 120px;
+	    height: 120px;
 	}
 
+	/*enert button from distance*/
 	.submit {
-		font-family: 'Poppins', sans-serif;
-		background-color: #D76721;
-		color: white;
-		border-style: none;
-		border-radius: 3px;
+	    font-family: 'Poppins', sans-serif;
+	    background-color: #D76721 ;
+	    color: white;
+	    border-style: none;
+	    border-radius: 3px;
 	}
-
+	
+	/*distance text box*/
 	.distance {
-		height: 120px;
+	    height: 200px;
 	}
-
+	
+	/*logout button*/
 	.logout {
-		width: 30%;
-		height: 40px;
-		margin-left: 35%;
-		margin-top: 15%;
-		background-color: rgba(219,71,71, 1);
-		color: white;
-		border: none;
+	    width: 30%;
+	    height: 70px;
+	    margin-left: 35%;
+	  	margin-top: 15.3%;
+	    background-color: rgba(219,71,71, 1);
+	    color: white;
+	    border: none;
 	}
 
-
+	/*profile settings*/
 	h2 {
-		color: grey;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
+	    color: grey;
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 40px;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
 	}
+
+	/*max. distance*/
 	h3 {
-		color: grey;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
+	    color: grey;
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 40px;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
 	}
-
+	
+	/*logout*/
 	h4 {
-		color: white;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
-		padding-top: 5px;
-	}
-	#slidecontainer {
-	    width: 100%; /* Width of the outside container */
-	}
-
-	.slider:hover {
-	    opacity: 1; /* Fully shown on mouse-over */
-	}
-
-	.slider {
-	    -webkit-appearance: none;  /* Override default CSS styles */
-	    appearance: none;
-	    width: 100%; /* Full-width */
-	    height: 15px;
-	    border-radius: 10px; 
-	    background: rgba(215, 103, 33, .5); /* slider bar color */
-	    outline: none; /* Remove outline */
-	    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-	    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-	    transition: opacity .2s;
-	}
-
-	.slider::-webkit-slider-thumb {
-	    -webkit-appearance: none; /* Override default look */
-	    appearance: none;
-	    width: 25px; /* Set a specific slider handle width */
-	    height: 25px;
-	    border-radius: 50%; 
-	    height: 25px; /* Slider handle height */
-	    background: #D76721;; /* slider background color */
-	    cursor: pointer; /* Cursor on hover */
-	}
-
-	.slider::-moz-range-thumb {
-	    width: 25px; /* Set a specific slider handle width */
-	    height: 15px;
-	    border-radius: 5px; 
-	    background: orange; 
-	    cursor: pointer; /* Cursor on hover */
+	    color: white;
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 40px;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
+	    padding-top: 5px;
 	}
 }
 
 /*************
    Computer
 **************/
-@media only screen and (min-width: 1025px) { 
+/*adds extra margins, increases font size, recenters content*/
 
+@media screen 
+  and (min-device-width: 1025px) 
+  and (max-device-width: 2000px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+/*page lettering*/
 	.Option {
-		background-color: #D3D3D3;
-		height: 60px;
-		width: 100%;
-		margin-top: 15px;
-		border-color: grey;
-		border-style: solid;
+	    background-color: #D3D3D3 ;
+	    height: 60px;
+	    width: 100%;
+	    margin-top: 15px;
+	    border-color: grey;
+	    border-style: solid;
 	    border-width: 2px;
 	    border-radius: 3px;
 	}
 
+	/*profile picture*/
+	.image {
+	    height: 200px;
+	    width: 25%;
+	    background-color: black;
+	    margin-left: 37%;
+	    border-radius: 0%;
+	    margin-bottom: 5%;
+	}
+
+	/*page lettering*/
 	.location {
 		height: 120px;
 	}
 
+	/*enert button from distance*/
 	.submit {
-		font-family: 'Poppins', sans-serif;
-		background-color: #D76721;
-		color: white;
-		border-style: none;
-		border-radius: 3px;
+	    font-family: 'Poppins', sans-serif;
+	    background-color: #D76721 ;
+	    color: white;
+	    border-style: none;
+	    border-radius: 3px;
 	}
-
+	
+	/*distance text box*/
 	.distance {
-		height: 120px;
+	    height: 220px;
 	}
-
+	
+	/*logout button*/
 	.logout {
-		width: 30%;
-		height: 40px;
-		margin-left: 35%;
-		margin-top: 15%;
-		background-color: rgba(219,71,71, 1);
-		color: white;
-		border: none;
+	    width: 30%;
+	    height: 70px;
+	    margin-left: 35%;
+	  	margin-top: 15.3%;
+	    background-color: rgba(219,71,71, 1);
+	    color: white;
+	    border: none;
 	}
 
-
+	/*profile settings*/
 	h2 {
-		color: grey;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
+	    color: grey;
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 60px;
+	    margin-bottom: 5%;
+	  	margin-top: -10%;
 	}
+
+	/*max. distance*/
 	h3 {
-		color: grey;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
+	    color: grey;
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 40px;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
 	}
-
+	
+	/*logout*/
 	h4 {
-		color: white;
-		font-family: 'Poppins', sans-serif;
-		margin-bottom: 5%;
-		margin-top: 5%;
-		padding-top: 5px;
-	}
-	#slidecontainer {
-	    width: 100%; /* Width of the outside container */
-	}
-
-	.slider:hover {
-	    opacity: 1; /* Fully shown on mouse-over */
-	}
-
-	.slider {
-	    -webkit-appearance: none;  /* Override default CSS styles */
-	    appearance: none;
-	    width: 100%; /* Full-width */
-	    height: 15px;
-	    border-radius: 10px; 
-	    background: rgba(215, 103, 33, .5); /* slider bar color */
-	    outline: none; /* Remove outline */
-	    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-	    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-	    transition: opacity .2s;
-	}
-
-	.slider::-webkit-slider-thumb {
-	    -webkit-appearance: none; /* Override default look */
-	    appearance: none;
-	    width: 25px; /* Set a specific slider handle width */
-	    height: 25px;
-	    border-radius: 50%; 
-	    height: 25px; /* Slider handle height */
-	    background: #D76721;; /* slider background color */
-	    cursor: pointer; /* Cursor on hover */
-	}
-
-	.slider::-moz-range-thumb {
-	    width: 25px; /* Set a specific slider handle width */
-	    height: 15px;
-	    border-radius: 5px; 
-	    background: orange; 
-	    cursor: pointer; /* Cursor on hover */
+	    color: white;
+	    font-family: 'Poppins', sans-serif;
+	    font-size: 40px;
+	    margin-bottom: 5%;
+	    margin-top: 5%;
+	    padding-top: 5px;
 	}
 }

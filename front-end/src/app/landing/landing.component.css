@@ -1,7 +1,9 @@
 /*************
   Phone Only
 **************/
-@media only screen and (max-width: 500px) {
+@media only screen 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
 
 	/*ramen logo*/
 	img {
@@ -54,7 +56,10 @@
     Ipad
 **************/
 /*font size increases, button size increases, logo size increases*/
-@media only screen and (min-width: 501px) and (max-width: 1024px) {
+@media only screen 
+  and (min-device-width: 668px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
 	
 	/*ramen logo*/
 	img {
@@ -107,7 +112,11 @@
    Computer
 **************/
 /*font size increases, button size increases, margin decreases, logo size increases*/
-@media only screen and (min-width: 1025px) {
+@media screen 
+  and (min-device-width: 1025px) 
+  and (max-device-width: 2000px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
 
 	/*ramen logo*/
 	img {
