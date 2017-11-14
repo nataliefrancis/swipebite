@@ -24,7 +24,7 @@ export class MatchedComponent implements OnInit {
   // TODO: shouldn't actually use the food id directly but should look up the restaurantId based on the foodId and then use that to return the restaurant from the DB
   grabRestaurantAddress() {
     console.log('trying to grab a restaurant address');
-    this.apiService.showRestaurantAddress(this.id)
+    this.apiService.showOneRestaurant(this.id)
       .subscribe(response => {
         console.log(response.json());
         this.restaurant = response.json();
