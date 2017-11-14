@@ -40,18 +40,21 @@ function show(req, res) {
 
 //UPDATE A USER
 function update(req, res) {
-	db.User.update(userUpdate, {where: {id: req.body.id}})
-		.then((user, err) => {
-			if (err) { res.json (err); }
-			if (!user) { console.log('User was not found'); }
-			res.json(user);
-		});
+	User.findById(req.params.id)
+	.then((user, err) => {
+		if(err) { res.json(err); }
+		if(!user) { res.send("User was not found"); }
+		return user.updateAttributes(req.body);
+	})
+	.then((user) => {
+		res.json(user);
+	});
 }
 
 
 //DELETES A USER
 function destroy(req, res) {
-	res.json('you hit the user.destroy controller on the back end');
+	// res.json('you hit the user.destroy controller on the back end');
 	User.findById(req.params.id)
 		.then((user, err) =>{
 			if(err) { res.json (err); }
@@ -59,7 +62,7 @@ function destroy(req, res) {
 			return user.destroy();
 		})
 		.then(() => {
-			res.send('User was deleted');
+			res.json('User was deleted');
 		});
 }
 

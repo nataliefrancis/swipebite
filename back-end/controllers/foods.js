@@ -60,7 +60,7 @@ function destroy(req, res) {
 		return food.destroy();
 	})
 	.then(function() {
-		res.send("food was deleted");
+		res.json("food was deleted");
 	});
 }
 

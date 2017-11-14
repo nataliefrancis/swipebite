@@ -43,15 +43,15 @@ function show(req, res) {
 
 // UPDATE RESTAURANT -- ADMIN
 function update(req, res) {
-	res.json('hitting the restaurant.update controller on the back end');
-	/*
-	// updates restaurant info in the DB with additional details
-			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
-			.then((err) =>{
-				if (err) { console.log(err); }
-				if (!restaurantObjectUpdate) { console.log('restaurant is not found'); }
-			});
-	*/
+	Restaurant.findById(req.params.id)
+	.then((restaurant, err) => {
+		if (err) { res.json(err); }
+		if(!restaurant) res.send("Restaurant was not found");
+		return restaurant.updateAttributes(req.body);
+	})
+	.then((restaurant) => {
+		res.json(restaurant);
+	});
 }
 
 // DELETE RESTAURANT -- ADMIN

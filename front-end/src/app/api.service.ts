@@ -37,7 +37,7 @@ export class ApiService {
   }
 
   updateRestaurant(restaurant) {
-    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurant.id}`, restaurant);
+    return this.http.put(`${this.baseUrl}/api/restaurants/${restaurant.id}`, restaurant);
   }
 
   destroyOneRestaurant(restaurantId) {
@@ -59,11 +59,11 @@ export class ApiService {
   }
 
   updateFood(food) {
-    return this.http.get(`${this.baseUrl}/api/foods/${food.id}`, food);
+    return this.http.put(`${this.baseUrl}/api/foods/${food.id}`, food);
   }
 
   destroyOneFood(foodId) {
-    return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
+    return this.http.delete(`${this.baseUrl}/api/foods/${foodId}`);
   }
 
   ////////////////////////////// USER ROUTES //////////////////////////////////
@@ -81,10 +81,12 @@ export class ApiService {
   }
 
   updateUser(user) {
-    return this.http.get(`${this.baseUrl}/api/users/${user.id}`, user);
+    console.log('hitting the service on the front end');
+    console.log(user);
+    return this.http.put(`${this.baseUrl}/api/users/${user.id}`, user);
   }
 
   destroyOneUser(userId) {
-    return this.http.get(`${this.baseUrl}/api/users/${userId}`);
+    return this.http.delete(`${this.baseUrl}/api/users/${userId}`);
   }
 }
