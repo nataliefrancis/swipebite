@@ -46,13 +46,8 @@ export class LandingService {
 
 	callGooglePlacesAPI (body) {
 		console.log('at the landing service');
-		// location = JSON.stringify(location);
 		console.log(body);
 		console.log(typeof(body));
-		// let headers = new Headers();
-		// headers.append('Content-Type', 'application/json');
-		// console.log('these are the headers: ');
-		// console.log(headers);
 		return this.http.post(`${this.baseUrl}/api/places`, body); //, {headers: headers});
 	}
 
