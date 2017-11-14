@@ -63,7 +63,6 @@ export class ApiService {
   }
 
   destroyOneFood(foodId) {
-    console.log("hitting the api service at destroy: " +foodId);
     return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
   }
 

@@ -70,6 +70,7 @@ router.put('/api/restaurants/:id', restaurantsController.update);
 // destroy
 router.get('/api/restaurants/:id', restaurantsController.destroy);
 
+
 ////////////////////////////////////////
 ////////// PASSPORT ROUTES /////////////
 ////////////////////////////////////////
