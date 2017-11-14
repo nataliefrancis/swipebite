@@ -13,28 +13,40 @@ import { ButtonsComponent } from './main-food/buttons/buttons.component';
 import { FoodPicComponent } from './main-food/food-pic/food-pic.component';
 import { NavbarComponent } from './main-food/nav-bar/nav-bar.component';
 
+import { MatchComponent} from './matched/match/match.component';
+import { SettingsComponent } from './settings/settings/settings.component';
+
+
 
 const routes: Routes = [
     {
-    	path: 'main',
-        // redirectTo: 'main',
-        // pathMatch: 'full',
-        // children: [
-        //     {
-        //         path: '',
-        //         component: MainFoodComponent,
-
-        //     }
-        // ]
-        component: MainFoodComponent
+        path: '',
+        component: LandingComponent
     },
     {
-        path: 'landing',
-        //redirectTo: 'landing',
-        // loadChildren: './landing/landing.module',
-        // pathMatch: 'full',
-        component: LandingComponent,
-    }
+        path: 'main',
+        component: MainFoodComponent
+    },
+    // {
+    // 	path: 'main',
+    //     // redirectTo: 'main',
+    //     // pathMatch: 'full',
+    //     // children: [
+    //     //     {
+    //     //         path: '',
+    //     //         component: MainFoodComponent,
+
+    //     //     }
+    //     // ]
+    //     component: MainFoodComponent
+    // },
+    // {
+    //     path: '',
+    //     redirectTo: 'landing',
+    //     // loadChildren: './landing/landing.module',
+    //     pathMatch: 'full',
+    //     // component: LandingComponent,
+    // }
     // {
     //     path:'favorites',
     //     // redirectTo: '/favorites',

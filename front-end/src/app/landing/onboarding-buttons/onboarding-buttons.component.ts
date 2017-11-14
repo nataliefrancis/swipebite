@@ -25,6 +25,10 @@ export class OnboardingButtonsComponent implements OnInit {
 
   showCard(id) {
   	console.log(id)
+    // if (id === 1) {
+    //   this.router.navigate(['/']);
+    //   // window.location.href = "/second"
+    // }
   	if (id === 2) {
   		this.router.navigate(['/landing/second']);
   		// window.location.href = "/second"

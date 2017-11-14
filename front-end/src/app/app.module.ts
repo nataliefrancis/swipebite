@@ -18,6 +18,13 @@ import { MainFoodRoutingModule } from './main-food/main-food-routing.module';
  
 import { Injectable } from '@angular/core';
 
+import { MatchComponent } from './matched/match/match.component';
+import { SettingsComponent } from './settings/settings/settings.component';
+
+import { FormsModule } from '@angular/forms';
+// import { LandingComponent} from './landing/landing.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,8 +32,10 @@ import { Injectable } from '@angular/core';
     FavoritesComponent,
     SearchComponent,
     RestaurantsComponent,
-    WebpageComponent
-  
+    WebpageComponent,
+    MatchComponent,
+    SettingsComponent,
+    // LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,8 @@ import { Injectable } from '@angular/core';
     HttpModule,
     LandingModule,
     MainFoodModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
  
    
