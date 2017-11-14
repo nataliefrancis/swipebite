@@ -14,7 +14,7 @@ export class FavoritesComponent implements OnInit {
   }
 
   callsNextPage() {
-  	this.router.navigate(['/']);
+  	this.router.navigate(['web']);
   }
 
 }

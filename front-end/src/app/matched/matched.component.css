@@ -65,3 +65,16 @@ h1 {
 -moz-animation-delay: .5s;
 animation-delay: .5s;
 }
+button {
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	background-color: #D76721;
+	color: white;
+	border-radius: 4px;
+	border-style: none;
+	padding: 3%;
+	margin-top: 10%;
+	display: block;
+	margin-left: 33%;
+	width: 30%;
+}

@@ -14,10 +14,6 @@ import { WebpageComponent } from './webpage/webpage.component';
 const routes: Routes = [
     {
         path: '',
-        component: WebpageComponent
-    },
-    {
-        path: 'landing',
         component: LandingComponent
     },
     {
@@ -35,6 +31,10 @@ const routes: Routes = [
     {
         path: 'favorites',
         component: FavoritesComponent
+    },
+    {
+        path: 'web',
+        component: WebpageComponent
     }
     // {
     // 	path: 'main',
