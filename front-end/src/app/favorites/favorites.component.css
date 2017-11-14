@@ -1,18 +1,71 @@
-/*main container*/
-.flex-container{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+/*************
+  Phone Only
+**************/
+@media only screen and (max-width: 415px) {
+	/*main container*/
+	.flex-container{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	/*food picture only*/
+	.foodPic {
+		height: 100%;
+		width: 100%;
+		
+	}
+
+	/*edits next page button*/
+	.nextPage{
+		
+	}
 }
 
-/*food picture only*/
-.foodPic {
-	height: 100%;
-	width: 100%;
-	
+/*************
+    Ipad
+**************/
+@media only screen and (max-width: 1024px) {
+	/*main container*/
+	.flex-container{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	/*food picture only*/
+	.foodPic {
+		height: 100%;
+		width: 100%;
+		
+	}
+
+	/*edits next page button*/
+	.nextPage{
+		
+	}
 }
 
-/*edits next page button*/
-.nextPage{
-	
+/*************
+   Computer
+**************/
+@media only screen and (min-width: 1025px) {
+	/*main container*/
+	.flex-container{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	/*food picture only*/
+	.foodPic {
+		height: 100%;
+		width: 100%;
+		
+	}
+
+	/*edits next page button*/
+	.nextPage{
+		
+	}
 }
