@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   destroyOneRestaurant(restaurantId) {
-    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurantId}`);
+    return this.http.delete(`${this.baseUrl}/api/restaurants/${restaurantId}`);
   }
 
   /////////////////////////// FOOD ROUTES /////////////////////////////////

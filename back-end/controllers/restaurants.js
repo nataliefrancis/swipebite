@@ -64,7 +64,7 @@ function destroy(req, res) {
 		return restaurant.destroy();
 	})
 	.then(function() {
-		res.send("restaurant was deleted");
+		res.json({message: 'Restaurant was deleted'});
 	});
 }
 

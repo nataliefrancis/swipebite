@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { NgbModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
- 
+import { FormsModule } from '@angular/forms'; 
+
 import { Injectable } from '@angular/core';
 import { LandingComponent } from './landing/landing.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -28,10 +29,11 @@ import { AdminComponent } from './admin/admin.component';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    NgbCollapseModule, 
+    NgbCollapseModule,
     NgbDropdownModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [ ApiService ],
   bootstrap: [ AppComponent ]

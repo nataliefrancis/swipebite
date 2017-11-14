@@ -23,10 +23,12 @@ function show(req, res) {
 //CREATE A NEW FOOD - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
 	let body = req.body;
+	console.log(body);
 
 	Food.create({
 		photoUrl: body.image,
-		restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
+		// restaurantId: body.restaurant.googleId, // TODO: add fancy Sequelize mapping between food and restaurants here
+		restaurantId: null,
 		wasSeen: false
 	}).then(function(food) {
 			if(!food) res.send("food not saved");
