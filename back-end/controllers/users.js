@@ -2,7 +2,7 @@ const db = require('../models');
 const User = db.models.User;
 
 function index(req, res) {
-	console.log('you hit the user.index controller');
+	res.json('you hit the user.index controller');
 }
 
 function create(req, res) {
@@ -15,15 +15,15 @@ function create(req, res) {
 }
 
 function show(req, res) {
-	console.log('you hit the user.show controller');
+	res.json('you hit the user.show controller');
 }
 
 function update(req, res) {
-	console.log('you hit the user.update controller');
+	res.json('you hit the user.update controller');
 }
 
 function destroy(req, res) {
-	console.log('you hit the user.destroy controller');
+	res.json('you hit the user.destroy controller');
 }
 
 module.exports.index = index;
