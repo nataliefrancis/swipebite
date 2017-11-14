@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const passport = require('passport');
 const apiController = require('../controllers/api');
-// const firebaseController = require('../controllers/firebase');
 const usersController = require('../controllers/users');
-const firebaseController = require('../controllers/firebase');
 const foodsController = require('../controllers/foods');
 const restaurantsController = require('../controllers/restaurants');
+const authController = require('../controllers/authentication');
 
 /////////////////////////////////////////////////////
 ///////////// GOOGLE PLACES API ROUTES //////////////
@@ -75,23 +74,20 @@ router.delete('/api/restaurants/:id', restaurantsController.destroy);
 ////////////////////////////////////////
 
 // auth logout
-router.get('/auth/logout', (req, res) => {
-	//handle with passport
-	req.logout();
-	res.redirect('/');
-});
+router.get('/auth/logout', authController.getLogout);
 
 // auth with Google
-router.get('/auth/google', 
-	passport.authenticate('google', 
-		{ scope: ['profile'] }
-	)
-);
+router.get('/auth/google', authController.googleLogin);
 
 // callback route for google to redirect to
-router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
-	res.json(req.user);
-	// res.redirect('/api');
+router.get('/auth/google/redirect', authController.googleCallback);
+
+/////////////////////////////////////////
+////////// FRONT END ROUTES /////////////
+/////////////////////////////////////////
+
+router.get('/*', function(req, res) {
+	res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
 module.exports = router;

@@ -25,19 +25,18 @@ module.exports = function(passport) {
 	// GOOGLE STRATEGY //
 	/////////////////////
 
-	passport.use(
-		new GoogleStrategy({
+	passport.use(new GoogleStrategy({
 			//options for the Google strategy
 			callbackURL: '/auth/google/redirect',
 			clientID: process.env.clientID || keys.google.clientID,
-			clientSecret: process.env.clientSecret || keys.google.clientSecret
-		}, (accessToken, refreshToken, profile, done) => {
+			clientSecret: process.env.clientSecret || keys.google.clientSecret,
+			passReqToCallback: true
+			
+		}, (request, accessToken, refreshToken, profile, done) => {
 			//passport callback function
 			DB.User.find({where: {'googleId': profile.id}}).then((user, err) => {
-				if (err) {
-					console.log(err);
-					return done(err);
-				}
+				if (err) return done(err);
+				
 				if (user) {
 					console.log('logging in user');
 					return done(null, user);
