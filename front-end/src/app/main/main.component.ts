@@ -7,8 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+	
+	isCollapsed: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+  	this.isCollapsed = true;
+  }
 
   ngOnInit() {
   }
