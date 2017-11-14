@@ -1,9 +1,33 @@
 <p>Main</p>
 
-<img src="{{response}}" alt="picture from Google Places Images search">
-<p>Response from Landing: {{response}}</p>
+<img src={{restaurant.image}} alt="picture from Google Places Images search" style="width:300px;">
 
-<button>NO</button>
-<button>YES</button>
 <br />
+<button (click)="swipeLeft()">NO</button>
+<button (click)="swipeRight()">YES</button>
+<br />
+<a href="{{restaurant.restaurant.url}}">{{restaurant.restaurant.name}}</a>
+<h3>{{restaurant.restaurant.rating}}</h3>
 <button (click)="callsNextPage()">Next Page ></button>
+
+
+<!-- 
+<br />
+<h3>THESE ARE ALL THE THINGS WE ARE PASSING TO THIS PAGE THAT WE CAN CRUD TO THE DATABASE:</h3>
+<p>IMAGE LINK</p>
+<p>link: {{restaurant.image}}</p>
+
+<p>PHOTO DETAILS</p>
+<p>width: {{restaurant.photo.width}}</p>
+<p>photoref: {{restaurant.photo.photoref}}</p>
+
+<p>RESTAURANT DETAILS</p>
+<p>name: {{restaurant.restaurant.name}}</p>
+<p>rating: {{restaurant.restaurant.rating}}</p>
+<p>website: {{restaurant.restaurant.url}}</p>
+<p>googleID: {{restaurant.restaurant.googleId}}</p>
+<p>placeID: {{restaurant.restaurant.placeId}}</p>
+<p>latitude: {{restaurant.restaurant.latitude}}</p>
+<p>longitude: {{restaurant.restaurant.longitude}}</p> 
+-->
+

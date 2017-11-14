@@ -1,39 +1,59 @@
 let db = require('../models');
 let Restaurant = db.models.Restaurant;
 
-let newRest = {
-	name: 'See if this works',
-	googleId: null,
-	placeId: null,
-	latitude: null,
-	longitude: null,
-	address: null,
-	rating: null,
-	url: null
-};
-
+// INDEX OF RESTAURANTS -- ??
 function index(req, res) {
 	res.json('hitting the restaurant.index controller');
 }
 
-// CREATE A NEW RESTAURANT - USER FAVORITED
+// CREATE A NEW RESTAURANT - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
-	Restaurant.create(req.body).then(function(restaurant) {
-		if(!restaurant) res.send("restaurant was not saved");
-		res.json(restaurant);
-	});
+	console.log('hitting the restaurant.create controller');
+	let body = req.body;
+	
+	Restaurant.create({
+		name: body.restaurant.name,
+		googleId: body.restaurant.googleId,
+		placeId: body.restaurant.placeId,
+		latitude: body.restaurant.latitude, 
+		longitude: body.restaurant.longitude,
+		address: body.restaurant.address,
+		rating: body.restaurant.rating,
+		url: body.restaurant.url
+		}).then((restaurant, err) => {
+				if (err) { res.json(err); }
+				res.json(restaurant);
+	}); 
 }
 
+// SHOW ONE RESTAURANT - MATCHED PAGE FOR GOOGLE MAPS LINK
 function show(req, res) {
-	res.json('hitting the restaurant.show controller');
+	console.log(req.params.id);
+
+	Restaurant.findById(req.params.id)
+		.then((restaurant, err) => {
+			if(err) { res.json (err); }
+			console.log('hitting the restaurant.show controller');
+			res.json(restaurant);
+		});
 }
 
+// UPDATE RESTAURANT -- ??
 function update(req, res) {
 	res.json('hitting the restaurant.update controller');
+	/*
+	// updates restaurant info in the DB with additional details
+			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
+			.then((err) =>{
+				if (err) { console.log(err); }
+				if (!restaurantObjectUpdate) { console.log('restaurant is not found'); }
+			});
+	*/
 }
 
-//DELETE RESTAURANT
+// DELETE RESTAURANT -- ??
 function destroy(req, res) {
+	res.json('hitting the restaurant.destroy controller');
 	Restaurant.findById(req.params.id)
 	.then(function(restaurant){
 		if(!restaurant) res.send("restaurant was not found");

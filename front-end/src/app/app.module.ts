@@ -12,6 +12,7 @@ import { MainComponent } from './main/main.component';
 import { MatchedComponent } from './matched/matched.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ApiService } from './api.service';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ApiService } from './api.service';
     SettingsComponent,
     MainComponent,
     MatchedComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 let db = require('../models');
-let Food = db.models.Foods;
+let Food = db.models.Food;
 
 
-// INDEX ROUTE
+// INDEX OF FOODS - FAVORITES PAGE
 function index(req, res) {
 	Food.findAll().then(function(food) {
 		console.log("you've hit the food index route");
@@ -10,27 +10,32 @@ function index(req, res) {
 	});
 }
 
-// SHOW ONE
+// SHOW ONE FOOD - MATCHED PAGE
 function show(req, res) {
 	Food.findById(req.params.id)
-	.then(function(food) {
-		if(!food) res.send("food was not found");
-		console.log("you have hit the food show route");
-		res.json(food);
+		.then(function(food) {
+			if(!food) res.send("food was not found");
+			console.log("you have hit the food show route");
+			res.json(food);
 	});
 }
 
-
-//CREATE A NEW FOOD - USER FAVORITED
+//CREATE A NEW FOOD - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
-	Food.create(req.body).then(function(food) {
-		if(!food) res.send("food not saved");
-		console.log("You've hit the create route");
-		res.json(food);
+	let body = req.body;
+
+	Food.create({
+		photoUrl: body.image,
+		restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
+		wasSeen: false
+	}).then(function(food) {
+			if(!food) res.send("food not saved");
+			console.log("You've hit the food create route");
+			res.json(food);
 	});
 }
 
-// UPDATE
+// UPDATE FOOD - MATCHED PAGE, UPDATE WASSEEN BOOLEAN
 function update(req, res) {
 	Food.findById(req.params.id)
 	.then(function(food) {
@@ -44,8 +49,7 @@ function update(req, res) {
 	});
 }
 
-// DESTROY
-
+// DESTROY FOOD - FAVORITES PAGE
 function destroy(req, res) {
 	Food.findById(req.params.id)
 	.then(function(food) {

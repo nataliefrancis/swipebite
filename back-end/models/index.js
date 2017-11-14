@@ -5,8 +5,8 @@ const user_name = keys.dbUsername;
 const sequelize = new Sequelize(process.env.DATABASE_URL || `postgres://${user_name}@localhost:5432/swipebite`);
 
 // EXPORTS MODELS AND SEQUELIZE FOR DB SETUP
-module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;
+module.exports.Sequelize = Sequelize;
 
 // IMPORT DB MODELS
 const User = sequelize.import('./user');
