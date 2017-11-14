@@ -27,7 +27,7 @@ export class LandingComponent implements OnInit {
 
 	// FINDS THE USER’S LOCATION FROM THE BROWSER WINDOW
 	// AND SEND IT TO GOOGLE PLACES API
-	callGooglePlacesAPI() {
+	callGooglePlacesAPI(router) {
 	 window.navigator.geolocation.getCurrentPosition(position => {
 	   this.coordinates = {
 	     latitude: position.coords.latitude,
@@ -38,6 +38,9 @@ export class LandingComponent implements OnInit {
 	     .subscribe(response => {
 	     console.log(response.json());
 	     this.oneFood = response.json();
+	     // console.log(typeof(this.oneFood));
+	     // console.log(typeof(response));
+	     this.router.navigate(['/main', { response } ]); 
 	   });
 	 });
 	}
