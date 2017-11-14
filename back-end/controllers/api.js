@@ -158,21 +158,24 @@ function show(reqMaster, resMaster) {
 			console.log(photosArray[k].width);
 			console.log(photosArray[k].photoref);
 
-			let options = { 
-				method: 'GET',
-			  url: 'https://maps.googleapis.com/maps/api/place/photo',
-			  qs: { 
-						maxwidth: photosArray[k].width,
-			     photoreference: photosArray[k].photoref,
-			     key: process.env.clientSecret || keys.placesAPIKey
-					}
-			};
+			let imageUrl = 
+				'https://maps.googleapis.com/maps/api/place/photo' +
+				'?maxwidth=' + photosArray[k].width +
+				'&photoreference=' + photosArray[k].photoref +
+				'&key=' + ( process.env.clientSecret || keys.placesAPIKey );
 
-			request(options, function (err3, res3, body3) {
-			  if (err3) throw new Error(err3);
+			console.log(imageUrl);
 
-			  resMaster.json({image: body3});
-			});
+			//https://maps.googleapis.com/maps/api/place/photo
+			//?maxwidth=4160
+			//&photoreference=CmRaAAAAEtd5kVIU_bAZ45NrIr1bLNNALN7FSxiA35-Of-9EwjwtX0zOAYnaeMdMIEF-Z6ffSVrHNsKwPcnqnzxkQnD1W6Tt6GgdLx2ZCQGllE70N53blo1ZylH5gVzFPm3sEaiZEhD15NTQFHDbf6Xv_vuzs_XJGhSel6qSzXUR8_zp57tz43kWmC-lGw
+			//&key=AIzaSyAJMHZULCN5jU2_pRHSTG456eZFm4VXJWw
+
+			//request(options, function (err3, res3, body3) {
+			  //if (err3) throw new Error(err3);
+
+			resMaster.json(imageUrl); //{image: body3});
+			//});
 		});		
 	});	
 }

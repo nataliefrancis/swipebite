@@ -12,6 +12,7 @@ export class LandingComponent implements OnInit {
 
 	baseUrl : string;
  	coordinates : any;
+ 	oneFood;
 
   constructor(private router: Router, private apiService : ApiService) { }
 
@@ -36,12 +37,13 @@ export class LandingComponent implements OnInit {
 	   this.apiService.callGooglePlacesAPI(this.coordinates)
 	     .subscribe(response => {
 	     console.log(response.json());
+	     this.oneFood = response.json();
 	   });
 	 });
 	}
-	   
+
   callsNextPage() {
-  	this.router.navigate(['/settings']);
+  	this.router.navigate(['/main']);
   }
 
 }
