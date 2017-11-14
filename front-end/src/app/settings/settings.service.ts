@@ -15,9 +15,9 @@ export class SettingsService {
 		return this.http.post(`${this.baseUrl}/`, newZipcode);
 	}
 
-	// updateArtist(updatedArtist) {
-	// 	return this.http.put(`${this.baseUrl}/api/artists/${updatedArtist.id}`, updatedArtist);		
-	// }
+	getImage(imageUrl: string) {
+        return this.http.get(imageUrl);
+    }
   constructor(private http: Http) { }
 
 }

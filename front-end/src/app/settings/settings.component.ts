@@ -27,12 +27,12 @@ export class SettingsComponent implements OnInit {
   }
 
 
- // getImage (newImage ) {
- //    this.settingsService.getImage(newImage)
- //    .subscribe( response => {
- //      let image = []
- //    })
- //  }
+ getImage (newImage ) {
+    this.settingsService.getImage(newImage)
+    .subscribe( response => {
+      let image = []
+    })
+  }
 
   callsNextPage() {
   	this.router.navigate(['/main']);
