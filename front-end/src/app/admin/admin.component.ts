@@ -43,6 +43,14 @@ export class AdminComponent implements OnInit {
   	})
   }
 
+  editOneRestaurant(restaurant) {
+  	this.apiService.updateRestaurant(restaurant)
+  	.subscribe(response => {
+  		console.log(response.json());
+  		this.oneRestaurant = response.json();
+  	})
+  }
+
   deleteOneRestaurant(restaurantId) {
   	console.log('restaurantId at admin component:' + restaurantId);
   	this.apiService.destroyOneRestaurant(restaurantId)
@@ -83,18 +91,6 @@ export class AdminComponent implements OnInit {
   	})
   }
 
-  /*
-	updateArtist(updatedArtist) {
-    console.log("updating artist yo!");
-    this.artistsService.updateArtist(updatedArtist)
-    .subscribe(response => {
-      console.log(response.json());
-      let artist = response.json();
-      window.location.href = "/artists/" + artist.id;
-    });  
-  }
-  */
-
   deleteOneFood(foodId) {
   	this.apiService.destroyOneFood(foodId)
   	.subscribe(response => {
@@ -119,6 +115,14 @@ export class AdminComponent implements OnInit {
 
   showOneUser(userId) {
   	this.apiService.showOneUser(userId)
+  	.subscribe(response => {
+  		console.log(response.json());
+  		this.oneUser = response.json();
+  	})
+  }
+
+  editOneUser(user) {
+  	this.apiService.updateUser(user)
   	.subscribe(response => {
   		console.log(response.json());
   		this.oneUser = response.json();
