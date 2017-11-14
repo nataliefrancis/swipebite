@@ -3,18 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LandingComponent } from './landing/landing.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { MainFoodComponent } from './main-food/main-food.component';
-
-import { LandingModule } from './landing/landing.module';
-import { MainFoodModule } from './main-food/main-food.module';
-// import { MainFoodRoutingModule } from './main-food/main-food-routing.module';
-
-import { ButtonsComponent } from './main-food/buttons/buttons.component';
-import { FoodPicComponent } from './main-food/food-pic/food-pic.component';
-import { NavbarComponent } from './main-food/nav-bar/nav-bar.component';
-
-import { MatchComponent} from './matched/match/match.component';
-import { SettingsComponent } from './settings/settings/settings.component';
+import { MainComponent } from './main/main.component';
+import { MatchedComponent } from './matched/matched.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -24,8 +15,20 @@ const routes: Routes = [
         component: LandingComponent
     },
     {
+        path: 'settings',
+        component: SettingsComponent
+    },
+    {
         path: 'main',
-        component: MainFoodComponent
+        component: MainComponent
+    },
+    {
+        path: 'matched',
+        component: MatchedComponent
+    },
+    {
+        path: 'favorites',
+        component: FavoritesComponent
     },
     // {
     // 	path: 'main',

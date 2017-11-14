@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
 })
-export class LandingComponent implements OnInit {
+export class MainComponent implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -14,7 +14,7 @@ export class LandingComponent implements OnInit {
   }
 
   callsNextPage() {
-  	this.router.navigate(['/settings']);
+  	this.router.navigate(['/matched']);
   }
 
 }
