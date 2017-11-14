@@ -12,7 +12,7 @@ function index(req, res) {
 
 // SHOW ONE FOOD - MATCHED PAGE
 function show(req, res) {
-	Food.findById(req.params.id)
+	Food.findById(req.params.id, {include: db.models.restaurant })
 		.then(function(food) {
 			if(!food) res.send("food was not found");
 			console.log("you have hit the food show route");
