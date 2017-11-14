@@ -37,7 +37,7 @@ function show(reqMaster, resMaster) {
 			// TODO: need to search the database for the user's distance setting (default: set to ??)
 			radius: ( distance || '500' ),
 			type: 'restaurant', //can we add food? 
-			// opennow: 'true',
+			opennow: 'true',
 			key: process.env.clientSecret || keys.placesAPIKey
 		}
 	};

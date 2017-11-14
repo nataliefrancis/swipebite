@@ -1,11 +1,21 @@
 <p>Admin</p>
 
-<button (click)="grabsAllRestaurants()">Restaurants</button>
-<button (click)="grabsAllFoods()">Foods</button>
-<button (click)="grabsAllUsers()">Users</button>
+<button (click)="grabsAllRestaurants()">Index Restaurants</button>
+<button (click)="grabsAllFoods()">Index Foods</button>
+<button (click)="grabsAllUsers()">Index Users</button>
 
-<p>Restaurant: {{restaurant}}</p>
-<p>Food: {{food}}</p>
-<p>User: {{user}}</p>
+<h1>Restaurants: {{restaurants}}</h1>
+
+<h1>Users: {{users}}</h1>
+
+<h1>Foods:</h1>
+	<p>One Food: {{oneFood.id}}</p>
+	<img src="{{oneFood.photoUrl}}" alt="{{oneFood.id}}">
+<div *ngFor="let food of foods">
+	<img src="{{food.photoUrl}}" style="width:100px;">
+	<p>Food Id: {{ food.id }}</p>
+	<button data-id="{{food.id}}" (click)="showOneFood(this.food.id)">Edit</button>
+	<button data-id="{{food.id}}" (click)="deleteOneFood(this.food.id)">Delete</button>
+</div>
 
 <button (click)="callsNextPage()">Next Page ></button>
