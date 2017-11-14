@@ -14,6 +14,6 @@ export class SettingsComponent implements OnInit {
   }
 
   callsNextPage() {
-  	this.router.navigate(['/']);
+  	this.router.navigate(['/admin']);
   }
 }

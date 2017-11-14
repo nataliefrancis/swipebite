@@ -1,3 +1,11 @@
-<p>
-  admin works!
-</p>
+<p>Admin</p>
+
+<button (click)="grabsAllRestaurants()">Restaurants</button>
+<button (click)="grabsAllFoods()">Foods</button>
+<button (click)="grabsAllUsers()">Users</button>
+
+<p>Restaurant: {{restaurant}}</p>
+<p>Food: {{food}}</p>
+<p>User: {{user}}</p>
+
+<button (click)="callsNextPage()">Next Page ></button>

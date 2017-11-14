@@ -25,7 +25,7 @@ export class ApiService {
   /////////////////////////// RESTAURANT ROUTES ///////////////////////////////// 
 
   indexRestaurants() {
-    return "you've hit the index restaurants route on the front end";
+    return this.http.get(`${this.baseUrl}/api/restaurants`);
   }
 
   createRestaurant(body) {
@@ -54,7 +54,7 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/api/foods`, body);
   }
 
-  showFood(id) {
+  showOneFood(id) {
     console.log(id);
     return this.http.get(`${this.baseUrl}/api/foods/${id}`);
   }
@@ -65,5 +65,27 @@ export class ApiService {
 
   destroyOneFood(foodId) {
     return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
+  }
+
+  ////////////////////////////// USER ROUTES //////////////////////////////////
+
+  indexUsers() {
+    return "you've hit the index users route on the front end";
+  }
+
+  createUser() {
+    return "you've hit the create users route on the front end";
+  }
+
+  showOneUser() {
+    return "you've hit the show users route on the front end";
+  }
+
+  updateUser() {
+    return "you've hit the update users route on the front end";
+  }
+
+  destroyOneUser() {
+    return "you've hit the destroy users route on the front end";
   }
 }
