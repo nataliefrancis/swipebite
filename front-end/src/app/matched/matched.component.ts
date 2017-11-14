@@ -32,7 +32,7 @@ export class MatchedComponent implements OnInit {
   }
 
   grabOneFood() {
-    this.apiService.showFood(this.id)
+    this.apiService.showOneFood(this.id)
       .subscribe(response => {
         console.log(response.json());
         this.oneFood = response.json();

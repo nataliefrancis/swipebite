@@ -94,8 +94,4 @@ router.get('/auth/google/redirect', passport.authenticate('google'), (req, res) 
 
 router.post('/api/places', apiController.show);
 
-// router.get('/api/redirect', (req, res) => {
-// 	res.json('oh heyyyyy');
-// });
-
 module.exports = router;

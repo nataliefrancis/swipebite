@@ -51,6 +51,8 @@ function update(req, res) {
 
 // DESTROY FOOD - FAVORITES PAGE
 function destroy(req, res) {
+	console.log("hitting the destroy food route in the back end");
+	console.log(req.params.id);
 	Food.findById(req.params.id)
 	.then(function(food) {
 		if(!food) res.send("food was not found");

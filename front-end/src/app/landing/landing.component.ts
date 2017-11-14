@@ -23,6 +23,10 @@ export class LandingComponent implements OnInit {
 	     this.baseUrl = "";
 	   }
   }
+
+  callsPreviousPage() {
+    this.router.navigate(['/admin']);
+  }
   
   callsNextPage() {
   	this.router.navigate(['/main']);

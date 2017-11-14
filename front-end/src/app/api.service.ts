@@ -25,23 +25,23 @@ export class ApiService {
   /////////////////////////// RESTAURANT ROUTES ///////////////////////////////// 
 
   indexRestaurants() {
-    return "you've hit the index restaurants route on the front end";
+    return this.http.get(`${this.baseUrl}/api/restaurants`);
   }
 
-  createRestaurant(body) {
-    return this.http.post(`${this.baseUrl}/api/restaurants`, body);
+  createRestaurant(restaurant) {
+    return this.http.post(`${this.baseUrl}/api/restaurants`, restaurant);
   }
 
-  showOneRestaurant(id) {
-    return this.http.get(`${this.baseUrl}/api/restaurants/${id}`);
+  showOneRestaurant(restaurantId) {
+    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurantId}`);
   }
 
-  updateRestaurant() {
-    return "you've hit the update restaurant route on the front end";
+  updateRestaurant(restaurant) {
+    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurant.id}`, restaurant);
   }
 
-  destroyOneRestaurant() {
-    return "you've hit the destroy restaurant route on the front end";
+  destroyOneRestaurant(restaurantId) {
+    return this.http.get(`${this.baseUrl}/api/restaurants/${restaurantId}`);
   }
 
   /////////////////////////// FOOD ROUTES /////////////////////////////////
@@ -50,20 +50,41 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/foods`);
   }
 
-  createFood(body) {
-    return this.http.post(`${this.baseUrl}/api/foods`, body);
+  createFood(food) {
+    return this.http.post(`${this.baseUrl}/api/foods`, food);
   }
 
-  showFood(id) {
-    console.log(id);
-    return this.http.get(`${this.baseUrl}/api/foods/${id}`);
+  showOneFood(foodId) {
+    return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
   }
 
-  updateFood() {
-    return "you've hit the update food route on the front end";
+  updateFood(food) {
+    return this.http.get(`${this.baseUrl}/api/foods/${food.id}`, food);
   }
 
   destroyOneFood(foodId) {
     return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
+  }
+
+  ////////////////////////////// USER ROUTES //////////////////////////////////
+
+  indexUsers() {
+    return this.http.get(`${this.baseUrl}/api/users`);
+  }
+
+  createUser(user) {
+    return this.http.post(`${this.baseUrl}/api/users`, user);
+  }
+
+  showOneUser(userId) {
+    return this.http.get(`${this.baseUrl}/api/users/${userId}`);
+  }
+
+  updateUser(user) {
+    return this.http.get(`${this.baseUrl}/api/users/${user.id}`, user);
+  }
+
+  destroyOneUser(userId) {
+    return this.http.get(`${this.baseUrl}/api/users/${userId}`);
   }
 }

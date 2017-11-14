@@ -3,12 +3,12 @@ let Restaurant = db.models.Restaurant;
 
 // INDEX OF RESTAURANTS -- ??
 function index(req, res) {
-	res.json('hitting the restaurant.index controller');
+	res.json('hitting the restaurant.index controller on the back end');
 }
 
 // CREATE A NEW RESTAURANT - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
-	console.log('hitting the restaurant.create controller');
+	console.log('hitting the restaurant.create controller on the back end');
 	let body = req.body;
 	
 	Restaurant.create({
@@ -33,14 +33,14 @@ function show(req, res) {
 	Restaurant.findById(req.params.id)
 		.then((restaurant, err) => {
 			if(err) { res.json (err); }
-			console.log('hitting the restaurant.show controller');
+			console.log('hitting the restaurant.show controller on the back end');
 			res.json(restaurant);
 		});
 }
 
 // UPDATE RESTAURANT -- ??
 function update(req, res) {
-	res.json('hitting the restaurant.update controller');
+	res.json('hitting the restaurant.update controller on the back end');
 	/*
 	// updates restaurant info in the DB with additional details
 			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
@@ -53,7 +53,7 @@ function update(req, res) {
 
 // DELETE RESTAURANT -- ??
 function destroy(req, res) {
-	res.json('hitting the restaurant.destroy controller');
+	res.json('hitting the restaurant.destroy controller on the back end');
 	Restaurant.findById(req.params.id)
 	.then(function(restaurant){
 		if(!restaurant) res.send("restaurant was not found");
