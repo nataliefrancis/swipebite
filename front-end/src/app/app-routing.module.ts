@@ -3,32 +3,57 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LandingComponent } from './landing/landing.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { MainFoodComponent } from './main-food/main-food.component';
-
-import { LandingModule } from './landing/landing.module';
-import { MainFoodModule } from './main-food/main-food.module';
-
+import { MainComponent } from './main/main.component';
+import { MatchedComponent } from './matched/matched.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'landing',
-        // loadChildren: './landing/landing.module',
-        pathMatch: 'full',
-        // component: LandingComponent
+        component: LandingComponent
     },
     {
-    	path: 'landing/main',
-        redirectTo: '/main',
-        pathMatch: 'full',
-        // component: MainFoodComponent
+        path: 'settings',
+        component: SettingsComponent
     },
     {
-        path:'favorites',
-        // redirectTo: '/favorites',
-        // pathMatch: 'full',
+        path: 'main',
+        component: MainComponent
+    },
+    {
+        path: 'matched',
+        component: MatchedComponent
+    },
+    {
+        path: 'favorites',
         component: FavoritesComponent
-    }
+    },
+    // {
+    // 	path: 'main',
+    //     // redirectTo: 'main',
+    //     // pathMatch: 'full',
+    //     // children: [
+    //     //     {
+    //     //         path: '',
+    //     //         component: MainFoodComponent,
+
+    //     //     }
+    //     // ]
+    //     component: MainFoodComponent
+    // },
+    // {
+    //     path: '',
+    //     redirectTo: 'landing',
+    //     // loadChildren: './landing/landing.module',
+    //     pathMatch: 'full',
+    //     // component: LandingComponent,
+    // }
+    // {
+    //     path:'favorites',
+    //     // redirectTo: '/favorites',
+    //     // pathMatch: 'full',
+    //     component: FavoritesComponent
+    // }
 ];
 
 @NgModule({
