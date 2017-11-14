@@ -7,3 +7,19 @@ body {
 	margin: 0 auto;
 	background-color: rgba(215, 103, 33,.4);
 }
+h1 {
+	font-family: 'Heebo', sans-serif;
+	color: white;
+	padding-top: 10px;
+}
+header {
+	width: 100%;
+	background-color: #D76721;
+	margin-bottom: 15%;
+	padding: 1%;
+	text-align: center;
+}
+img {
+	max-width: 15%;
+	margin-top: -5px;
+}

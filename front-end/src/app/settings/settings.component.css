@@ -1,0 +1,95 @@
+.Option {
+	background-color: #D3D3D3;
+	height: 60px;
+	width: 100%;
+	margin-top: 15px;
+	border-color: grey;
+	border-style: solid;
+    border-width: 2px;
+    border-radius: 3px;
+
+}
+
+.location {
+	height: 120px;
+}
+
+.submit {
+	font-family: 'Poppins', sans-serif;
+	background-color: #D76721;
+	color: white;
+	border-style: none;
+	border-radius: 3px;
+}
+
+.distance {
+	height: 120px;
+}
+
+.logout {
+	width: 30%;
+	height: 40px;
+	margin-left: 35%;
+	margin-top: 15%;
+	background-color: rgba(219,71,71, 1);
+	color: white;
+	border: none;
+}
+
+
+h2 {
+	color: grey;
+	font-family: 'Poppins', sans-serif;
+	margin-bottom: 5%;
+	margin-top: 5%;
+}
+h3 {
+	color: grey;
+	font-family: 'Poppins', sans-serif;
+	margin-bottom: 5%;
+	margin-top: 5%;
+}
+
+h4 {
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	padding-top: 5px;
+}
+#slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 15px;
+    border-radius: 10px; 
+    background: rgba(215, 103, 33, .5); /* slider bar color */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px;
+    border-radius: 50%; 
+    height: 25px; /* Slider handle height */
+    background: #D76721;; /* slider background color */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 15px;
+    border-radius: 5px; 
+    background: orange; 
+    cursor: pointer; /* Cursor on hover */
+}
