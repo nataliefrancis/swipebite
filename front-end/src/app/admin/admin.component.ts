@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit {
   grabsAllFoods() {
   	this.apiService.indexFoods()
   	.subscribe(response => {
-  		console.log(response.json());
+  		// console.log(response.json());
   		this.foods = response.json();
   	})
   }
@@ -60,10 +60,35 @@ export class AdminComponent implements OnInit {
   	this.apiService.destroyOneFood(foodId)
   	.subscribe(response => {
   		console.log(response.json());
+  		console.log(this.foods);
+  		console.log(foodId);
   		let foodIndex = this.foods.indexOf(foodId);
+  		console.log(foodIndex);
   		this.foods.splice(foodIndex, 1);  	
   	})
   }
+
+  /*
+	grabAllFoods(userId) {
+  	console.log('grabbing all foods for user' + userId);
+
+    this.apiService.indexFoods()
+      .subscribe(response => {
+        console.log(response.json());
+        this.allFoods = response.json();
+      })
+  }
+
+  deletesOneFood(foodId) {
+  	console.log("I'm deleting food number:" + foodId);
+  	this.apiService.destroyOneFood(foodId)
+  		.subscribe(response => {
+  			console.log(response.json());
+  			let foodIndex = this.allFoods.indexOf(foodId);
+  			this.allFoods.splice(foodIndex, 1);
+  		})
+  }
+  */
 
   // USER CALLS //
 
