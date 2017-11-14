@@ -1,8 +1,11 @@
-/*food picture*/
+/**************
+  food picture
+***************/
 .flex-container{
 	display: flex;
 	flex-wrap: wrap;
 }
+
 
 #foodPicture{
 	height: 75.7%;
@@ -13,29 +16,16 @@
 	margin-bottom: 0;
 }
 
-#header{
-	background-color: #D76721;
-	margin: 0;
-	width: 100%;
-	height: 20%;
-	text-align: center;
-	color: white;
-	padding: 6%;
-	font-family: Heebo;
-}
-
-
-
-.distance{
-	text-align: left;
-}
-
-/*Nav Bar*/
+/**************
+    Nav Bar
+***************/
 .flex-container{
 	display: flex;
 	flex-wrap: wrap;
+	align-content: center;
 }
 
+/*nav bar dropped down when collapsed*/
 #dropDown{
 	text-align: left;
 	background-color: rgba(215, 103, 33, 0.8);
@@ -51,6 +41,7 @@
 	font-family: Poppins;
 }
 
+/*nav bar drop down when not collapsed*/
 #dropped{
 	margin-top: 9%;
 	width: 106.9%;
@@ -59,13 +50,9 @@
 	color: white;
 }
 
-.flex-container{
-	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
-}
-
-/*bottom buttons*/
+/**********************
+  Like/Dislike Buttons
+***********************/
 #buttons{
 	margin-left: 0%;
 	margin-top: 100%;
@@ -80,6 +67,10 @@
     line-height: 1.33;
     border: 5px solid #e6e6e6;
 }
+
+/*****************
+  Next Page Button
+******************/
 
 .nextPage {
 	margin: 10px;

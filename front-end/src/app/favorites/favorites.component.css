@@ -1,11 +1,18 @@
+/*main container*/
 .flex-container{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
+/*food picture only*/
 .foodPic {
-	height: 50%;
+	height: 100%;
 	width: 100%;
+	
+}
+
+/*edits next page button*/
+.nextPage{
 	
 }

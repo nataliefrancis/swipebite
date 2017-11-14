@@ -1,19 +1,26 @@
-<button (click)="callsNextPage()">Button</button>
+<div class="flex-container">
 
-<!--Search -->
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for a restaurant">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Search</button>
-      </span>
+  <!--Next Page Button-->
+  <button class="nextPage btn btn-danger" (click)="callsNextPage()">Go Home</button>
+
+  <!--Search Bar -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for a restaurant">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Search</button>
+        </span>
+      </div>
     </div>
   </div>
-</div>
 
-<!--Resturnats-->
-<div class="flex-container">
-	<img class="foodPic" src="https://ariapeptide.files.wordpress.com/2014/07/r-healthy-summer-fruit-large570.jpg">
-	<button type="button" class="btn btn-danger">Delete</button>
+  <!--Resturnats Images -->
+  <div class="row">
+    <div class="col-lg-12">
+    	<img class="foodPic" src="https://ariapeptide.files.wordpress.com/2014/07/r-healthy-summer-fruit-large570.jpg">
+      <!--Delete Button-->
+    	<button type="button" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
 </div>

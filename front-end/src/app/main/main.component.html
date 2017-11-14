@@ -4,7 +4,10 @@
 	<div>
 		<!-- <h1 id="header">swipe<img src="https://i.imgur.com/bi1iy66.png" height="45px" width="45px">Bite</h1> -->
 		<!-- src="https://static.boredpanda.com/blog/wp-content/uploads/2016/10/rescue-dog-restaurants-food-instagram-popeyethefoodie-23-581057fc1443a__700.jpg" --> 
-		<img id="foodPicture">	
+
+		<!--prints pout the food picture from the API-->
+		<img id="foodPicture">
+		<!-- {{foodPicture}} -->
 	</div>
 </div>
 
@@ -14,15 +17,20 @@
 		<button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" (click)="isCollapsed = !isCollapsed">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-			<a clas="navbar-brand"><!-- {{resturant.name}} --></a>
+		<!--Print the resturnt name-->
+		<a clas="navbar-brand"><!-- {{resturant.name}} --></a>
+		<!--sets state to isCollapsed to start-->
 		<div id="dropped" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" >
 			<ul class="navbar-nav">
+				<!--Print the price-->
 				<li class="navbar-item">
 					<p><!-- {{price}} --></p>
 				</li>
+				<!--print the website url-->
 				<li class="navbar-item">
 					<p><!-- {{website}} --></p>
 				</li>
+				<!--Print the resturnat rating-->
 				<li>
 					<p><!-- {{rateing}} --></p>
 				</li>
@@ -31,12 +39,14 @@
 	</nav>
 
 	<!--Buttons-->
+	<!--If the class is isCollapsed then show the buttons if not remove the buttons-->
 	<div *ngIf = "isCollapsed">
 		<div id="buttons">
+			<!--creates a circle button with an x favacon-->
 			<button type="button" class="btn btn-warning btn-circle btn-xl">
 				<i class="fa fa-times"></i>
 			</button>
-
+			<!--creates a circle button with heart favicon-->
 			<button type="button" class="btn btn-danger btn-circle btn-xl">
 			 	<i class="fa fa-heart"></i>
 			</button>
