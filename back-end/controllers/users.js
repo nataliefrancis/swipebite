@@ -1,8 +1,12 @@
 const db = require('../models');
 const User = db.models.User;
 
+// INDEX OF USERS - SENDS ALL
 function index(req, res) {
-	res.json('you hit the user.index controller on the back end');
+	User.findAll().then(function(user) {
+		console.log("hitting the user.index controller on the back end");
+		res.json(user);
+	});
 }
 
 function create(req, res) {
