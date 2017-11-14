@@ -88,6 +88,7 @@
 /*************
     Ipad
 **************/
+/*changes middle div size, font size and margins*/
 @media only screen 
   and (min-device-width: 668px) 
   and (max-device-width: 1024px) 
@@ -95,10 +96,10 @@
 
 	/*over matched outline conatiner*/
 	.matchedContainer {
-		margin-top: -10px;
-		margin-left: 10%;
-		height: 500px;
-		width: 300px;
+		margin-top: -50px;
+		margin-left: 11%;
+		height: 750px;
+		width: 600px;
 		border-radius: 5px;
 		background-color: rgba(215, 103, 33, .70);
 	}
@@ -132,6 +133,7 @@
 	.matchedDescription {
 		margin-top: 20px;
 		font-family: 'Poppins', sans-serif;
+		font-size: 30px;
 		color: white;
 	}
 
@@ -176,6 +178,7 @@
 /*************
    Computer
 **************/
+/*changes margins*/
 @media screen 
   and (min-device-width: 1025px) 
   and (max-device-width: 2000px) 
@@ -184,10 +187,10 @@
   	
 	/*over matched outline conatiner*/
 	.matchedContainer {
-		margin-top: -10px;
-		margin-left: 10%;
-		height: 500px;
-		width: 300px;
+		margin-top: -50px;
+		margin-left: 33%;
+		height: 750px;
+		width: 600px;
 		border-radius: 5px;
 		background-color: rgba(215, 103, 33, .70);
 	}
@@ -221,6 +224,7 @@
 	.matchedDescription {
 		margin-top: 20px;
 		font-family: 'Poppins', sans-serif;
+		font-size: 30px;
 		color: white;
 	}
 
