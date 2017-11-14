@@ -74,13 +74,27 @@ export class AdminComponent implements OnInit {
   }
 
   editOneFood(food) {
-  	console.log("this is what we're sending to the backend" + food);
+  	console.log("this is the food we're sending to the backend");
+  	console.log(food);
   	this.apiService.updateFood(food)
   	.subscribe(response => {
   		console.log(response.json());
-  		this.oneFood = response.json();
+  		this.router.navigate(['/admin']);
+  		// this.oneFood = response.json();
   	})
   }
+
+  /*
+	updateArtist(updatedArtist) {
+    console.log("updating artist yo!");
+    this.artistsService.updateArtist(updatedArtist)
+    .subscribe(response => {
+      console.log(response.json());
+      let artist = response.json();
+      window.location.href = "/artists/" + artist.id;
+    });  
+  }
+  */
 
   deleteOneFood(foodId) {
   	this.apiService.destroyOneFood(foodId)
