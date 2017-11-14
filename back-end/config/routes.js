@@ -6,15 +6,20 @@ const foodsController = require('../controllers/foods');
 const restaurantsController = require('../controllers/restaurants');
 const authController = require('../controllers/authentication');
 
-/////////////////////////////////////////////////////
-///////////// GOOGLE PLACES API ROUTES //////////////
-/////////////////////////////////////////////////////
-
-router.post('/api/places', apiController.show);
-
 ////////////////////////////////////
 ////////// USER ROUTES /////////////
 ////////////////////////////////////
+
+function authenticatedUser(req, res, next) {
+	// If user is authenticated then continue execution
+	if (req.isAuthenticated()) return next();
+
+	// Otherwise direct request back to the homepage
+	res.json({'message': 'Error, user not signed in'});
+}
+
+router.route('/auth/currentUser')
+	.get(authenticatedUser, usersController.getInfo);
 
 // index 
 router.get('/api/users', usersController.index);
@@ -30,6 +35,27 @@ router.put('/api/users/:id', usersController.update);
 
 // destroy
 router.delete('/api/users/:id', usersController.destroy);
+
+////////////////////////////////////////
+////////// PASSPORT ROUTES /////////////
+////////////////////////////////////////
+
+// router.get('/auth/currentUser', authenticatedUser, usersController.getInfo);
+
+// auth logout
+router.get('/auth/logout', authController.getLogout);
+
+// auth with Google
+router.get('/auth/google', authController.googleLogin);
+
+// callback route for google to redirect to
+router.get('/auth/google/redirect', authController.googleCallback);
+
+/////////////////////////////////////////////////////
+///////////// GOOGLE PLACES API ROUTES //////////////
+/////////////////////////////////////////////////////
+
+router.post('/api/places', apiController.show);
 
 ////////////////////////////////////
 ////////// FOOD ROUTES /////////////
@@ -68,19 +94,6 @@ router.put('/api/restaurants/:id', restaurantsController.update);
 
 // destroy
 router.delete('/api/restaurants/:id', restaurantsController.destroy);
-
-////////////////////////////////////////
-////////// PASSPORT ROUTES /////////////
-////////////////////////////////////////
-
-// auth logout
-router.get('/auth/logout', authController.getLogout);
-
-// auth with Google
-router.get('/auth/google', authController.googleLogin);
-
-// callback route for google to redirect to
-router.get('/auth/google/redirect', authController.googleCallback);
 
 /////////////////////////////////////////
 ////////// FRONT END ROUTES /////////////

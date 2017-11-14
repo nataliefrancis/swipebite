@@ -1,6 +1,18 @@
 const db = require('../models');
 const User = db.models.User;
 
+// LOOKS FOR THE CURRENT USER
+// JUST LIKE THE SHOW ROUTE??
+function getInfo(req, res) {
+	console.log('hitting the get info route');
+	User.findById(req.params.id)
+	.then((user, err) => {
+			if(err) { res.json (err); }
+			console.log('youre hitting the user.show controller');
+			res.json(user);
+		});
+}
+
 // INDEX OF USERS - SENDS ALL
 function index(req, res) {
 	User.findAll().then(function(user) {
@@ -65,6 +77,7 @@ function destroy(req, res) {
 		});
 }
 
+module.exports.getInfo = getInfo;
 module.exports.index = index;
 module.exports.create = create;
 module.exports.show = show;
