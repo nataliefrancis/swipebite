@@ -14,6 +14,12 @@ export class ApiService {
   	}
   }
 
+  //////////////////////////// AUTHENTICATION ROUTES ////////////////////////
+
+  determineCurrentUser(){
+    return this.http.get(`${this.baseUrl}/auth/currentUser`, {withCredentials: true});
+  }
+
   /////////////////////////// API ROUTES /////////////////////////////////
 
   callGooglePlacesAPI(body) {

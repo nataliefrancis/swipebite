@@ -13,7 +13,7 @@ const googleCallback = (req, res, next) => {
 	console.log('hitting google callback controller!');
 
 	let authCallbackStrategy = passport.authenticate('google', {
-		successRedirect: 'http://localhost:4200/',
+		successRedirect: 'http://localhost:4200/main',
 		failureRedirect: 'http://localhost:4200/'
 	}); 
 	return authCallbackStrategy(req, res, next);

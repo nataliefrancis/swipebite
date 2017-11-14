@@ -10,15 +10,20 @@ module.exports = function(passport) {
 	////////////////////////////////////
 
 	passport.serializeUser((user, done) => {
+		console.log('serializing user');
+		console.log(user);
+		console.log(user.dataValues.id);
 		done(null, user);
 	});
 
-	passport.deserializeUser((id, done) => {
+	passport.deserializeUser((user, done) => {
 		//video tutorial 15
 		// User.findById(id).then ((user) => {
 		// 	done(null, id);
 		// });
-		done(null, id);
+		console.log('DEserializing user');
+		console.log(user);
+		done(null, user);
 	});
 
 	/////////////////////

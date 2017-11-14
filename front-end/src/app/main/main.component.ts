@@ -59,16 +59,20 @@ export class MainComponent implements OnInit {
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {
     console.log('hitting determineCurrentUser function');
-    this.activatedRoute.params.forEach(param => {
-      console.log("paramID we're sending from the front end");
-      console.log(param);
-      this.apiService.showOneUser(param.id)
-      .subscribe(response => {
-        console.log("what we're getting back from google authentication");
-        console.log(response.json());
-        this.currentUser = response.json();
-      });
-    });
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+    	console.log(response.json());
+    })
+    // this.activatedRoute.params.forEach(param => {
+    //   console.log("paramID we're sending from the front end");
+    //   console.log(param);
+    //   this.apiService.showOneUser(param.id)
+    //   .subscribe(response => {
+    //     console.log("what we're getting back from google authentication");
+    //     console.log(response.json());
+    //     this.currentUser = response.json();
+    //   });
+    // });
   }
 
   callsNextPage() {

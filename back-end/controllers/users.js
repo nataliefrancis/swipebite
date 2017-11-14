@@ -5,7 +5,8 @@ const User = db.models.User;
 // JUST LIKE THE SHOW ROUTE??
 function getInfo(req, res) {
 	console.log('hitting the get info route');
-	User.findById(req.params.id)
+	console.log(req.user.id);
+	User.findById(req.user.id)
 	.then((user, err) => {
 			if(err) { res.json (err); }
 			console.log('youre hitting the user.show controller');
