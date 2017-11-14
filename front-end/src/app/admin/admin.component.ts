@@ -11,8 +11,10 @@ export class AdminComponent implements OnInit {
 
 	foods = [];
 	oneFood;
-	restaurants;
-	users;
+	restaurants = [];
+	oneRestaurant;
+	users= [];
+	oneUser;
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -29,6 +31,14 @@ export class AdminComponent implements OnInit {
   	})
   }
 
+  showOneRestaurant(restaurantId) {
+  	this.apiService.showOneRestaurant(restaurantId)
+  	.subscribe(response => {
+  		console.log(response.json());
+  		this.oneRestaurant = response.json();
+  	})
+  }
+
   // FOOD CALLS //
 
   grabsAllFoods() {
@@ -39,11 +49,17 @@ export class AdminComponent implements OnInit {
   	})
   }
 
+  createFood() {
+
+  }
+
   showOneFood(foodId) {
   	this.apiService.showOneFood(foodId)
   	.subscribe(response => {
-  		console.log(response.json());
+  		// console.log(response.json());
   		this.oneFood = response.json();
+  		console.log(this.oneFood.id);
+  		console.log(this.oneFood.photoUrl);
   	})
   }
 
@@ -97,6 +113,14 @@ export class AdminComponent implements OnInit {
   	.subscribe(response => {
   		console.log(response.json());
   		this.users = response.json();
+  	})
+  }
+
+  showOneUser(userId) {
+  	this.apiService.showOneUser(userId)
+  	.subscribe(response => {
+  		console.log(response.json());
+  		this.oneUser = response.json();
   	})
   }
 

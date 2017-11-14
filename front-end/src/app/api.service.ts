@@ -55,6 +55,7 @@ export class ApiService {
   }
 
   showOneFood(foodId) {
+    console.log('this is the foodid at apiservice:' + foodId);
     return this.http.get(`${this.baseUrl}/api/foods/${foodId}`);
   }
 
