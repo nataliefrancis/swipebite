@@ -1,9 +1,12 @@
 let db = require('../models');
 let Restaurant = db.models.Restaurant;
 
-// INDEX OF RESTAURANTS -- ??
+// INDEX OF RESTAURANTS - SENDS ALL
 function index(req, res) {
-	res.json('hitting the restaurant.index controller on the back end');
+	Restaurant.findAll().then(function(restaurant) {
+		console.log("hitting the restaurant.index controller on the back end");
+		res.json(restaurant);
+	});
 }
 
 // CREATE A NEW RESTAURANT - MAIN PAGE SWIPE RIGHT

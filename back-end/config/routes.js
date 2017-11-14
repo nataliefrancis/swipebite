@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const passport = require('passport');
 const apiController = require('../controllers/api');
-const firebaseController = require('../controllers/firebase');
+// const firebaseController = require('../controllers/firebase');
 const usersController = require('../controllers/users');
+const firebaseController = require('../controllers/firebase');
 const foodsController = require('../controllers/foods');
 const restaurantsController = require('../controllers/restaurants');
 
