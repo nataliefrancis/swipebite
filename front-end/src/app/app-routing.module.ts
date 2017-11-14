@@ -6,13 +6,15 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { MainComponent } from './main/main.component';
 import { MatchedComponent } from './matched/matched.component';
 import { SettingsComponent } from './settings/settings.component';
+import { WebpageComponent } from './webpage/webpage.component';
+
 
 
 
 const routes: Routes = [
     {
         path: '',
-        component: LandingComponent
+        component: WebpageComponent
     },
     {
         path: 'settings',
@@ -30,6 +32,10 @@ const routes: Routes = [
         path: 'favorites',
         component: FavoritesComponent
     },
+    {
+        path: 'web',
+        component: WebpageComponent
+    }
     // {
     // 	path: 'main',
     //     // redirectTo: 'main',
