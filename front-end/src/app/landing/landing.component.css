@@ -1,38 +1,159 @@
-img {
-	max-width: 40%;
-	margin-bottom: 10%;
-}
-h2 {
-	color: white;
-	font-family: 'Poppins', sans-serif;
-	margin-bottom: 10%;
-	margin-top: 5%;
-}
-.circle {
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	background-color: white;
-	border-radius: 50%;
-	margin-left: 10px;
-	margin-right: 10px;
-	border-width: 4px;
-	border-color: #D76721;
+/*************
+  Phone Only
+**************/
+@media only screen and (max-width: 500px) {
+
+	/*ramen logo*/
+	img {
+		max-width: 40%;
+		margin-bottom: 10%;
+	}
+	
+	/*description*/
+	h2 {
+		color: white;
+		font-family: 'Poppins', sans-serif;
+		margin-bottom: 10%;
+		margin-top: 5%;
+	}
+	
+	/*circle buttons*/
+	.circle {
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+		background-color: white;
+		border-radius: 50%;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-width: 4px;
+		border-color: #D76721;
+	}
+	
+	/*circle buttons*/
+	#circle1 {
+		background-color: #D76721;
+	}
+	
+	/*google buttons*/
+	a {
+		background-color: #D76721;
+		color: white;
+		border-radius: 4px;
+		font-family: 'Poppins', sans-serif;
+		border-style: none;
+		padding: 3%;
+		margin-top: 10%;
+		display: block;
+		margin-left: 33%;
+		width: 30%;
+	}
 }
 
-#circle1 {
-	background-color: #D76721;
+/*************
+    Ipad
+**************/
+/*font size increases, button size increases, logo size increases*/
+@media only screen and (min-width: 501px) and (max-width: 1024px) {
+	
+	/*ramen logo*/
+	img {
+		max-width: 50%;
+		margin-bottom: 10%;
+	}
+
+	h2 {
+		color: white;
+		font-family: 'Poppins', sans-serif;
+		margin-bottom: 10%;
+		margin-top: 5%;
+		font-size: 35px;
+	}
+
+	/*page buttons*/
+	.circle {
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+		background-color: white;
+		border-radius: 50%;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-width: 4px;
+		border-color: #D76721;
+	}
+	
+	/*page buttons*/
+	#circle1 {
+		background-color: #D76721;
+	}
+
+	a {
+		background-color: #D76721;
+		color: white;
+		border-radius: 4px;
+		font-family: 'Poppins', sans-serif;
+		border-style: none;
+		padding: 4%;
+		margin-top: 5%;
+		display: block;
+		margin-left: 30%;
+		width: 40%;
+		font-size: 25px;
+	}
 }
 
-a {
-	background-color: #D76721;
-	color: white;
-	border-radius: 4px;
-	font-family: 'Poppins', sans-serif;
-	border-style: none;
-	padding: 3%;
-	margin-top: 10%;
-	display: block;
-	margin-left: 33%;
-	width: 30%;
+/*************
+   Computer
+**************/
+/*font size increases, button size increases, margin decreases, logo size increases*/
+@media only screen and (min-width: 1025px) {
+
+	/*ramen logo*/
+	img {
+		max-width: 30%;
+		margin-bottom: 5%;
+	}
+	
+	/*description*/
+	h2 {
+		color: white;
+		font-family: 'Poppins', sans-serif;
+		margin-bottom: 10%;
+		margin-top: 5%;
+		font-size: 60px;
+	}
+	
+	/*circle buttons*/
+	.circle {
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+		background-color: white;
+		border-radius: 50%;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-width: 4px;
+		border-color: #D76721;
+	}
+
+	/*circle buttons*/
+	#circle1 {
+		background-color: #D76721;
+	}
+
+	/*google login button*/
+	a {
+		background-color: #D76721;
+		color: white;
+		border-radius: 4px;
+		font-family: 'Poppins', sans-serif;
+		border-style: none;
+		padding: 3%;
+		margin-top: 10%;
+		display: block;
+		margin-left: 33%;
+		width: 30%;
+		font-size: 40px;
+	}
 }

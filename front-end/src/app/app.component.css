@@ -1,6 +1,38 @@
-body {
-	margin: 0 auto;
+/*************
+  Phone Only
+**************/
+@media only screen and (max-width: 766px) {
+
+	body {
+		margin: 0 auto;
+	}
+	.container {
+		height: 100%;
+	}
 }
-.container {
-	height: 100%;
+
+/*************
+    Ipad
+**************/
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+
+	body {
+		margin: 0 auto;
+	}
+	.container {
+		height: 100%;
+	}
+}
+
+/*************
+   Computer
+**************/
+@media only screen and (min-width: 1025px) {
+	
+	body {
+		margin: 0 auto;
+	}
+	.container {
+		height: 100%;
+	}
 }
