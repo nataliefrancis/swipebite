@@ -5,10 +5,10 @@
 
 <button (click)="callsNextPage()">Next Page ></button>
 
-<div *ngFor="let allFood of allFoods">
-	<img src="{{ allFood.photoUrl }}" style="width:100px;">
-	<p>Food Id: {{allFood.id}}</p>
-	<button data-id="{{allFood.id}}" (click)="deletesOneFood(this.allFood.id)">Delete</button>
+<div *ngFor="let favoriteFood of favoriteFoods">
+	<img src="{{ favoriteFood.photoUrl }}" style="width:100px;">
+	<p>Food Id: {{favoriteFood.id}}</p>
+	<button data-id="{{favoriteFood.id}}" (click)="deletesOneFood(this.favoriteFood.id)">Delete</button>
 </div>
 
 <p>adds the index route to grab details on all of a user's favorite foods</p>

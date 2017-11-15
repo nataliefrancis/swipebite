@@ -93,4 +93,12 @@ export class ApiService {
   destroyOneUser(userId) {
     return this.http.delete(`${this.baseUrl}/api/users/${userId}`);
   }
+
+  ////////////////////////////// RANDOM SHITTY ROUTE //////////////////////////////////
+
+  showUsersFavoriteFoods(userId) {
+    console.log('api Service user id!');
+    console.log(userId);
+    return this.http.get(`${this.baseUrl}/api/foods/user/${userId}`);
+  }
 }

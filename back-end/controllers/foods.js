@@ -64,6 +64,12 @@ function destroy(req, res) {
 	});
 }
 
+// RETURNS SOME OF THE FOODS, THE ONES THE USER LIKESSS
+function getSome(req, res) {
+	res.json('hitting the function getSome!');
+}
+
+module.exports.getSome = getSome;
 module.exports.index = index;
 module.exports.show = show;
 module.exports.create = create;
