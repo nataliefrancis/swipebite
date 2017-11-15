@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { isDevMode } from '@angular/core';
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-landing',
@@ -9,14 +11,40 @@ import { isDevMode } from '@angular/core';
 })
 export class LandingComponent implements OnInit { 
 
-  constructor(private router: Router) { }
+	baseUrl : string;
+ 	currentUser;
 
-  ngOnInit() { }
+  constructor(private router: Router, private apiService : ApiService) {}
+
+  ngOnInit() {
+
+    // SETS THE BASE URL
+    if(isDevMode()) {
+      this.baseUrl = "http://localhost:3000";
+    } else {
+      this.baseUrl = "";
+    }
+
+    this.determineCurrentUser();
+  }
+
+
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    //console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      //console.log(response.json());
+      this.currentUser = response.json();
+    })
+  }
+
+  callsPreviousPage() {
+    this.router.navigate(['/admin']);
+  }
   
-
-
   callsNextPage() {
-  	this.router.navigate(['/settings']);
+  	this.router.navigate(['/main']);
   }
 
 }

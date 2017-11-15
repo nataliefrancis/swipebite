@@ -1,0 +1,74 @@
+<p>Admin</p>
+<p *ngIf="currentUser">{{currentUser.name}}</p>
+<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
+<br />
+
+<!-- MAKE A NEW RESTAURANT -->
+<button (click)="grabsAllRestaurants()">Index Restaurants</button>
+<button (click)="grabsAllUsers()">Index Users</button>
+<button (click)="grabsAllFoods()">Index Foods</button>
+<!-- <button (click)="showRestaurantForm()"> + </button> -->
+<!-- <form *ngIf="createRestaurantBoolean" (ngSubmit)="createRestaurant(newRestaurant)">
+	<label *ngIf="createRestaurantBoolean" for="name">Restaurant Name</label> 
+	<input *ngIf="createRestaurantBoolean" style="width: 50%;" name="name" type="text" [(ngModel)]="newRestaurant.name" value="New Restaurant Name">
+	<br />
+	<label *ngIf="createRestaurantBoolean" for="url">Restaurant Website</label> 
+	<input *ngIf="createRestaurantBoolean" style="width: 50%;" name="url" type="text" [(ngModel)]="newRestaurant.url" value="www.restaurant.com">
+	<input type="submit" value="Create">
+</form>
+<br /> -->
+<!-- <button (click)="showUserForm()"> + </button> -->
+<!-- <button (click)="showFoodForm()"> + </button> -->
+
+<!-- FOODS TESTING -->
+<h1>Foods:</h1>
+<form *ngIf="oneFood" (ngSubmit)="editOneFood(oneFood)">
+	<label *ngIf="oneFood" for="oneFood">{{oneFood.id}}</label> 
+	<input *ngIf="oneFood" style="width: 100%;" name="oneFood" type="text" [(ngModel)]="oneFood.photoUrl" >
+	<input type="submit" value="Update">
+</form>
+<br />
+<div *ngFor="let food of foods" style="background-color: blue">
+	<img *ngIf="food" src="{{food.photoUrl}}" style="width:100px;">
+	<p *ngIf="food">Food Id: {{ food.id }}</p>
+	<button *ngIf="food" data-id="{{food.id}}" (click)="showOneFood(food.id)">Edit</button>
+	<button *ngIf="food" data-id="{{food.id}}" (click)="deleteOneFood(food.id)">Delete</button>
+	<hr>
+</div>
+
+
+<!-- RESTAURANTS TESTING -->
+<h1>Restaurants: </h1>
+<form *ngIf="oneRestaurant" (ngSubmit)="editOneRestaurant(oneRestaurant)">
+	<label *ngIf="oneRestaurant" for="oneRestaurant">{{oneRestaurant.id}}</label> 
+	<input *ngIf="oneRestaurant" style="width: 100%;" name="oneRestaurant" type="text" [(ngModel)]="oneRestaurant.name" >
+	<input type="submit" value="Update">
+</form>
+<br />
+<div *ngFor="let restaurant of restaurants" style="background-color: blue">
+	<p *ngIf="restaurant">Restaurant Name: {{ restaurant.name }}</p>
+	<p *ngIf="restaurant">Restaurant Id: {{ restaurant.id }}</p>
+	<button *ngIf="restaurant" data-id="{{restaurant.id}}" (click)="showOneRestaurant(restaurant.id)">Edit</button>
+	<button *ngIf="restaurant" data-id="{{restaurant.id}}" (click)="deleteOneRestaurant(restaurant.id)">Delete</button>
+	<hr>
+</div>
+ 
+
+<!-- USERS TESTING -->
+<h1>Users:</h1>
+<form *ngIf="oneUser" (ngSubmit)="editOneUser(oneUser)">
+	<label *ngIf="oneUser" for="oneUser">{{oneUser.id}}</label> 
+	<input *ngIf="oneUser" style="width: 100%;" name="oneUser" type="text" [(ngModel)]="oneUser.photoUrl" >
+	<input type="submit" value="Update">
+</form>
+<br />
+<div *ngFor="let user of users" style="background-color: blue">
+	<p *ngIf="user">User Name: {{ user.name }}</p>
+	<img *ngIf="user" src="{{user.photoUrl}}" style="width:100px;">
+	<p *ngIf="user">User Id: {{ user.id }}</p>
+	<button *ngIf="user" data-id="{{user.id}}" (click)="showOneUser(user.id)">Edit</button>
+	<button *ngIf="user" data-id="{{user.id}}" (click)="deleteOneUser(user.id)">Delete</button>
+	<hr>
+</div>
+
+<button (click)="callsNextPage()">Next Page ></button>

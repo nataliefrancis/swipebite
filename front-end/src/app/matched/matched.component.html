@@ -1,7 +1,8 @@
+
 <div class="matchedContainer js-scroll-trigger fade-in one">
 <h1> it's a match! </h1>
 	<div class="foodImage">
-	 	<img id="foodPicture" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/10/rescue-dog-restaurants-food-instagram-popeyethefoodie-23-581057fc1443a__700.jpg">
+    <img id="foodPicture" src="{{oneFood.photoUrl}}" alt="" style="width: 400px">
 	 </div>
 <!-- 	 <div class="matchedDescription foodName">
 	 	We’re Here, We’re Gruyere, Get Used to It Burger
@@ -10,8 +11,7 @@
 	 	Bob's Burgers
 	 </div>
 	 <div class="map">
-	 	<img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-1/512/10-512.png" class="nav">
+<!-- 	 	<img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-1/512/10-512.png" class="nav"> -->
+     <a *ngIf="restaurant.address" href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
 	 </div>
 </div>
-
-<button (click)="callsNextPage()">Button</button>

@@ -1,3 +1,4 @@
+
 <h2>Profile Settings</h2>
 
 
@@ -15,10 +16,11 @@
 	</div> -->
 	<div class="Option distance">
 		<h3>Max. Distance</h3>
-			<form (ngSubmit)="saveZipcode(newZipcode)">
-			<input name="zipcode"  placeholder="Distance (Miles)" [(ngModel)]="newZipcode.zipcode">
-			<input class="submit" type="submit" value="Enter">
-		</form>
+      <form (ngSubmit)="updateDistance(newDistance)">
+        <label for="distance">Distance (in miles)</label>
+        <input name="distance"  placeholder="Distance (in miles)" [(ngModel)]="newDistance">
+        <input class="submit" type="submit" value="Enter">
+      </form>
 			<!-- <div id="slidecontainer">
 	 			<input type="range" min="1" max="5" value="2.5" class="slider" id="myRange">
 			</div> -->
