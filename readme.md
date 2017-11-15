@@ -1,13 +1,13 @@
 # swipe.Bite
 		swipe.Bite is a Tinder style food app. Unlike most food apps swipe.Bite allows you to flip through photos of food from nearby restaurants. The food you like the most is saved in your favorites page for future trips!
 
-	##Technologies Used
+	# Technologies Used
 		1. [Angular](https://angular.io/docs)
 		2. [NodeJS](https://nodejs.org/en/docs/)
 		3. [NgBootstrap](https://ng-bootstrap.github.io/#/home)
 		4. [NPM](https://docs.npmjs.com/)
 
-	## Installation
+	# Installation
 		# FrontEnd
 
 			This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
@@ -36,24 +36,24 @@
 
 			To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 		
-	##Heroku
+	#Heroku
 
 		www.swipebite@herokuapp.com
 
-	##Sketch
+	#Sketch
 
 
-	##User Reasearch
+	#User Reasearch
 		[User Research](/user-research.md)
 
-	## Plans For Future
+	# Plans For Future
 		swipe.Bite 2.0 functionality:
 		1. IPhone and Andriod capabilities
 		2. Swipe through photos
 		3. Google vison to remove pictures not of food
 		4. Alert the user when all restaurants in their area are closed
 
-	## Contributions
+	# Contributions
 	1. Natalie Francis
 		[GitHub](https://github.com/nataliefrancis)
 		[WebSite]
