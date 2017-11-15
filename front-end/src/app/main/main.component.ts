@@ -21,4 +21,8 @@ export class MainComponent implements OnInit {
   	this.router.navigate(['/matched']);
   }
 
+  callsSettings() {
+    this.router.navigate(['/settings']);
+  }
+
 }
