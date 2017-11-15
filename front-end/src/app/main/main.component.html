@@ -1,23 +1,21 @@
-
 <!--Food Pic-->
 <div class="flex-container">
 	<div>
-		<!-- <h1 id="header">swipe<img src="https://i.imgur.com/bi1iy66.png" height="45px" width="45px">Bite</h1> -->
-		<!-- src="https://static.boredpanda.com/blog/wp-content/uploads/2016/10/rescue-dog-restaurants-food-instagram-popeyethefoodie-23-581057fc1443a__700.jpg" --> 
+		<!-- <img id="foodPicture" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/10/rescue-dog-restaurants-food-instagram-popeyethefoodie-23-581057fc1443a__700.jpg"> -->
 
-		<!--prints pout the food picture from the API-->
-		<img id="foodPicture">
+		<!--prints out the food picture from the API-->
+		<!-- <img id="foodPicture" > -->
 		<!-- {{foodPicture}} -->
 	</div>
 </div>
 
 <!--Nav Bar-->
 <div class="flex-conatiner">
-	<nav id ="dropDown" class="navbar navbar-inverse navbar-toggleable-md fixed-top bg-faded">
-		<button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" (click)="isCollapsed = !isCollapsed">
-			<span class="navbar-toggler-icon"></span>
+	<nav id ="dropDown" class="navbar navbar-inverse navbar-toggleable-md bg-faded">
+		<button id="nav-button" class="navbar-toggler navbar-toggler-right custom-toggler x" type="button" (click)="isCollapsed = !isCollapsed">
+			<span class="navbar-toggler-icon icon"></span>
 		</button>
-		<!--Print the resturnt name-->
+		<!--Prints the resturnt name-->
 		<a clas="navbar-brand"><!-- {{resturant.name}} --></a>
 		<!--sets state to isCollapsed to start-->
 		<div id="dropped" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" >
@@ -55,5 +53,6 @@
 		<button class="next" (click)="callsNextPage()">Next</button>
 	</div>
 </div>
+
 
 

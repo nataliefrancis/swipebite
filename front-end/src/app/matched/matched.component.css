@@ -1,3 +1,10 @@
+/*************
+  Phone Only
+**************/
+@media only screen 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
 .matchedContainer {
 	margin-top: -10px;
 	margin-left: 10%;
@@ -77,4 +84,184 @@ button {
 	display: block;
 	margin-left: 33%;
 	width: 30%;
+}
+}
+/*************
+    Ipad
+**************/
+/*changes middle div size, font size and margins*/
+@media only screen 
+  and (min-device-width: 668px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+	/*over matched outline conatiner*/
+	.matchedContainer {
+		margin-top: -50px;
+		margin-left: 11%;
+		height: 750px;
+		width: 600px;
+		border-radius: 5px;
+		background-color: rgba(215, 103, 33, .70);
+	}
+	
+	/*its a match*/
+	h1 {
+		padding-top: 30px;
+		font-family: 'Heebo', sans-serif;
+		color: white;
+	}
+
+	/*div conataing food pic*/
+	.foodImage {
+		background-color: white;
+		width: 60%;
+		margin-left: 20%;
+	}
+
+	/*food pic from api*/
+	#foodPicture{
+	    height: 90%;
+	    width: 85%;
+	    margin-top: 4%;
+	    margin-left: 5%;
+	    margin-right: 5%;
+	    margin-bottom: 3%;
+	    padding: 3px;
+	}
+
+	/*description of food*/
+	.matchedDescription {
+		margin-top: 20px;
+		font-family: 'Poppins', sans-serif;
+		font-size: 30px;
+		color: white;
+	}
+
+	/*map api picture*/
+	.map {
+		margin-top: 20px;
+		margin-left: 21%;
+		width: 60%;
+		height: 20%;
+		background-color: white;
+		border-radius: 3px;
+	}
+
+	/*******************
+	 Fade In Animation
+	*******************/
+	@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+	.fade-in {
+	 opacity:0;  /* make things invisible upon start */
+	 -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	 -moz-animation:fadeIn ease-in 1;
+	 animation:fadeIn ease-in 1;
+	 
+	 -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	 -moz-animation-fill-mode:forwards;
+	 animation-fill-mode:forwards;
+	 
+	 -webkit-animation-duration:1s;
+	 -moz-animation-duration:1s;
+	 animation-duration:1s;
+	}
+	 .fade-in.one {
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	animation-delay: .5s;
+	}
+}
+
+/*************
+   Computer
+**************/
+/*changes margins*/
+@media screen 
+  and (min-device-width: 1025px) 
+  and (max-device-width: 2000px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+  	
+	/*over matched outline conatiner*/
+	.matchedContainer {
+		margin-top: -50px;
+		margin-left: 33%;
+		height: 750px;
+		width: 600px;
+		border-radius: 5px;
+		background-color: rgba(215, 103, 33, .70);
+	}
+	
+	/*its a match*/
+	h1 {
+		padding-top: 30px;
+		font-family: 'Heebo', sans-serif;
+		color: white;
+	}
+
+	/*div conataing food pic*/
+	.foodImage {
+		background-color: white;
+		width: 60%;
+		margin-left: 20%;
+	}
+/*food pic from api*/
+	#foodPicture{
+	    height: 90%;
+	    width: 85%;
+	    margin-top: 4%;
+	    margin-left: 5%;
+	    margin-right: 5%;
+	    margin-bottom: 3%;
+	    padding: 3px;
+	}
+
+	/*description of food*/
+	.matchedDescription {
+		margin-top: 20px;
+		font-family: 'Poppins', sans-serif;
+		font-size: 30px;
+		color: white;
+	}
+
+	/*map api picture*/
+	.map {
+		margin-top: 20px;
+		margin-left: 21%;
+		width: 60%;
+		height: 20%;
+		background-color: white;
+		border-radius: 3px;
+	}
+
+	/*******************
+	 Fade In Animation
+	*******************/
+	@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+	.fade-in {
+	 opacity:0;  /* make things invisible upon start */
+	 -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	 -moz-animation:fadeIn ease-in 1;
+	 animation:fadeIn ease-in 1;
+	 
+	 -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	 -moz-animation-fill-mode:forwards;
+	 animation-fill-mode:forwards;
+	 
+	 -webkit-animation-duration:1s;
+	 -moz-animation-duration:1s;
+	 animation-duration:1s;
+	}
+	 .fade-in.one {
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	animation-delay: .5s;
+	}
 }
