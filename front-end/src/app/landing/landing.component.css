@@ -51,6 +51,11 @@ button {
 		margin-bottom: 10%;
 	}
 
+	.showCards {
+	width: 60%;
+
+}
+
 	h2 {
 		color: white;
 		font-family: 'Poppins', sans-serif;
@@ -102,6 +107,7 @@ button {
 	/*circle buttons*/
 	button {
 	font-family: 'Poppins', sans-serif;
+	font-weight: 80px;
 	color: white;
 	background-color: #D76721;
 	color: white;
@@ -111,7 +117,7 @@ button {
 	margin-top: 10%;
 	display: block;
 	margin-left: 33%;
-	width: 30%;
+	width: 40%;
 }
 }
 
