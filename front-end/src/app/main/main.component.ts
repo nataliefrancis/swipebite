@@ -53,16 +53,10 @@ export class MainComponent implements OnInit {
 
   swipeRight() {
       // saves Restaurant in the DB, and saves food with a restaurantId
-    console.log("this is the restaurant we're sending to the DB");
-    console.log(this.restaurant);
       this.apiService.createRestaurant(this.restaurant)
             .subscribe(response => {
-        console.log("this is the restaurant that we saved to the database");
-        console.log(response.json());
-
-       let foodId = response.json().id;
-        console.log(foodId);
-        this.router.navigate(['/matched']);
+               let foodId = response.json().id;
+                this.router.navigate(['/matched/' +foodId]);
     });
   }
 
