@@ -28,11 +28,12 @@ export class SettingsComponent implements OnInit {
     })
   }
 
-  updateDistance(distance) {
-    // console.log('this is the update distance function');
-    // console.log(distance);
-    // console.log(this.currentUser);
-    this.currentUser.distance = distance;
+  updateDistance(distanceMiles) {
+    // CONVERT DISTANCE FROM MILES TO METERS
+    let distanceMeters = distanceMiles * 1609.344;
+
+    this.currentUser.distance = distanceMeters;
+    console.log(this.currentUser)
     console.log(this.currentUser);
     this.apiService.updateUser(this.currentUser)
       .subscribe(response => {

@@ -31,7 +31,11 @@ export class MainComponent implements OnInit {
 
   // Gets Restaurant and Photo from Google Places API
   callGooglePlacesAPI() {
-		this.apiService.callGooglePlacesAPI(this.coordinates)
+    let apiObject = {
+      coordinates: this.coordinates,
+      user: this.currentUser
+    }
+		this.apiService.callGooglePlacesAPI(apiObject)
 	    .subscribe(response => {
 	    this.restaurant = response.json();
 	 	});
