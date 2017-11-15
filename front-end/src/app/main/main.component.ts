@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
 
 	coordinates : any;
  	restaurant;
+ 	newFood;
 
   constructor(private router: Router, private apiService : ApiService) { }
 
@@ -44,16 +45,21 @@ export class MainComponent implements OnInit {
   	this.apiService.createRestaurant(this.restaurant)
 			.subscribe(res1 => { 
 				let response = res1.json();
-				console.log(response);
+				// console.log(response);
+				let newFood = {
+					photoUrl: this.restaurant.image,
+					restaurantId: response.id
+				}
 				this.router.navigate(['/matched']);
-				console.log(this.restaurant);
+				// console.log(this.restaurant);
 
 
 				// creates Food in the DB AFTER Restaurant is created
-				this.apiService.createFood(this.restaurant)
+				this.apiService.createFood(newFood)
 					.subscribe(res2 => {
 						console.log(res2.json());
 					})
+					console.log(newFood);
 			});
 
   }

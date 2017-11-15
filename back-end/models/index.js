@@ -19,8 +19,8 @@ const UserFood = sequelize.import('./userFood');
 Food.belongsTo(User);
 User.hasMany(Food);
 
-Food.belongsTo(Restaurant);
-Restaurant.hasMany(Food);
+// Food.belongsTo(Restaurant);
+// Restaurant.hasMany(Food);
 
 // User.hasMany(UserRestaurant);
 // UserRestaurant.hasMany(User);
