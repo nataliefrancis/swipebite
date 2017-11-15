@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
 		longitude: Sequelize.STRING, 
 		address: Sequelize.STRING,
 		rating: Sequelize.STRING,
-		url: Sequelize.STRING, //optional
+		url: Sequelize.TEXT //optional
 	});
 	return model;
 };

@@ -12,7 +12,7 @@ export class MatchedComponent implements OnInit {
   oneFood;
   restaurant: {};
   //TODO: figure out how to make this number dynamic and correspond to the one you JUST crudded to the database
-  id: number = 1;
+  id: number = 3;
   currentUser;
 
   constructor( private router: Router, private apiService: ApiService ) { }

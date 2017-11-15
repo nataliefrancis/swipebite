@@ -22,7 +22,7 @@ function create(req, res) {
 		longitude: body.restaurant.longitude,
 		address: body.restaurant.address,
 		rating: body.restaurant.rating,
-		url: body.restaurant.url
+		url: body.image
 		}).then((restaurant, err) => {
 				if (err) { res.json(err); }
 				res.json(restaurant);

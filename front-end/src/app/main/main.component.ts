@@ -52,26 +52,18 @@ export class MainComponent implements OnInit {
   }
 
   swipeRight() {
-  	// creates Restaurant in the DB
-  	this.apiService.createRestaurant(this.restaurant)
-			.subscribe(res1 => { 
-				let response = res1.json();
-				// console.log(response);
-				let newFood = {
-					photoUrl: this.restaurant.image,
-					restaurantId: response.id
-				}
-				this.router.navigate(['/matched']);
-				// console.log(this.restaurant);
+      // saves Restaurant in the DB, and saves food with a restaurantId
+    console.log("this is the restaurant we're sending to the DB");
+    console.log(this.restaurant);
+      this.apiService.createRestaurant(this.restaurant)
+            .subscribe(response => {
+        console.log("this is the restaurant that we saved to the database");
+        console.log(response.json());
 
-				// creates Food in the DB AFTER Restaurant is created
-				this.apiService.createFood(newFood)
-					.subscribe(res2 => {
-						console.log(res2.json());
-            this.router.navigate(['/matched']);
-					})
-					console.log(newFood);
-			});
+       let foodId = response.json().id;
+        console.log(foodId);
+        this.router.navigate(['/matched']);
+    });
   }
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN

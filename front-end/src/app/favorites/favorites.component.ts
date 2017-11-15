@@ -39,7 +39,7 @@ export class FavoritesComponent implements OnInit {
   grabAllFoods(user) {
     console.log('user id on the favorites component:');
     console.log(user.id);
-    this.apiService.showUsersFavoriteFoods(user.id)
+    this.apiService.indexRestaurants()
       .subscribe(response => {
         console.log(response.json());
         this.favoriteFoods = response.json();
