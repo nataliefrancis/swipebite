@@ -68,8 +68,8 @@
 	  Like/Dislike Buttons
 	***********************/
 	#buttons{
-		margin-left: 60%;
-		margin-top: 2%;
+		margin-left: 70%;
+		margin-top: -2%;
 		width: 100%;
 	}
 
@@ -96,8 +96,27 @@
 		padding: 3%;
 		margin-top: 10%;
 		display: block;
-		margin-left: 33%;
+
 		width: 30%;
+		height: 46px;
+		margin-left: 192%;
+	}
+
+	.settings {
+		height: 60px;
+		width: 60px;
+		margin-left: -260%;
+		margin-top: 90px;
+	}
+	.gear {
+		background-color: grey;
+		font-family: Poppins;
+		color: white;
+		background-size: 100px 130px;
+		height: 48px;
+		width: 80px;
+		border-style: none;
+		border-radius: 3px;
 	}
 }
 

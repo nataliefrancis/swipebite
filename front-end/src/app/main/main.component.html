@@ -1,11 +1,11 @@
+
 <!--Food Pic-->
 <div class="flex-container">
 	<div>
 		<!-- <img id="foodPicture" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/10/rescue-dog-restaurants-food-instagram-popeyethefoodie-23-581057fc1443a__700.jpg"> -->
 
 		<!--prints out the food picture from the API-->
-		<!-- <img id="foodPicture" > -->
-		<!-- {{foodPicture}} -->
+		<img *ngIf="restaurant" src={{restaurant.image}} id="foodPicture" alt="picture from Google Places Images search" style="width:300px;">
 	</div>
 </div>
 
@@ -16,7 +16,7 @@
 			<span class="navbar-toggler-icon icon"></span>
 		</button>
 		<!--Prints the resturnt name-->
-		<a clas="navbar-brand"><!-- {{resturant.name}} --></a>
+		<a *ngIf="restaurant" class="navbar-brand" href="{{restaurant.restaurant.url}}" target="_blank">{{restaurant.restaurant.name}}</a>
 		<!--sets state to isCollapsed to start-->
 		<div id="dropped" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" >
 			<ul class="navbar-nav">
@@ -30,7 +30,7 @@
 				</li>
 				<!--Print the resturnat rating-->
 				<li>
-					<p><!-- {{rateing}} --></p>
+					<h3 *ngIf="restaurant">{{restaurant.restaurant.rating}}</h3>
 				</li>
 			</ul>
 		</div>
@@ -41,18 +41,21 @@
 	<div *ngIf = "isCollapsed">
 		<div id="buttons">
 			<!--creates a circle button with an x favacon-->
-			<button type="button" class="btn btn-warning btn-circle btn-xl">
+			<button type="button" (click)="swipeLeft()" class="btn btn-warning btn-circle btn-xl">
 				<i class="fa fa-times"></i>
 			</button>
 			<!--creates a circle button with heart favicon-->
-			<button type="button" class="btn btn-danger btn-circle btn-xl">
+			<button type="button" (click)="swipeRight()" class="btn btn-danger btn-circle btn-xl">
 			 	<i class="fa fa-heart"></i>
 			</button>
 		</div>
 		<!--Takes you to the next page-->
 		<button class="next" (click)="callsNextPage()">Next</button>
+
+	</div>
+	<div class="flex-container">
+	<div class="settings">
+			<button class="gear" (click)="callsSettings()">Settings</button>
+		</div>
 	</div>
 </div>
-
-
-

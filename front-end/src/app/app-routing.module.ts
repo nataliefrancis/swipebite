@@ -6,19 +6,15 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { MainComponent } from './main/main.component';
 import { MatchedComponent } from './matched/matched.component';
 import { SettingsComponent } from './settings/settings.component';
+
 import { WebpageComponent } from './webpage/webpage.component';
-
-
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
     {
         path: '',
         component: LandingComponent
-    },
-    {
-        path: 'settings',
-        component: SettingsComponent
     },
     {
         path: 'main',
@@ -35,33 +31,16 @@ const routes: Routes = [
     {
         path: 'web',
         component: WebpageComponent
+    },
+    {
+        path: 'settings',
+        component: SettingsComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     }
-    // {
-    // 	path: 'main',
-    //     // redirectTo: 'main',
-    //     // pathMatch: 'full',
-    //     // children: [
-    //     //     {
-    //     //         path: '',
-    //     //         component: MainFoodComponent,
 
-    //     //     }
-    //     // ]
-    //     component: MainFoodComponent
-    // },
-    // {
-    //     path: '',
-    //     redirectTo: 'landing',
-    //     // loadChildren: './landing/landing.module',
-    //     pathMatch: 'full',
-    //     // component: LandingComponent,
-    // }
-    // {
-    //     path:'favorites',
-    //     // redirectTo: '/favorites',
-    //     // pathMatch: 'full',
-    //     component: FavoritesComponent
-    // }
 ];
 
 @NgModule({

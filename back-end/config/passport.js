@@ -10,34 +10,34 @@ module.exports = function(passport) {
 	////////////////////////////////////
 
 	passport.serializeUser((user, done) => {
+		// console.log('serializing user');
+		// console.log(user);
+		// console.log(user.dataValues.id);
 		done(null, user);
 	});
 
-	passport.deserializeUser((id, done) => {
-		//video tutorial 15
-		// User.findById(id).then ((user) => {
-		// 	done(null, id);
-		// });
-		done(null, id);
+	passport.deserializeUser((user, done) => {
+		// console.log('DEserializing user');
+		// console.log(user);
+		done(null, user);
 	});
 
 	/////////////////////
 	// GOOGLE STRATEGY //
 	/////////////////////
 
-	passport.use(
-		new GoogleStrategy({
+	passport.use(new GoogleStrategy({
 			//options for the Google strategy
 			callbackURL: '/auth/google/redirect',
 			clientID: process.env.clientID || keys.google.clientID,
-			clientSecret: process.env.clientSecret || keys.google.clientSecret
-		}, (accessToken, refreshToken, profile, done) => {
+			clientSecret: process.env.clientSecret || keys.google.clientSecret,
+			passReqToCallback: true
+			
+		}, (request, accessToken, refreshToken, profile, done) => {
 			//passport callback function
 			DB.User.find({where: {'googleId': profile.id}}).then((user, err) => {
-				if (err) {
-					console.log(err);
-					return done(err);
-				}
+				if (err) return done(err);
+				
 				if (user) {
 					console.log('logging in user');
 					return done(null, user);

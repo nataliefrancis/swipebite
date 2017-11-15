@@ -43,12 +43,17 @@ h1 {
 
 .map {
 	margin-top: 20px;
-	margin-left: 21%;
-	width: 60%;
+	margin-left: 30%;
+	width: 40%;
 	height: 20%;
 	background-color: white;
 	border-radius: 3px;
 }
+	.nav {
+	width: 80%;
+	margin-left: 10%;
+}
+
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -119,6 +124,7 @@ button {
 		margin-left: 20%;
 	}
 
+
 	/*food pic from api*/
 	#foodPicture{
 	    height: 90%;
@@ -147,6 +153,8 @@ button {
 		background-color: white;
 		border-radius: 3px;
 	}
+
+
 
 	/*******************
 	 Fade In Animation
@@ -208,60 +216,5 @@ button {
 		background-color: white;
 		width: 60%;
 		margin-left: 20%;
-	}
-/*food pic from api*/
-	#foodPicture{
-	    height: 90%;
-	    width: 85%;
-	    margin-top: 4%;
-	    margin-left: 5%;
-	    margin-right: 5%;
-	    margin-bottom: 3%;
-	    padding: 3px;
-	}
-
-	/*description of food*/
-	.matchedDescription {
-		margin-top: 20px;
-		font-family: 'Poppins', sans-serif;
-		font-size: 30px;
-		color: white;
-	}
-
-	/*map api picture*/
-	.map {
-		margin-top: 20px;
-		margin-left: 21%;
-		width: 60%;
-		height: 20%;
-		background-color: white;
-		border-radius: 3px;
-	}
-
-	/*******************
-	 Fade In Animation
-	*******************/
-	@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-	@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-	@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-	.fade-in {
-	 opacity:0;  /* make things invisible upon start */
-	 -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-	 -moz-animation:fadeIn ease-in 1;
-	 animation:fadeIn ease-in 1;
-	 
-	 -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-	 -moz-animation-fill-mode:forwards;
-	 animation-fill-mode:forwards;
-	 
-	 -webkit-animation-duration:1s;
-	 -moz-animation-duration:1s;
-	 animation-duration:1s;
-	}
-	 .fade-in.one {
-	-webkit-animation-delay: .5s;
-	-moz-animation-delay: .5s;
-	animation-delay: .5s;
 	}
 }
