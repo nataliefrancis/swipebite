@@ -1,6 +1,4 @@
-<snippet>
-  <content><![CDATA[
-	# ${1:swipe.Bite}
+# swipe.Bite
 		swipe.Bite is a Tinder style food app. Unlike most food apps swipe.Bite allows you to flip through photos of food from nearby restaurants. The food you like the most is saved in your favorites page for future trips!
 
 	##Technologies Used
@@ -71,8 +69,4 @@
 	4. Courtney Fay
 		[GitHub](https://github.com/courtneyfay)
 		[WebSite]
-
-	]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
 

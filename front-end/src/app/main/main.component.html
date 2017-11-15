@@ -1,12 +1,8 @@
 
 <!--Food Pic-->
 <div class="flex-container">
-	<div>
-		<!-- <img id="foodPicture" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/10/rescue-dog-restaurants-food-instagram-popeyethefoodie-23-581057fc1443a__700.jpg"> -->
-
 		<!--prints out the food picture from the API-->
 		<img *ngIf="restaurant" src={{restaurant.image}} id="foodPicture" alt="picture from Google Places Images search">
-	</div>
 </div>
 
 <!--Nav Bar-->
@@ -20,14 +16,6 @@
 		<!--sets state to isCollapsed to start-->
 		<div id="dropped" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" >
 			<ul class="navbar-nav">
-				<!--Print the price-->
-				<li class="navbar-item">
-					<p><!-- {{price}} --></p>
-				</li>
-				<!--print the website url-->
-				<li class="navbar-item">
-					<p><!-- {{website}} --></p>
-				</li>
 				<!--Print the resturnat rating-->
 				<li>
 					<h3 *ngIf="restaurant">{{restaurant.restaurant.rating}}</h3>
