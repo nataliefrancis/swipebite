@@ -1,5 +1,6 @@
 let db = require('../models');
 let Restaurant = db.models.Restaurant;
+let Food = db.models.Food;
 
 // INDEX OF RESTAURANTS - ADMIN
 function index(req, res) {
@@ -14,6 +15,10 @@ function create(req, res) {
 	console.log('hitting the restaurant.create controller on the back end');
 	let body = req.body;
 	
+	newFood = {
+		photoUrl: body.image
+	};
+
 	Restaurant.create({
 		name: body.restaurant.name,
 		googleId: body.restaurant.googleId,
@@ -25,9 +30,39 @@ function create(req, res) {
 		url: body.restaurant.url
 		}).then((restaurant, err) => {
 				if (err) { res.json(err); }
-				res.json(restaurant);
-	}); 
+				
+				Food.create({
+					photoUrl: body.image,
+					restaurantId: restaurant.id
+				}).then((food, err) => {
+					if (err) { res.json(err); }
+					res.json(food);
+				});
+		}); 
 }
+
+/*
+  ARTISTS == RESTAURANTS
+  SONGS == FOODS
+  LUCY SONGS - array of songs
+
+   var artistCreate = function(manager) {
+   return DB.Artist.create({
+     name: 'Luciano Pavarotti',
+     photoUrl: 'http://img.informador.com.mx/biblioteca/imagen/677x508/811/810055.jpg',
+     nationality: 'Italiano',
+     instrument: 'Voice',
+     home_address: '1 Strada Roma',
+     managerId: manager.id
+   })
+     .then(function(artist) {
+          lucySongs.forEach(function(song) {
+               song.artistId = artist.id;
+          });
+          DB.Song.bulkCreate(lucySongs);
+     });
+   };
+    */
 
 // SHOW ONE RESTAURANT - MATCHED PAGE FOR GOOGLE MAPS LINK
 function show(req, res) {

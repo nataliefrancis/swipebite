@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
 	coordinates : any;
  	restaurant;
  	currentUser;
+  newFood;
 
   constructor(private router: Router, private apiService : ApiService) {}
 
@@ -48,21 +49,35 @@ export class MainComponent implements OnInit {
 
   swipeRight() {
   	// creates Restaurant in the DB
+    console.log("this is the restaurant we're sending to the DB");
+    console.log(this.restaurant);
   	this.apiService.createRestaurant(this.restaurant)
-			.subscribe(res1 => { 
-				let response = res1.json();
-				console.log(response);
-				this.router.navigate(['/matched']);
-				console.log(this.restaurant);
-
-				// creates Food in the DB AFTER Restaurant is created
-				this.apiService.createFood(this.restaurant)
-					.subscribe(res2 => {
-						console.log(res2.json());
-            this.router.navigate(['/matched']);
-					})
-			});
+			.subscribe(response => { 
+        console.log("this is the food that we saved to the database");
+				console.log(response.json());
+        this.router.navigate(['/matched']);
+    });
   }
+      
+	/*
+  ORIGINAL STUFF
+  swipeRight() {
+    // creates Restaurant in the DB
+    this.apiService.createRestaurant(this.restaurant)
+      .subscribe(res1 => { 
+        let response = res1.json();
+        console.log(response);
+        this.router.navigate(['/matched']);
+        console.log(this.restaurant);
+
+        // creates Food in the DB AFTER Restaurant is created
+        this.apiService.createFood(this.restaurant)
+          .subscribe(res2 => {
+            console.log(res2.json());
+            this.router.navigate(['/matched']);
+          })
+      });
+  }*/
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {

@@ -15,18 +15,15 @@ const Food = sequelize.import('./food.js');
 const UserFood = sequelize.import('./userFood');
 
 // DB RELATIONSHIPS
-	//not currently making this relationship
-Food.belongsTo(User);
-User.hasMany(Food);
-
 Food.belongsTo(Restaurant);
 Restaurant.hasMany(Food);
 
-// User.hasMany(UserRestaurant);
-// UserRestaurant.hasMany(User);
+Food.belongsTo(User);
+User.hasMany(Food);
 
-// Restaurant.hasMany(UserRestaurant);
-// UserRestaurant.hasMany(Restaurant);
+// this would be ideal
+// User.hasMany(Food);
+// Food.hasMany(User);
 
 module.exports.models = {
 	User : User,

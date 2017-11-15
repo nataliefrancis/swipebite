@@ -23,11 +23,13 @@ function show(req, res) {
 //CREATE A NEW FOOD - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
 	let body = req.body;
+	console.log('we hit the createFood function on the DB side:');
+	console.log(body);
 
 	Food.create({
-		photoUrl: body.image,
-		restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
-		wasSeen: false
+		photoUrl: body.photoUrl,
+		// restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
+		// wasSeen: false
 	}).then(function(food) {
 			if(!food) res.send("food not saved");
 			console.log("You've hit the food create route");
