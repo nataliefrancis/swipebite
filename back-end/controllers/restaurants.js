@@ -15,9 +15,7 @@ function create(req, res) {
 	console.log('hitting the restaurant.create controller on the back end');
 	let body = req.body;
 	
-	newFood = {
-		photoUrl: body.image
-	};
+	//TODO: figure out how to create the relationship between food and user id!
 
 	Restaurant.create({
 		name: body.restaurant.name,
@@ -27,17 +25,17 @@ function create(req, res) {
 		longitude: body.restaurant.longitude,
 		address: body.restaurant.address,
 		rating: body.restaurant.rating,
-		url: body.restaurant.url
+		url: body.image
 		}).then((restaurant, err) => {
 				if (err) { res.json(err); }
-				
-				Food.create({
+				res.json(restaurant);
+				/*Food.create({
 					photoUrl: body.image,
 					restaurantId: restaurant.id
 				}).then((food, err) => {
 					if (err) { res.json(err); }
-					res.json(food);
-				});
+					res.json("I think this is where we're breaking");
+				});*/
 		}); 
 }
 

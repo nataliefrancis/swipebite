@@ -76,13 +76,6 @@ router.put('/api/foods/:id', foodsController.update);
 // destroy
 router.delete('/api/foods/:id', foodsController.destroy);
 
-//////////////////////////////////////////////////
-////////// USER FAVORITE FOODS ROUTE /////////////
-//////////////////////////////////////////////////
-
-// get some
-router.get('/api/foods/user/:id', foodsController.getSome);
-
 //////////////////////////////////////////
 ////////// RESTAURANT ROUTES /////////////
 //////////////////////////////////////////
@@ -101,6 +94,20 @@ router.put('/api/restaurants/:id', restaurantsController.update);
 
 // destroy
 router.delete('/api/restaurants/:id', restaurantsController.destroy);
+
+/////////////////////////////////////
+////////// OTHER ROUTES /////////////
+/////////////////////////////////////
+
+// get the user's favorite foods
+router.get('/api/foods/user/:id', foodsController.getSome);
+
+// get the food that was most recently saved to the database
+router.get('/api/foods/restaurant', (req, res) => {
+	console.log("hitting the showfood route on the back end");
+});
+	//foodsController.showFood);
+
 
 /////////////////////////////////////////
 ////////// FRONT END ROUTES /////////////

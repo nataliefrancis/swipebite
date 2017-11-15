@@ -66,18 +66,58 @@ function destroy(req, res) {
 	});
 }
 
-// RETURNS SOME OF THE FOODS, THE ONES THE USER LIKESSS
+// RETURNS THE USER'S FAVORITE FOODS
 function getSome(req, res) {
 	res.json('hitting the function getSome!');
-	
 }
 
+// RETURNS THE FAVORITED FOOD THAT WAS MOST RECENTLY SAVED TO THE DATABASE
+function showFood(req, res) {
+	
+
+	// TODO: add in a lookup with current user id
+	// 1. look up most recent food in SQL table
+	console.log("hitting the function showFood");
+	console.log(req.params.id);
+	console.log(req.body);
+
+	/*let id = 11;
+	
+	Food.findById(11
+		//{
+		//where: { id: }, 
+		//order: sequelize.col('createdAt DESC')
+			//[[ 'createdAt', 'DESC' ]]
+		//}
+	).then(function(food, err){
+		if (err) console.log(err); 
+		res.json(food);
+	});*/
+
+	/*YourModel.findAll({
+	  limit: 1,
+	  where: {
+	    //your where conditions, or without them if you need ANY entry
+	  },
+	  order: [ [ 'createdAt', 'DESC' ]]
+	}).then(function(entries){
+
+	  //only difference is that you get users list limited to 1
+	  //entries[0]
+	}); */
+	// 2. use food.restaurantId to grab the most recent restaurant details
+	// 3. serve up both the food and restaurant details back to the front
+	res.json("hitting the function showFood");
+}
+
+module.exports.showFood = showFood;
 module.exports.getSome = getSome;
 module.exports.index = index;
 module.exports.show = show;
 module.exports.create = create;
 module.exports.update = update;
 module.exports.destroy = destroy;
+
 //////////////// COPY OF FOOD MODEL FOR REFERENCE ////////////////
 
 		// photoref: Sequelize.STRING, 
