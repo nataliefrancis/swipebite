@@ -12,8 +12,9 @@ export class MainComponent implements OnInit {
 	coordinates : any;
  	restaurant;
  	newFood;
+ 	currentUser;
 
-  constructor(private router: Router, private apiService : ApiService) { }
+  constructor(private router: Router, private apiService : ApiService) {}
 
   ngOnInit() {
 
@@ -25,11 +26,17 @@ export class MainComponent implements OnInit {
 			}
 			this.callGooglePlacesAPI();
 		});	
+
+		this.determineCurrentUser();
   }
 
   // Gets Restaurant and Photo from Google Places API
   callGooglePlacesAPI() {
-		this.apiService.callGooglePlacesAPI(this.coordinates)
+    let apiObject = {
+      coordinates: this.coordinates,
+      user: this.currentUser
+    }
+		this.apiService.callGooglePlacesAPI(apiObject)
 	    .subscribe(response => {
 	    this.restaurant = response.json();
 	 	});
@@ -53,15 +60,24 @@ export class MainComponent implements OnInit {
 				this.router.navigate(['/matched']);
 				// console.log(this.restaurant);
 
-
 				// creates Food in the DB AFTER Restaurant is created
 				this.apiService.createFood(newFood)
 					.subscribe(res2 => {
 						console.log(res2.json());
+            this.router.navigate(['/matched']);
 					})
 					console.log(newFood);
 			});
+  }
 
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    //console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+    	//console.log(response.json());
+      this.currentUser = response.json();
+    })
   }
 
   callsNextPage() {

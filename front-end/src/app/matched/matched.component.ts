@@ -13,12 +13,14 @@ export class MatchedComponent implements OnInit {
   restaurant: {};
   //TODO: figure out how to make this number dynamic and correspond to the one you JUST crudded to the database
   id: number = 1;
+  currentUser;
 
   constructor( private router: Router, private apiService: ApiService ) { }
 
   ngOnInit() {
     this.grabOneFood();
     this.grabRestaurant();
+    this.determineCurrentUser();
   }
 
   // TODO: shouldn't actually use the food id directly but should look up the restaurantId based on the foodId and then use that to return the restaurant from the DB
@@ -37,8 +39,16 @@ export class MatchedComponent implements OnInit {
         console.log(response.json());
         this.oneFood = response.json();
       })
+  }
 
-    //TODO: change wasSeen boolean from false to true (will count as a Food update route)
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    //console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      //console.log(response.json());
+      this.currentUser = response.json();
+    })
   }
 
   callsNextPage() {

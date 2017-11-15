@@ -10,22 +10,39 @@ import { ApiService } from '../api.service'
 export class FavoritesComponent implements OnInit {
 
 	userId: number = 1;
-	allFoods;
+	favoriteFoods = [];
+  currentUser;
 
   constructor( private router: Router, private apiService: ApiService ) { }
 
   ngOnInit() {
-  	this.grabAllFoods(this.userId);
+ 
+    this.determineCurrentUser();
+
+
+  }
+
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    //console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      //console.log(response.json());
+      this.currentUser = response.json();
+
+      // as soon as you figure out who the user is, get their foods
+      this.grabAllFoods(this.currentUser);
+    })
   }
 
   //TODO: make it so that this function ONLY grabs foods with a specific user id
-  grabAllFoods(userId) {
-  	console.log('grabbing all foods for user' + userId);
-
-    this.apiService.indexFoods()
+  grabAllFoods(user) {
+    console.log('user id on the favorites component:');
+    console.log(user.id);
+    this.apiService.showUsersFavoriteFoods(user.id)
       .subscribe(response => {
         console.log(response.json());
-        this.allFoods = response.json();
+        this.favoriteFoods = response.json();
       })
   }
 
@@ -34,8 +51,8 @@ export class FavoritesComponent implements OnInit {
   	this.apiService.destroyOneFood(foodId)
   		.subscribe(response => {
   			console.log(response.json());
-  			let foodIndex = this.allFoods.indexOf(foodId);
-  			this.allFoods.splice(foodIndex, 1);
+  			let foodIndex = this.favoriteFoods.indexOf(foodId);
+  			this.favoriteFoods.splice(foodIndex, 1);
   		})
   }
 

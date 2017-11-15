@@ -43,15 +43,15 @@ function show(req, res) {
 
 // UPDATE RESTAURANT -- ADMIN
 function update(req, res) {
-	Restaurant.findById(req.params.id)
-	.then((restaurant, err) => {
-		if (err) { res.json(err); }
-		if(!restaurant) res.send("Restaurant was not found");
-		return restaurant.updateAttributes(req.body);
-	})
-	.then((restaurant) => {
-		res.json(restaurant);
-	});
+  Restaurant.findById(req.params.id)
+  .then((restaurant, err) => {
+      if (err) { res.json(err); }
+      if(!restaurant) res.send("Restaurant was not found");
+      return restaurant.updateAttributes(req.body);
+  })
+  .then((restaurant) => {
+      res.json(restaurant);
+  });
 }
 
 // DELETE RESTAURANT -- ADMIN

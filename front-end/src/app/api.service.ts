@@ -14,6 +14,12 @@ export class ApiService {
   	}
   }
 
+  //////////////////////////// AUTHENTICATION ROUTES ////////////////////////
+
+  determineCurrentUser(){
+    return this.http.get(`${this.baseUrl}/auth/currentUser`, {withCredentials: true});
+  }
+
   /////////////////////////// API ROUTES /////////////////////////////////
 
   callGooglePlacesAPI(body) {
@@ -81,12 +87,18 @@ export class ApiService {
   }
 
   updateUser(user) {
-    console.log('hitting the service on the front end');
-    console.log(user);
     return this.http.put(`${this.baseUrl}/api/users/${user.id}`, user);
   }
 
   destroyOneUser(userId) {
     return this.http.delete(`${this.baseUrl}/api/users/${userId}`);
+  }
+
+  ////////////////////////////// RANDOM SHITTY ROUTE //////////////////////////////////
+
+  showUsersFavoriteFoods(userId) {
+    console.log('api Service user id!');
+    console.log(userId);
+    return this.http.get(`${this.baseUrl}/api/foods/user/${userId}`);
   }
 }

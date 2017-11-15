@@ -11,14 +11,29 @@ export class AdminComponent implements OnInit {
 
 	foods = [];
 	oneFood;
+	createFoodBoolean = false;
 	restaurants = [];
 	oneRestaurant;
-	users= [];
+	createRestaurantBoolean = false;
+	users = [];
 	oneUser;
+	createUserBoolean = false;
+  currentUser;
 
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
+    this.determineCurrentUser();
+  }
+
+  // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
+  determineCurrentUser() {
+    //console.log('hitting determineCurrentUser function');
+    this.apiService.determineCurrentUser()
+    .subscribe(response => {
+      //console.log(response.json());
+      this.currentUser = response.json();
+    })
   }
 
   // RESTAURANT CALLS //
@@ -31,8 +46,14 @@ export class AdminComponent implements OnInit {
   	})
   }
 
-  createRestaurant() {
-  	//need to create this route!
+  showRestaurantForm() {
+  	this.createRestaurantBoolean = true;
+  	console.log(this.createRestaurantBoolean);
+  }
+
+  createRestaurant(restaurant) {
+  	console.log('creating restaurant');
+  	console.log(restaurant);
   }
 
   showOneRestaurant(restaurantId) {
@@ -70,7 +91,13 @@ export class AdminComponent implements OnInit {
   	})
   }
 
+  showFoodForm() {
+  	this.createFoodBoolean = true;
+  	console.log(this.createFoodBoolean);
+  }
+
   createFood() {
+  	console.log('creating food');
   	//need to create this route!
   }
 
@@ -109,7 +136,13 @@ export class AdminComponent implements OnInit {
   	})
   }
 
+  showUserForm() {
+  	this.createUserBoolean = true;
+  	console.log(this.createUserBoolean);
+  }
+
   createUser() {
+  	console.log('creating user');
   	//need to create this route!
   }
 

@@ -27,6 +27,7 @@ app.use(passport.session());
 if(!process.env.DYNO) {
 	app.use(function(req, res, next) {
 	  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+	  res.header("Access-Control-Allow-Credentials", "true");
 	  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
 	  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	  next();
@@ -41,31 +42,15 @@ app.use((req,res,next) => {
 	next();
 });
 
-// AUTHENTICATE CURRENT USER
-// const authCheck = (req, res, next) => {
-// 	if(!req.user) {
-// 		//if user is not logged in
-// 		res.redirect('/auth/login');
-// 	} else {
-// 		// if logged in
-// 		next();
-// 	}
-// };
-
 ////////////
 // ROUTES //
 ////////////
 
-// BACK END ROUTES
-app.use('/', routes);
-
 // SERVE UP FRONT END
 app.use(express.static(__dirname + '/dist'));
 
-// FRONT END ROUTES
-app.get('/*', function(req, res) {
-	res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+// ALL ROUTES
+app.use('/', routes);
 
 app.listen(port, function() {
 	console.log(`Listening on port ${port}`);

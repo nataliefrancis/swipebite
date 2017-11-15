@@ -2,39 +2,28 @@ const db = require('../models').models;
 const request = require('request');
 const rp = require('request-promise');
 const keys = require('../config/env');
-
+const db2 = require('../models');
+const userTable = db2.models.User;
 
 function show(reqMaster, resMaster) {
 	console.log('hit the api.index controller');
 	let chosenRestaurant = {};
 	let photoInfo = {};
-	// console.log('reqMaster.body from api.js');
-	// console.log(reqMaster.body);
-	//how to get the user if there's a new cookie everytime?
-	//let user = req.sessionStore.sessions;
-	// let user2 = req.sessionStore.sessions.ajuuA8IF4v7esAtNAZyDbbvOO6j3d9iC; 
-	//console.log(user);
-	// console.log(user2); 
-	// console.log(typeof(user));
-	// console.log(typeof(user2));
-	// THIS WORKS!!!
-	//res.json(user);
 
 	///////////////////////////////////////////////////////////////////////////////////
 	// SETS UP THE OPTIONS TO MAKE THE GOOGLE PLACES API CALL FOR THAT SPECIFIC USER //
 	///////////////////////////////////////////////////////////////////////////////////
 
 	//getting details for that specific user
-	let latitude = reqMaster.body.latitude || 39.765200;
-	let longitude = reqMaster.body.longitude || -104.986117;
-	let distance = '500' || '500' ; // change the first one to the variable we're pulling from the settings page
+	let latitude = reqMaster.body.coordinates.latitude || 39.765200;
+	let longitude = reqMaster.body.coordinates.longitude || -104.986117;
+	let distance = reqMaster.body.user.distance || '1500' ; // defaults to restaurants within a mile if no distance is specified
 
 	let options = { 
 		method: 'GET',
 		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			location: latitude + ',' + longitude,
-			// TODO: need to search the database for the user's distance setting (default: set to ??)
 			radius: distance,
 			type: 'restaurant', //can we add food? 
 			opennow: 'true',

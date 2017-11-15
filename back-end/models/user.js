@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
 		photoUrl: Sequelize.STRING, //Should use CHAR?
 		// lat: Sequelize.CHAR,
 		// long: Sequelize.CHAR,
-		// distance: Sequelize.INTEGER
+		distance: Sequelize.INTEGER
 	});
 	return model;
 };

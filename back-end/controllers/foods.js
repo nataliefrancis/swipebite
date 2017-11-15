@@ -12,7 +12,7 @@ function index(req, res) {
 
 // SHOW ONE FOOD - MATCHED PAGE
 function show(req, res) {
-	Food.findById(req.params.id, {include: db.models.restaurant })
+	Food.findById(req.params.id)
 		.then(function(food) {
 			if(!food) res.send("food was not found");
 			console.log("you have hit the food show route");
@@ -23,12 +23,10 @@ function show(req, res) {
 //CREATE A NEW FOOD - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
 	let body = req.body;
-	console.log(body);
-	// get the id out of the. body
+
 	Food.create({
 		photoUrl: body.image,
-		// restaurantId: body.restaurant.googleId, // TODO: add fancy Sequelize mapping between food and restaurants here
-		restaurantId: null,
+		restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
 		wasSeen: false
 	}).then(function(food) {
 			if(!food) res.send("food not saved");
@@ -53,6 +51,8 @@ function update(req, res) {
 
 // DESTROY FOOD - FAVORITES PAGE
 function destroy(req, res) {
+	console.log("hitting the destroy food route in the back end");
+	console.log(req.params.id);
 	Food.findById(req.params.id)
 	.then(function(food) {
 		if(!food) res.send("food was not found");
@@ -64,6 +64,13 @@ function destroy(req, res) {
 	});
 }
 
+// RETURNS SOME OF THE FOODS, THE ONES THE USER LIKESSS
+function getSome(req, res) {
+	res.json('hitting the function getSome!');
+	
+}
+
+module.exports.getSome = getSome;
 module.exports.index = index;
 module.exports.show = show;
 module.exports.create = create;
