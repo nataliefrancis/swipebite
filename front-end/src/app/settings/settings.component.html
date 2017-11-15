@@ -1,3 +1,7 @@
 <p>Settings</p>
+<form (ngSubmit)="saveZipcode(newZipcode)">
+    <input name="zipcode"  placeholder="Distance (Miles)" [(ngModel)]="newZipcode.zipcode">
+    <input class="submit" type="submit" value="Enter">
+</form>
 
 <button (click)="callsNextPage()">Admin / Next Page ></button>

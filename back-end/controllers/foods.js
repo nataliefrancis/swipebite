@@ -24,7 +24,7 @@ function show(req, res) {
 function create(req, res) {
 	let body = req.body;
 	console.log(body);
-
+	// get the id out of the. body
 	Food.create({
 		photoUrl: body.image,
 		// restaurantId: body.restaurant.googleId, // TODO: add fancy Sequelize mapping between food and restaurants here
