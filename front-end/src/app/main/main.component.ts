@@ -50,7 +50,10 @@ export class MainComponent implements OnInit {
   	// creates Restaurant in the DB
   	this.apiService.createRestaurant(this.restaurant)
 			.subscribe(res1 => { 
-        //this.router.navigate(['/matched']);
+				let response = res1.json();
+				console.log(response);
+				this.router.navigate(['/matched']);
+				console.log(this.restaurant);
 
 				// creates Food in the DB AFTER Restaurant is created
 				this.apiService.createFood(this.restaurant)

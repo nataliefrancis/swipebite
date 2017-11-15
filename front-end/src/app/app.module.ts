@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { MatchedComponent } from './matched/matched.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ApiService } from './api.service';
+import { SettingsService } from './settings/settings.service';
 import { AdminComponent } from './admin/admin.component';
 
 
@@ -29,13 +30,13 @@ import { AdminComponent } from './admin/admin.component';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    NgbCollapseModule, 
+    NgbCollapseModule,
     NgbDropdownModule,
     HttpModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ ApiService ],
+  providers: [ ApiService, SettingsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

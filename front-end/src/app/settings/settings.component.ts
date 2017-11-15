@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { ApiService } from '../api.service';
+=======
+import { SettingsService } from './settings.service';
+>>>>>>> a35f4efab17d7773b720b9261416ab9a2e62cb4e
 
 @Component({
   selector: 'app-settings',
@@ -41,7 +45,7 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  callsNextPage() {
-  	this.router.navigate(['/admin']);
+ callsNextPage() {
+      this.router.navigate(['/main']);
   }
 }
