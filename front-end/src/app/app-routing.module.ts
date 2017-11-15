@@ -32,6 +32,7 @@ const routes: Routes = [
         path: 'web',
         component: WebpageComponent
     },
+    {
         path: 'settings',
         component: SettingsComponent
     },

@@ -10,19 +10,15 @@ import { ApiService } from '../api.service';
 export class MainComponent implements OnInit {
 	
 	isCollapsed: boolean;
-
-
-  constructor(private router: Router) { 
-  	this.isCollapsed = true;
-  }
-
 	coordinates : any;
  	restaurant;
  	newFood;
  	currentUser;
 
-  constructor(private router: Router, private apiService : ApiService) {}
-
+  constructor(private router: Router, private apiService : ApiService) {
+  	this.isCollapsed = true;
+  }
+  		
 
   ngOnInit() {
 
