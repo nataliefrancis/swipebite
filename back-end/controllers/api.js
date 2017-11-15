@@ -2,35 +2,29 @@ const db = require('../models').models;
 const request = require('request');
 const rp = require('request-promise');
 const keys = require('../config/env');
-
+const db2 = require('../models');
+const userTable = db2.models.User;
 
 function show(reqMaster, resMaster) {
 	console.log('hit the api.index controller');
-	console.log(reqMaster);
-	//how to get the user if there's a new cookie everytime?
-	//let user = req.sessionStore.sessions;
-	// let user2 = req.sessionStore.sessions.ajuuA8IF4v7esAtNAZyDbbvOO6j3d9iC; 
-	//console.log(user);
-	// console.log(user2); 
-	// console.log(typeof(user));
-	// console.log(typeof(user2));
-	// THIS WORKS!!!
-	//res.json(user);
+	let chosenRestaurant = {};
+	let photoInfo = {};
 
 	///////////////////////////////////////////////////////////////////////////////////
 	// SETS UP THE OPTIONS TO MAKE THE GOOGLE PLACES API CALL FOR THAT SPECIFIC USER //
 	///////////////////////////////////////////////////////////////////////////////////
 
-	//DB calls to grab location and distance from that specific user
+	//getting details for that specific user
+	let latitude = reqMaster.body.coordinates.latitude || 39.765200;
+	let longitude = reqMaster.body.coordinates.longitude || -104.986117;
+	let distance = reqMaster.body.user.distance || '1500' ; // defaults to restaurants within a mile if no distance is specified
 
 	let options = { 
 		method: 'GET',
 		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
-			// TODO: need to update the location to grab it from the user's geolocation on the front end
-			location: '39.743158,-104.970044',
-			// TODO: need to search the database for the user's distance setting (default: set to ??)
-			radius: '500',
+			location: latitude + ',' + longitude,
+			radius: distance,
 			type: 'restaurant', //can we add food? 
 			opennow: 'true',
 			key: process.env.clientSecret || keys.placesAPIKey
@@ -44,6 +38,7 @@ function show(reqMaster, resMaster) {
 	request(options, function(err1, res1, body1) {
 		if (err1) return err1;
 		body1 = JSON.parse(body1);
+		console.log(body1);
 		let restaurantsArray = [];
 
 		// Loops through all the returned restaurants to create a restaurants array 
@@ -63,27 +58,8 @@ function show(reqMaster, resMaster) {
 			restaurantsArray.push(restaurantObject);
 		}
 
-		console.log('number of restaurants: ');
-		console.log(restaurantsArray.length);
-
 		// Randomly choose 1 restaurant from that restaurants array
 		let n = Math.floor((Math.random() * restaurantsArray.length));
-
-		// Creates a new restaurant in the DB
-		db.Restaurant.create({
-			name: restaurantsArray[n].name,
-			googleId: restaurantsArray[n].googleId,
-			placeId: restaurantsArray[n].placeId,
-			latitude: restaurantsArray[n].latitude, 
-			longitude: restaurantsArray[n].longitude,
-			address: restaurantsArray[n].address,
-			rating: restaurantsArray[n].rating,
-			url: restaurantsArray[n].url
-			}).then((restaurant, err) => {
-				if (err) { console.log(err); }
-				console.log('new restaurant create ' + restaurant);
-			});
-
 
 		/////////////////////////////////////////////////////////////////////
 		// 2. GOOGLE PLACES **DETAILS** API CALL FOR ONE RANDOM RESTAURANT //
@@ -98,7 +74,7 @@ function show(reqMaster, resMaster) {
 			}
 		};
 
-		console.log(restaurantsArray[n].name);
+		chosenRestaurant = restaurantsArray[n];
 
 		request(options, function (err2, res2, body2) {
 		  if (err2) throw new Error(err2);
@@ -106,14 +82,10 @@ function show(reqMaster, resMaster) {
 			let photosArray = [];
 			let result = body2.result;
 
-			console.log(body.result);
-
 		  ///////////////////////////////////////////////////////////
 			// LOOPS THROUGH ALL THE PHOTOS TO CREATE A PHOTOS ARRAY //
 			///////////////////////////////////////////////////////////
-
 			// Loops through all the photos to create a photos array
-
 			// TODO: this needs to be turned to Sequelize to Create the Photos table rows
 
 			for (let i = 0; i < result.photos.length; i++) {
@@ -125,32 +97,23 @@ function show(reqMaster, resMaster) {
 				photosArray.push(photoObject);
 			}
 
-			console.log(photosArray);
-
 			//////////////////////////////////////////
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
 			//////////////////////////////////////////
 
-			// Updates details about the restaurant in the database
+			//console.log(result);
 
-
-			let restaurantObjectUpdate = {
+			// Updates details about the restaurant in the array
+			chosenRestaurant = {
 				name: result.name,
 				googleId: result.id,
-				// placeId: result.placeId,
+				placeId: result.place_id,
 				latitude: result.geometry.location.lat,
 				longitude: result.geometry.location.lng,
 				address: result.formatted_address,
 				rating: result.rating,
 				url: result.website
 			};
-
-
-			db.Restaurant.update(restaurantObjectUpdate, {where: {googleId: restaurantObjectUpdate.googleId}})
-			.then((err) =>{
-				if (err) { console.log(err); }
-				if (!restaurantObjectUpdate) { console.log('restaurant is not found'); }
-			});
 
 			//////////////////////////////////////////////////////////////////////
 			// 3. GOOGLE PLACES **PHOTOS** API CALL FOR SAME RANDOM RESTAURANT  //
@@ -159,38 +122,27 @@ function show(reqMaster, resMaster) {
 			// Randomly choose 1 restaurant from that restaurants array
 			let k = Math.floor((Math.random() * photosArray.length));
 
-			console.log(photosArray[k].width);
-			console.log(photosArray[k].photoref);
-
-
-			let options = { 
-				method: 'GET',
-			  url: 'https://maps.googleapis.com/maps/api/place/photo',
-			  qs: { 
-						maxwidth: photosArray[k].width,
-			     photoreference: photosArray[k].photoref,
-			     key: process.env.clientSecret || keys.placesAPIKey
-					}
+			photoInfo = {
+				width: photosArray[k].width,
+				photoref: photosArray[k].photoref
 			};
 
-			request(options, function (err3, res3, body3) {
-			  if (err3) throw new Error(err3);
+			let imageUrl = 
+				'https://maps.googleapis.com/maps/api/place/photo' +
+				'?maxwidth=' + photosArray[k].width +
+				'&photoreference=' + photosArray[k].photoref +
+				'&key=' + ( process.env.clientSecret || keys.placesAPIKey );
 
+			let serveUpRestaurantObject = {
+				image: imageUrl,
+				restaurant: chosenRestaurant,
+				photo: photoInfo
+			};
 
-			  resMaster.json({image: body3});
-			});
+			// SERVE UP THE RESTAURANT AND ITS DETAILS TO THE FRONT END
+			resMaster.json(serveUpRestaurantObject); 
 		});		
-	});
-
-// rp(options)
-   //    	.then(function(response) {
-   //      	// let dangerRate = dangerTest(JSON.parse(res), riskGrid);
-   //      	response.send(body);
-   //    	})
-   //    	.catch(function(err) {
-   //      	console.error("Failed to get image from Google API", err);
-   //    	});
-	
+	});	
 }
 
 module.exports.show = show;

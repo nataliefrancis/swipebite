@@ -25,6 +25,10 @@ We each asked two people the following questions:
 
    Natalie-2: This user doesn't usually use any food apps when choosing where to eat. They do however use google maps to find what's close to them then goes directly to their menu and judges based on that. They also use google when seeking out new places nearby they haven't tried. This user considers how busy the place is/will be (how quickly they will be seated), then the type of food, then the price when picking a place. This user would prefer a description (menu) over a picture of the food, though they admit ideally both would be even better. As a follow up they mentioned that they don't like when other people's reviews "pigeon hole" the filters as they have broad tastes and "don't care" if other people don't like something.
 
+   Emma-1: This user primarily uses google maps to find where to eat, though they like yelp the most when it comes to reviews. They think that the yelp reviews are trusted because it's crowd sourced and people post good and bad things, unlike other sites that only post when things are good. This user takes into account their mood, ratings, and distance when picking where to eat. When asked about Postmates, this user liked how they got to see real pictures of the food, but thought it was ultimately unreliable.
+
+   Emma-2: This user usually goes to Tripadvisor or word of mouth to find food, sometimes they use Yelp. They use food apps most when they are traveling. They trust Yelp the most for reviews. They usually pick the highest rated place with the food they are in the mood for. Their top three considerations when deciding where to eat are what they want to eat, the amount of time they have and how convenient it is to get to a place. They do not currently use a specific food app besides yelp. They don't ever get delivery and would prefer to get the food themselves. They like Yelp, because its easy to understand. They don't like yelp because you have to download the app to see more pictures. When deciding on food descriptions are what they trust the most. 
+
 
 ---
 ## COMPETING SITE
@@ -45,10 +49,10 @@ Because the features were so similar to our proposal though, we observed two use
 We were fortunate enough to get some feedback from a UX student that helped us bring to light a lot of user preferences we didn't initially think about. She helped us peg down the type of user we were trying to appeal to, namely stoners, vacationers, and business professionals on the go. She stressed to us the need to build trust with the users by pulling in good pictures and having trusted reviews. She also helped us visualize the basic layout. Below are pictures of the notes from our time with her.
 
 [picture 1]
-[picture 1]: https://github.com/nataliefrancis/swipebite/blob/user-stories/user-stories/UX-layout.jpg
+[picture 1]: swipebite/user-research-images/UX-layout.jpg
 
 [picture 2]
-[picture 2]: https://github.com/nataliefrancis/swipebite/blob/user-stories/user-stories/UX-stuff.jpg
+[picture 2]: swipebite/user-research-images/UX-stuff.jpg
 ---
 ## TAKEAWAYS
 Taking everything above into account, we have decided that we need to build a sleek app that appeals to a younger, more tech savvy group. Based on the competitor app, we want to expand on their idea in the following ways:

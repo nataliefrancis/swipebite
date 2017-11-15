@@ -1,11 +1,32 @@
-<app-search></app-search>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
-<app-restaurants></app-restaurants>
+<div class="flex-container">
+
+
+  <!--Search Bar -->
+  <div class="row search">
+    <div class="col-lg-12">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for a restaurant in your favorites">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Search</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!--Resturnats Images -->
+  <div class="row">
+    <div class="col-lg-10">
+      <div *ngFor="let favoriteFood of favoriteFoods">
+	      <img src="{{ favoriteFood.url }}" style="width:100px;">
+	      <p>Food Id: {{favoriteFood.id}}</p>
+	      <button data-id="{{favoriteFood.id}}" (click)="deletesOneFood(this.favoriteFood.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--Next Page Button-->
+  <button class="nextPage btn btn-danger" (click)="callsNextPage()">Go Home</button>
+
+
+

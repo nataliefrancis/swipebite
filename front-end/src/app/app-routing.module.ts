@@ -3,27 +3,44 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LandingComponent } from './landing/landing.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { MainFoodComponent } from './main-food/main-food.component';
+import { MainComponent } from './main/main.component';
+import { MatchedComponent } from './matched/matched.component';
+import { SettingsComponent } from './settings/settings.component';
+
+import { WebpageComponent } from './webpage/webpage.component';
+import { AdminComponent } from './admin/admin.component';
+
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/landing',
-        pathMatch: 'full'
-        // component: LandingComponent
+        component: LandingComponent
     },
     {
-    	path: 'main',
-        // redirectTo: '/main',
-        pathMatch: 'full',
-        component: MainFoodComponent
+        path: 'main',
+        component: MainComponent
     },
     {
-        path:'favorites',
-        // redirectTo: '/favorites',
-        // pathMatch: 'full',
+        path: 'matched',
+        component: MatchedComponent
+    },
+    {
+        path: 'favorites',
         component: FavoritesComponent
+    },
+    {
+        path: 'web',
+        component: WebpageComponent
+    },
+    {
+        path: 'settings',
+        component: SettingsComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     }
+
 ];
 
 @NgModule({
