@@ -25,7 +25,7 @@ function show(reqMaster, resMaster) {
 		qs: {
 			location: latitude + ',' + longitude,
 			radius: distance,
-			type: 'restaurant', //can we add food? 
+			type: 'restaurant', // future feature, add food?
 			opennow: 'true',
 			key: process.env.clientSecret || keys.placesAPIKey
 		}
@@ -101,7 +101,6 @@ function show(reqMaster, resMaster) {
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
 			//////////////////////////////////////////
 
-			//console.log(result);
 
 			// Updates details about the restaurant in the array
 			chosenRestaurant = {
@@ -148,114 +147,3 @@ function show(reqMaster, resMaster) {
 module.exports.show = show;
 
 				
-////////////////////////////////////// GRAVEYARD /////////////////////////////////////////////
-
-/*
-{ 
-f4JOdcu88YOxeUOUJrV5Z5vhBp7mokx4: 
-	'{
-		"cookie":{
-			"originalMaxAge":null,
-			"expires":null,
-			"httpOnly":true,
-			"path":"/"
-		},
-
-		"passport":{
-			"user":{
-				"id":1,
-				"googleId":"113480942625705319785",
-				"name":"Courtney Fay",
-				"photoUrl":"https://lh4.googleusercontent.com/-pvp9TSPeKhM/AAAAAAAAAAI/AAAAAAAAGw4/2m5E_z84pko/photo.jpg?sz=50",
-				"createdAt":"2017-11-13T14:57:23.314Z",
-				"updatedAt":"2017-11-13T14:57:23.314Z"
-			}
-		}
-	}' 
-}
-*/
-
-// if (body.results[i].photos[0].photo_reference && body.results[i].photos[0].width) {
-// 	photoReferenceAPI = body.results[i].photos[0].photo_reference;
-// 	widthAPI = body.results[i].photos[0].width;
-
-// 	//loop through to add photo data to an array
-// 	
-
-// } else {
-// 	photoReferenceAPI = 'no photo reference';
-// 	widthAPI = 'no photo width';
-// }
-	
-
-	/*
-	SAMPLE CODE
-	var arr = [];
-   for ( var counter = 1; counter <= count; counter++)
-   {
-      arr.push( {
-        'src':'css/images/pictures/gal_'+id+'/' + counter + '.jpg',
-        'thumb':'css/images/thumbnails/gal_'+id+'/' + counter + '.jpg'
-      } );
-   }
-   return arr;
-	*/
-
-/*
-
-SAMPLE CODE TO ADD IN SEQUELIZE WITH TUNR RELATIONSHIPS
-var db = require('../models');
-var Artist = db.models.Artist;
-var Song = db.models.Song;
-
-function index(req, res) {
-  Artist.findAll().then(function(artists) {
-    res.json(artists);
-  });
-}
-
-function show(req, res) {
-  Artist.findById(req.params.id, { include: Song })
-  .then(function(artist){
-    if(!artist) res.send("artist not found");
-    //Artist.sing();
-    //artist.shout();
-    res.json(artist);
-  });  
-}
-
-function create(req, res) {
-  Artist.create(req.body).then(function(artist){
-    if(!artist) res.send("artist not saved");
-    res.json(artist);
-  });
-}
-
-function update(req, res) {
-  Artist.findById(req.params.id)
-  .then(function(artist){
-    if(!artist) res.send("artist not found");
-    return artist.updateAttributes(req.body);
-  })
-  .then(function(artist){
-    res.json(artist);
-  });
-}
-
-function destroy(req, res) {
-  Artist.findById(req.params.id)
-  .then(function(artist){
-    if(!artist) res.send("artist not found");
-    return artist.destroy();
-  })
-  .then(function(){
-    res.send("artist deleted");
-  });  
-}
-
-module.exports.index = index;
-module.exports.show = show;
-module.exports.create = create;
-module.exports.update = update;
-module.exports.destroy = destroy;
-*/

@@ -21,7 +21,7 @@ const routes: Routes = [
         component: MainComponent
     },
     {
-        path: 'matched',
+        path: 'matched/:id',
         component: MatchedComponent
     },
     {
