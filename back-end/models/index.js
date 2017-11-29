@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize');
 if(!process.env.DYNO) {
 	const keys = require('../config/env');
+	const user_name = keys.dbUsername;
 }
-const user_name = keys.dbUsername;
+
 
 const sequelize = new Sequelize(process.env.DATABASE_URL || `postgres://${user_name}@localhost:5432/swipebite`);
 
