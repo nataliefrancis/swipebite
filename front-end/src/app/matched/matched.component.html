@@ -1,12 +1,18 @@
-<p>Matched</p>
-<p *ngIf="currentUser">{{currentUser.name}}</p>
-<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
-<br />
+<div class="matchedContainer js-scroll-trigger fade-in one">
+<h1> it's a match! </h1>
+	<div class="foodImage">
+  <!--   <img id="foodPicture" src="{{oneFood.photoUrl}}" alt="" style="width: 400px">
+	 </div> -->
+<!-- 	 <div class="matchedDescription foodName">
+	 	We’re Here, We’re Gruyere, Get Used to It Burger
+	 </div> -->
+	<!--  <div class="matchedDescription restaurantName">
+	 	Bob's Burgers
+	 </div> -->
+	 <div class="map">
+<!-- 	 	<img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-1/512/10-512.png" class="nav"> -->
+     <a *ngIf="restaurant.address" href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
+	 </div>
+</div>
 
-<img src="{{restaurant.url}}" alt="" style="width: 400px">
-<br />
-<a *ngIf="restaurant.address" href="https://www.google.com/maps/place/{{restaurant.address}}" target="_blank">Google Maps Link for {{restaurant.name}}</a>
-
-<br />
-<button (click)="callsPreviousPage()">< Previous Page</button>
-<button (click)="callsNextPage()">Next Page ></button>
+<button (click)="callsNextPage()">Button</button>

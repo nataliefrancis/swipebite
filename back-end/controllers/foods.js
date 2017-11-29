@@ -118,12 +118,3 @@ module.exports.show = show;
 module.exports.create = create;
 module.exports.update = update;
 module.exports.destroy = destroy;
-
-//////////////// COPY OF FOOD MODEL FOR REFERENCE ////////////////
-
-		// photoref: Sequelize.STRING, 
-		// width: Sequelize.INTEGER,
-		// restaurantId: Sequelize.INTEGER,
-		// wasSeen: Sequelize.BOOLEAN
-		//foodType: Sequelize.STRING
-		//favorited: Sequelize.ARRAY(Sequelize.INTEGER),

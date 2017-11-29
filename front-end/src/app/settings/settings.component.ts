@@ -9,10 +9,13 @@ import { ApiService } from '../api.service';
 })
 export class SettingsComponent implements OnInit {
 
+
+	newZipcode = Number;
 	currentUser;
   distance: number;
 
   constructor(private router: Router, private apiService: ApiService) { }
+
 
   ngOnInit() {
   	this.determineCurrentUser();
@@ -41,7 +44,29 @@ export class SettingsComponent implements OnInit {
     });
   }
 
- callsNextPage() {
-      this.router.navigate(['/main']);
+//need to fix to remove setting services
+
+  // saveZipcode(newZipcode) {
+  //     console.log("saving zipcode");
+  //     console.log(newZipcode);
+  //     this.settingsService.saveZipcode(newZipcode)
+  //             .subscribe(response => {
+  //           console.log(response.json());
+  //           let zipcode = response.json();
+  //       });
+  // }
+
+
+ // getImage (newImage ) {
+ //    this.settingsService.getImage(newImage)
+ //    .subscribe( response => {
+ //      let image = []
+ //    })
+ //  }
+
+  callsNextPage() {
+  	this.router.navigate(['/main']);
+
+
   }
 }

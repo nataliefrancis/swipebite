@@ -7,6 +7,7 @@ let port = process.env.PORT || 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+
 require('./config/passport')(passport);
 
 // BODY PARSER

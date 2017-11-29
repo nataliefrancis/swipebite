@@ -6,7 +6,10 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { MainComponent } from './main/main.component';
 import { MatchedComponent } from './matched/matched.component';
 import { SettingsComponent } from './settings/settings.component';
+
+import { WebpageComponent } from './webpage/webpage.component';
 import { AdminComponent } from './admin/admin.component';
+
 
 const routes: Routes = [
     {
@@ -26,6 +29,10 @@ const routes: Routes = [
         component: FavoritesComponent
     },
     {
+        path: 'web',
+        component: WebpageComponent
+    },
+    {
         path: 'settings',
         component: SettingsComponent
     },
@@ -33,6 +40,7 @@ const routes: Routes = [
         path: 'admin',
         component: AdminComponent
     }
+
 ];
 
 @NgModule({

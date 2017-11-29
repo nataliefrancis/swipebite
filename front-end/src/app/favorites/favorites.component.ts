@@ -37,7 +37,6 @@ export class FavoritesComponent implements OnInit {
     console.log('user id on the favorites component:');
     console.log(user.id);
     this.apiService.indexRestaurants()
-    //showUsersFavoriteFoods(user.id)
       .subscribe(response => {
         console.log(response.json());
         this.favoriteFoods = response.json();
@@ -55,7 +54,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   callsNextPage() {
-  	this.router.navigate(['/settings']);
+  	this.router.navigate(['web']);
+
   }
 
 }

@@ -1,14 +1,49 @@
-<p>Main</p>
-<p *ngIf="currentUser">{{currentUser.name}}</p>
-<img *ngIf="currentUser" src="{{currentUser.photoUrl}}">
-<br />
 
-<img *ngIf="restaurant" src={{restaurant.image}} alt="picture from Google Places Images search" style="width:300px;">
+<!--Food Pic-->
+<div class="flex-container">
+		<!--prints out the food picture from the API-->
+		<img *ngIf="restaurant" src={{restaurant.image}} id="foodPicture" alt="picture from Google Places Images search">
+</div>
 
-<br />
-<button (click)="swipeLeft()">NO</button>
-<button (click)="swipeRight()">YES</button>
-<br />
-<a *ngIf="restaurant" href="{{restaurant.restaurant.url}}" target="_blank">{{restaurant.restaurant.name}}</a>
-<h3 *ngIf="restaurant">{{restaurant.restaurant.rating}}</h3>
-<button (click)="callsNextPage()">Next Page ></button>
+<!--Nav Bar-->
+<div class="flex-container">
+	<nav id ="dropDown" class="navbar navbar-inverse navbar-toggleable-md bg-faded">
+		<button id="nav-button" class="navbar-toggler navbar-toggler-right custom-toggler x" type="button" (click)="isCollapsed = !isCollapsed">
+			<span class="navbar-toggler-icon icon"></span>
+		</button>
+		<!--Prints the resturnt name-->
+		<a *ngIf="restaurant" class="navbar-brand" href="{{restaurant.restaurant.url}}" target="_blank">{{restaurant.restaurant.name}}</a>
+		<!--sets state to isCollapsed to start-->
+		<div id="dropped" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" >
+			<ul class="navbar-nav">
+				<!--Print the resturnat rating-->
+				<li>
+					<h3 *ngIf="restaurant">{{restaurant.restaurant.rating}}</h3>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!--Buttons-->
+	<!--If the class is isCollapsed then show the buttons if not remove the buttons-->
+	<div *ngIf = "isCollapsed">
+		<div id="buttons">
+			<!--creates a circle button with an x favacon-->
+			<button type="button" (click)="swipeLeft()" class="btn btn-warning btn-circle btn-xl">
+				<i class="fa fa-times"></i>
+			</button>
+			<!--creates a circle button with heart favicon-->
+			<button type="button" (click)="swipeRight()" class="btn btn-danger btn-circle btn-xl">
+			 	<i class="fa fa-heart"></i>
+			</button>
+		</div>
+		<!--Takes you to the next page-->
+		<button class="next" (click)="callsNextPage()">Next</button>
+
+	</div>
+	<div class="flex-container">
+	<div class="settings">
+			<button class="gear" (click)="callsSettings()">Settings</button>
+		</div>
+	</div>
+</div>
