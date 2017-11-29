@@ -14,13 +14,11 @@ export class MainComponent implements OnInit {
  	restaurant;
  	newFood;
  	currentUser;
-  newFood;
 
   constructor(private router: Router, private apiService : ApiService) {
   	this.isCollapsed = true;
   }
   		
-
   ngOnInit() {
 
   	// as soon as this page loads, grab the user's lat and long, and call the Google Places API

@@ -23,6 +23,7 @@ import { AdminComponent } from './admin/admin.component';
   declarations: [
     AppComponent,
     LandingComponent,
+    SettingsComponent,
     MainComponent,
     MatchedComponent,
     FavoritesComponent,

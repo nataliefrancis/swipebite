@@ -12,7 +12,7 @@ export class SettingsComponent implements OnInit {
 
 	newZipcode = Number;
 	currentUser;
-  distance: number;
+  newDistance: number;
 
   constructor(private router: Router, private apiService: ApiService) { }
 

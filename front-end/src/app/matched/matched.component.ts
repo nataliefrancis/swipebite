@@ -22,8 +22,9 @@ export class MatchedComponent implements OnInit {
 
   ngOnInit() {
     //this.grabMostRecentFood(this.id);
-    //this.determineCurrentUser();
-  //}
+    this.determineCurrentUser();
+    this.grabRestaurant();
+  }
 
   //grabMostRecentFood(id) {
 //     console.log('trying to grab the food that was saved to the database most recently');
@@ -42,14 +43,14 @@ export class MatchedComponent implements OnInit {
 //         console.log(response.json());
 //         this.restaurant = response.json();
 //       })
-}
+//}
 
   // TODO: shouldn't actually use the food id directly but should look up the restaurantId based on the foodId and then use that to return the restaurant from the DB
   /*grabRestaurant() {
     // this.grabOneFood();
     this.grabRestaurant();
     this.determineCurrentUser();
-  }
+  }*/
 
   grabRestaurant() {
     console.log('trying to grab a restaurant address');
