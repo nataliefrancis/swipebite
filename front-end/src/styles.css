@@ -1,4 +1,108 @@
+
+/******************** 
+	Global Styles
+********************/
+/*************
+  Phone Only
+**************/
+@media only screen 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+ html, body{
+ 	margin: 0;
+ }
 body {
 	margin: 0 auto;
 	background-color: rgba(215, 103, 33,.4);
+}
+h1 {
+	font-family: 'Heebo', sans-serif;
+	color: white;
+	padding-top: 10px;
+}
+header {
+	width: 100%;
+	background-color: #D76721;
+	margin-bottom: 15%;
+	padding: 1%;
+	text-align: center;
+}
+.ramen {
+	max-width: 15%;
+	margin-top: -5px;
+}
+}
+/*************
+    Ipad
+**************/
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 668px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	html, body{
+	 	margin: 0;
+	}
+	
+	body {
+		margin: 0 auto;
+		background-color: rgba(215, 103, 33,.4);
+	}
+
+	h1{
+		font-family: 'Heebo', sans-serif;
+		color: white;
+		padding-top: 10px;
+		font-size: 40px;
+	}
+
+	.ramen {
+		max-width: 15%;
+		margin-top: -5px;
+	}
+
+	header {
+		width: 100%;
+		background-color: #D76721;
+		margin-bottom: 15%;
+		padding: 1%;
+		text-align: center;
+		font-weight: 40px;
+	}
+}
+
+/*************
+   Computer
+**************/
+@media screen 
+  and (min-device-width: 1025px) 
+  and (max-device-width: 2000px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+	html, body{
+	 	margin: 0;
+	}
+	body {
+		margin: 0 auto;
+		background-color: rgba(215, 103, 33,.4);
+	}
+	h1 {
+		font-family: 'Heebo', sans-serif;
+		color: white;
+		padding-top: 10px;
+	}
+
+	.ramen {
+		max-width: 15%;
+		margin-top: -5px;
+	}
+
+	header {
+		width: 100%;
+		background-color: #D76721;
+		margin-bottom: 15%;
+		padding: 1%;
+		text-align: center;
+	}
 }

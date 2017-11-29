@@ -1,6 +1,47 @@
+/*************
+  Phone Only
+**************/
+@media only screen 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
 body {
 	margin: 0 auto;
 }
 .container {
 	height: 100%;
+}
+}
+
+/*************
+    Ipad
+**************/
+@media only screen 
+  and (min-device-width: 668px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+	body {
+		margin: 0 auto;
+	}
+	.container {
+		height: 100%;
+	}
+}
+
+/*************
+   Computer
+**************/
+@media screen 
+  and (min-device-width: 1025px) 
+  and (max-device-width: 2000px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+	
+	body {
+		margin: 0 auto;
+	}
+	.container {
+		height: 100%;
+	}
 }
