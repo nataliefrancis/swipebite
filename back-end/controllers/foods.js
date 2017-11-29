@@ -4,7 +4,8 @@ let Food = db.models.Food;
 
 // INDEX OF FOODS - FAVORITES PAGE
 function index(req, res) {
-	Food.findAll().then(function(food) {
+	Food.findAll()
+		.then(function(food) {
 		console.log("you've hit the food index route");
 		res.json(food);
 	});

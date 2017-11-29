@@ -16,10 +16,7 @@ export class FavoritesComponent implements OnInit {
   constructor( private router: Router, private apiService: ApiService ) { }
 
   ngOnInit() {
- 
     this.determineCurrentUser();
-
-
   }
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
