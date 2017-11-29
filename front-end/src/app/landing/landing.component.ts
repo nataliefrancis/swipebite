@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { isDevMode } from '@angular/core';
 import { ApiService } from '../api.service';
 
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit { 
 
 	baseUrl : string;
  	currentUser;
@@ -26,6 +27,7 @@ export class LandingComponent implements OnInit {
 
     this.determineCurrentUser();
   }
+
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {
@@ -46,3 +48,8 @@ export class LandingComponent implements OnInit {
   }
 
 }
+
+
+    
+
+  

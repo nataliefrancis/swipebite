@@ -106,14 +106,3 @@ module.exports.create = create;
 module.exports.show = show;
 module.exports.update = update;
 module.exports.destroy = destroy;
-
-///////////////// COPY OF RESTAURANT MODEL FOR REFERENCE ////////////////
-
-		// name: Sequelize.STRING,
-		// googleId: Sequelize.STRING,
-		// placeId: Sequelize.STRING,
-		// latitude: Sequelize.STRING, 
-		// longitude: Sequelize.STRING, 
-		// address: Sequelize.STRING,
-		// rating: Sequelize.STRING,
-		// url: Sequelize.STRING

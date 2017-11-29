@@ -8,13 +8,18 @@ import { ApiService } from '../api.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+	
+	isCollapsed: boolean;
 	coordinates : any;
  	restaurant;
+ 	newFood;
  	currentUser;
   newFood;
 
-  constructor(private router: Router, private apiService : ApiService) {}
+  constructor(private router: Router, private apiService : ApiService) {
+  	this.isCollapsed = true;
+  }
+  		
 
   ngOnInit() {
 
@@ -59,6 +64,11 @@ export class MainComponent implements OnInit {
         let foodId = response.json().id;
         console.log(foodId);
         this.router.navigate(['/matched', foodId]);
+      // saves Restaurant in the DB, and saves food with a restaurantId
+      //this.apiService.createRestaurant(this.restaurant)
+            //.subscribe(response => {
+              // let foodId = response.json().id;
+               // this.router.navigate(['/matched/' +foodId]);
     });
   }
       
@@ -94,6 +104,10 @@ export class MainComponent implements OnInit {
 
   callsNextPage() {
   	this.router.navigate(['/matched']);
+  }
+
+  callsSettings() {
+    this.router.navigate(['/settings']);
   }
 
 }
