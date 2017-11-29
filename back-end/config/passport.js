@@ -1,6 +1,8 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./env');
+if(!process.env.DYNO) {
+	const keys = require('./env');
+}
 const DB = require('../models').models;
 
 module.exports = function(passport) {
