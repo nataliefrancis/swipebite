@@ -25,6 +25,14 @@ export class MatchedComponent implements OnInit {
   grabMostRecentFood(id) {
     console.log('trying to grab the food that was saved to the database most recently');
     console.log(id);
+
+    /*this.heroes$ = this.route.paramMap
+      .switchMap((params: ParamMap) => {
+        // (+) before `params.get()` turns the string into a number
+        this.selectedId = +params.get('id');
+        return this.service.getHeroes();
+      });
+  }*/
     this.apiService.showOneRestaurant(id)
     .subscribe(response => {
         console.log("here's the most recent restaurant and food we served up from the back end");

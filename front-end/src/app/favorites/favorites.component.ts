@@ -16,10 +16,7 @@ export class FavoritesComponent implements OnInit {
   constructor( private router: Router, private apiService: ApiService ) { }
 
   ngOnInit() {
- 
     this.determineCurrentUser();
-
-
   }
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
@@ -39,7 +36,8 @@ export class FavoritesComponent implements OnInit {
   grabAllFoods(user) {
     console.log('user id on the favorites component:');
     console.log(user.id);
-    this.apiService.showUsersFavoriteFoods(user.id)
+    this.apiService.indexRestaurants()
+    //showUsersFavoriteFoods(user.id)
       .subscribe(response => {
         console.log(response.json());
         this.favoriteFoods = response.json();
