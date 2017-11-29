@@ -94,7 +94,12 @@ export class ApiService {
     return this.http.delete(`${this.baseUrl}/api/users/${userId}`);
   }
 
-  ////////////////////////////// RANDOM SHITTY ROUTE //////////////////////////////////
+  ////////////////////////////// OTHER ROUTES //////////////////////////////////
+
+  showMostRecentFood() {
+    console.log("hitting the show most recent food route on the api service");
+    return this.http.get(`${this.baseUrl}/api/foods/restaurant`);
+  }
 
   showUsersFavoriteFoods(userId) {
     console.log('api Service user id!');

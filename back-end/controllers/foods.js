@@ -23,11 +23,13 @@ function show(req, res) {
 //CREATE A NEW FOOD - MAIN PAGE SWIPE RIGHT
 function create(req, res) {
 	let body = req.body;
+	console.log('we hit the createFood function on the DB side:');
+	console.log(body);
 
 	Food.create({
-		photoUrl: body.image,
-		restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
-		wasSeen: false
+		photoUrl: body.photoUrl,
+		// restaurantId: null, // TODO: add fancy Sequelize mapping between food and restaurants here
+		// wasSeen: false
 	}).then(function(food) {
 			if(!food) res.send("food not saved");
 			console.log("You've hit the food create route");
@@ -64,12 +66,51 @@ function destroy(req, res) {
 	});
 }
 
-// RETURNS SOME OF THE FOODS, THE ONES THE USER LIKESSS
+// RETURNS THE USER'S FAVORITE FOODS
 function getSome(req, res) {
 	res.json('hitting the function getSome!');
-	
 }
 
+// RETURNS THE FAVORITED FOOD THAT WAS MOST RECENTLY SAVED TO THE DATABASE
+function showFood(req, res) {
+	
+
+	// TODO: add in a lookup with current user id
+	// 1. look up most recent food in SQL table
+	console.log("hitting the function showFood");
+	console.log(req.params.id);
+	console.log(req.body);
+
+	/*let id = 11;
+	
+	Food.findById(11
+		//{
+		//where: { id: }, 
+		//order: sequelize.col('createdAt DESC')
+			//[[ 'createdAt', 'DESC' ]]
+		//}
+	).then(function(food, err){
+		if (err) console.log(err); 
+		res.json(food);
+	});*/
+
+	/*YourModel.findAll({
+	  limit: 1,
+	  where: {
+	    //your where conditions, or without them if you need ANY entry
+	  },
+	  order: [ [ 'createdAt', 'DESC' ]]
+	}).then(function(entries){
+
+	  //only difference is that you get users list limited to 1
+	  //entries[0]
+	}); */
+	// 2. use food.restaurantId to grab the most recent restaurant details
+	// 3. serve up both the food and restaurant details back to the front
+	res.json("hitting the function showFood");
+}
+
+module.exports.showFood = showFood;
 module.exports.getSome = getSome;
 module.exports.index = index;
 module.exports.show = show;

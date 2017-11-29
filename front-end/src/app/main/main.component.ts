@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
  	restaurant;
  	newFood;
  	currentUser;
+  newFood;
 
   constructor(private router: Router, private apiService : ApiService) {
   	this.isCollapsed = true;
@@ -52,13 +53,44 @@ export class MainComponent implements OnInit {
   }
 
   swipeRight() {
+  	// saves Restaurant in the DB, and saves food with a restaurantId
+    console.log("this is the restaurant we're sending to the DB");
+    console.log(this.restaurant);
+  	this.apiService.createRestaurant(this.restaurant)
+			.subscribe(response => { 
+        console.log("this is the restaurant that we saved to the database");
+        //console.log(response.json());
+
+        let foodId = response.json().id;
+        console.log(foodId);
+        this.router.navigate(['/matched', foodId]);
       // saves Restaurant in the DB, and saves food with a restaurantId
-      this.apiService.createRestaurant(this.restaurant)
-            .subscribe(response => {
-               let foodId = response.json().id;
-                this.router.navigate(['/matched/' +foodId]);
+      //this.apiService.createRestaurant(this.restaurant)
+            //.subscribe(response => {
+              // let foodId = response.json().id;
+               // this.router.navigate(['/matched/' +foodId]);
     });
   }
+      
+	/*
+  ORIGINAL STUFF
+  swipeRight() {
+    // creates Restaurant in the DB
+    this.apiService.createRestaurant(this.restaurant)
+      .subscribe(res1 => { 
+        let response = res1.json();
+        console.log(response);
+        this.router.navigate(['/matched']);
+        console.log(this.restaurant);
+
+        // creates Food in the DB AFTER Restaurant is created
+        this.apiService.createFood(this.restaurant)
+          .subscribe(res2 => {
+            console.log(res2.json());
+            this.router.navigate(['/matched']);
+          })
+      });
+  }*/
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {

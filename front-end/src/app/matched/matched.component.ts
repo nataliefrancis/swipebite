@@ -21,6 +21,9 @@ export class MatchedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+  // TODO: shouldn't actually use the food id directly but should look up the restaurantId based on the foodId and then use that to return the restaurant from the DB
+  /*grabRestaurant() {
     // this.grabOneFood();
     this.grabRestaurant();
     this.determineCurrentUser();
@@ -52,10 +55,8 @@ export class MatchedComponent implements OnInit {
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {
-    //console.log('hitting determineCurrentUser function');
     this.apiService.determineCurrentUser()
     .subscribe(response => {
-      //console.log(response.json());
       this.currentUser = response.json();
     })
   }

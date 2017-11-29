@@ -16,7 +16,7 @@ const UserFood = sequelize.import('./userFood');
 
 // DB RELATIONSHIPS
 Food.belongsTo(Restaurant);
-Restaurant.hasMany(Food);
+Restaurant.hasOne(Food);
 
 Food.belongsTo(User);
 User.hasMany(Food);
