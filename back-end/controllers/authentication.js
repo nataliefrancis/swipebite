@@ -18,7 +18,7 @@ const googleCallback = (req, res, next) => {
 	} 
 
 	let authCallbackStrategy = passport.authenticate('google', {
-		successRedirect: '/main', //`${baseUrl}/main`,
+		successRedirect: '/', //`${baseUrl}/main`,
 		failureRedirect: '/' //`${baseUrl}/`
 	}); 
 	return authCallbackStrategy(req, res, next);
