@@ -12,9 +12,14 @@ const googleLogin = (req, res, next) => {
 const googleCallback = (req, res, next) => {
 	console.log('hitting google callback controller!');
 
+	//Only needed if on localhost/not on Heroku
+	if(!process.env.DYNO) {
+		baseUrl = 'http://localhost:4200';
+	} 
+
 	let authCallbackStrategy = passport.authenticate('google', {
-		successRedirect: 'http://localhost:4200/main',
-		failureRedirect: 'http://localhost:4200/'
+		successRedirect: '/main', //`${baseUrl}/main`,
+		failureRedirect: '/' //`${baseUrl}/`
 	}); 
 	return authCallbackStrategy(req, res, next);
 };
