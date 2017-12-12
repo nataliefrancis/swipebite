@@ -55,10 +55,11 @@ router.get('/auth/google/redirect', authController.googleCallback);
 ///////////// GOOGLE PLACES API ROUTES //////////////
 /////////////////////////////////////////////////////
 
-router.post('/api/places', (req, res) => {
-	console.log("hitting the GooglePlacesAPICall route on the back end");
-});	
-//apiController.show);
+router.post('/api/places', apiController.show);
+
+// 	(req, res) => {
+// 	console.log("hitting the GooglePlacesAPICall route on the back end");
+// });	
 
 ////////////////////////////////////
 ////////// FOOD ROUTES /////////////
