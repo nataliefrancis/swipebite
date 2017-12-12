@@ -25,7 +25,7 @@ function show(reqMaster, resMaster) {
 
 	let options = { 
 		method: 'GET',
-		url: 'http://maps.googleapis.com/maps/api/place/nearbysearch/json',
+		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			location: latitude + ',' + longitude,
 			radius: distance,
