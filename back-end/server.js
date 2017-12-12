@@ -7,6 +7,7 @@ let port = process.env.PORT || 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const forceSsl = require('force-ssl-heroku');
 
 require('./config/passport')(passport);
 
@@ -34,14 +35,7 @@ if(!process.env.DYNO) {
 	  next();
 	});
 } else {
-	// if on Heroku, need to send https and not http
-	app.use((req, res, next) => {
-		console.log(req.header);
-		// if(req.header "x-forwarded-proto" !== "https") 
-		// 	res.redirect(`https://${req.header('host')}${req.url}`);
-		// else
-		next();
-	});
+	app.use(forceSsl);
 }
 
 // PERSISTS THE CURRENT USER
