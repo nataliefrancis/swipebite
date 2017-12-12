@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
@@ -10,19 +10,25 @@ import { ApiService } from '../api.service';
 export class MainComponent implements OnInit {
 	
 	isCollapsed: boolean;
-	coordinates : any;
+	coordinates: any;
  	restaurant;
  	newFood;
  	currentUser;
+  baseUrl: string;
 
   constructor(private router: Router, private apiService : ApiService) {
     this.isCollapsed = true;
   }
   		
   ngOnInit() {
-
-    
     console.log("hitting SOMETHING on the main.component.ts page");
+
+    // SETS THE BASE URL
+    if(isDevMode()) {
+      this.baseUrl = "http://localhost:3000";
+    } else {
+      this.baseUrl = "";
+    }
 
   	// as soon as this page loads, grab the user's lat and long, and call the Google Places API
 		window.navigator.geolocation.getCurrentPosition(position => {
@@ -47,7 +53,7 @@ export class MainComponent implements OnInit {
     console.log(apiObject);
 		this.apiService.callGooglePlacesAPI(apiObject)
 	    .subscribe(response => {
-      console.log(response);
+      console.log(response.json());
 	    this.restaurant = response.json();
 	 	});
 	}	

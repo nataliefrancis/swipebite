@@ -18,6 +18,8 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log("hitting the landing component page!");
+
     // SETS THE BASE URL
     if(isDevMode()) {
       this.baseUrl = "http://localhost:3000";
@@ -31,10 +33,10 @@ export class LandingComponent implements OnInit {
 
   // DETERMINES WHICH USER IS CURRENTLY LOGGED IN
   determineCurrentUser() {
-    //console.log('hitting determineCurrentUser function');
+    console.log('hitting determineCurrentUser function');
     this.apiService.determineCurrentUser()
     .subscribe(response => {
-      //console.log(response.json());
+      console.log(response.json());
       this.currentUser = response.json();
     })
   }
