@@ -33,6 +33,15 @@ if(!process.env.DYNO) {
 	  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	  next();
 	});
+} else {
+	// if on Heroku, need to send https and not http
+	app.use((req, res, next) => {
+		console.log(req.header);
+		// if(req.header "x-forwarded-proto" !== "https") 
+		// 	res.redirect(`https://${req.header('host')}${req.url}`);
+		// else
+		// 	next()
+	});
 }
 
 // PERSISTS THE CURRENT USER

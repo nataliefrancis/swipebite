@@ -14,7 +14,6 @@ export class MainComponent implements OnInit {
  	restaurant;
  	newFood;
  	currentUser;
-  baseUrl: string;
 
   constructor(private router: Router, private apiService : ApiService) {
     this.isCollapsed = true;
@@ -22,13 +21,6 @@ export class MainComponent implements OnInit {
   		
   ngOnInit() {
     console.log("hitting SOMETHING on the main.component.ts page");
-
-    // SETS THE BASE URL
-    if(isDevMode()) {
-      this.baseUrl = "http://localhost:3000";
-    } else {
-      this.baseUrl = "";
-    }
 
   	// as soon as this page loads, grab the user's lat and long, and call the Google Places API
 		window.navigator.geolocation.getCurrentPosition(position => {
@@ -45,7 +37,7 @@ export class MainComponent implements OnInit {
 
   // Gets Restaurant and Photo from Google Places API
   callGooglePlacesAPI() {
-    console.log("hitting google places api on main.component.ts");
+    console.log("hitting GooglePlacesAPI on main.component.ts");
     let apiObject = {
       coordinates: this.coordinates,
       user: this.currentUser
