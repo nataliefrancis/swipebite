@@ -1,8 +1,9 @@
 const db = require('../models').models;
 const request = require('request');
 const rp = require('request-promise');
+let keys;
 if(!process.env.DYNO) {
-	const keys = require('../config/env');
+	keys = require('../config/env');
 }
 
 const db2 = require('../models');
