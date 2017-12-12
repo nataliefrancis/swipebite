@@ -10,7 +10,7 @@ const db2 = require('../models');
 const userTable = db2.models.User;
 
 function show(reqMaster, resMaster) {
-	console.log('hit the api.index controller');
+	console.log('hit the api.show controller');
 	let chosenRestaurant = {};
 	let photoInfo = {};
 
@@ -31,7 +31,7 @@ function show(reqMaster, resMaster) {
 			radius: distance,
 			type: 'restaurant', // future feature, add food?
 			opennow: 'true',
-			key: process.env.clientSecret || keys.placesAPIKey
+			key: process.env.placesAPIKey || keys.placesAPIKey
 		}
 	};
 
@@ -74,7 +74,7 @@ function show(reqMaster, resMaster) {
 			url: 'https://maps.googleapis.com/maps/api/place/details/json',
 			qs: {
 				placeid: restaurantsArray[n].placeId,
-				key: process.env.clientSecret || keys.placesAPIKey
+				key: process.env.placesAPIKey || keys.placesAPIKey
 			}
 		};
 
@@ -134,7 +134,7 @@ function show(reqMaster, resMaster) {
 				'https://maps.googleapis.com/maps/api/place/photo' +
 				'?maxwidth=' + photosArray[k].width +
 				'&photoreference=' + photosArray[k].photoref +
-				'&key=' + ( process.env.clientSecret || keys.placesAPIKey );
+				'&key=' + ( process.env.placesAPIKey || keys.placesAPIKey );
 
 			let serveUpRestaurantObject = {
 				image: imageUrl,
