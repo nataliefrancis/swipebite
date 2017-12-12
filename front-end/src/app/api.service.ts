@@ -7,7 +7,7 @@ export class ApiService {
 	baseUrl: string;
 
   constructor( private http: Http ) { 
-  	if (isDevMode) {
+  	if (isDevMode()) {
       console.log("thinks we're in dev mode");
   		this.baseUrl  = 'http://localhost:3000';
   	} else {
