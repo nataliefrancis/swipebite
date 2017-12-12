@@ -20,7 +20,7 @@ export class LandingComponent implements OnInit {
 
     // SETS THE BASE URL
     if(isDevMode()) {
-      this.baseUrl = "http://localhost:4200";
+      this.baseUrl = "http://localhost:3000";
     } else {
       this.baseUrl = "";
     }
