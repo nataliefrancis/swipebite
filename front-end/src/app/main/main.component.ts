@@ -30,6 +30,8 @@ export class MainComponent implements OnInit {
 			this.callGooglePlacesAPI();
 		});	
 
+    console.log("hitting the main.component.ts");
+
 		this.determineCurrentUser();
   }
 
