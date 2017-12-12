@@ -8,8 +8,10 @@ export class ApiService {
 
   constructor( private http: Http ) { 
   	if (isDevMode) {
+      console.log("thinks we're in dev mode");
   		this.baseUrl  = 'http://localhost:3000';
   	} else {
+      console.log("doesn't think we're in dev mode");
   		this.baseUrl = '';
   	}
   }
@@ -17,6 +19,7 @@ export class ApiService {
   //////////////////////////// AUTHENTICATION ROUTES ////////////////////////
 
   determineCurrentUser(){
+    console.log(this.baseUrl);
     return this.http.get(`${this.baseUrl}/auth/currentUser`, {withCredentials: true});
   }
 
