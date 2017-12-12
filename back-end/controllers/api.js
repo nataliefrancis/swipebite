@@ -25,7 +25,7 @@ function show(reqMaster, resMaster) {
 
 	let options = { 
 		method: 'GET',
-		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+		url: 'http://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			location: latitude + ',' + longitude,
 			radius: distance,
@@ -71,7 +71,7 @@ function show(reqMaster, resMaster) {
 
 		let options = {
 			method: 'GET',
-			url: 'https://maps.googleapis.com/maps/api/place/details/json',
+			url: 'http://maps.googleapis.com/maps/api/place/details/json',
 			qs: {
 				placeid: restaurantsArray[n].placeId,
 				key: process.env.clientSecret || keys.placesAPIKey
@@ -131,7 +131,7 @@ function show(reqMaster, resMaster) {
 			};
 
 			let imageUrl = 
-				'https://maps.googleapis.com/maps/api/place/photo' +
+				'http://maps.googleapis.com/maps/api/place/photo' +
 				'?maxwidth=' + photosArray[k].width +
 				'&photoreference=' + photosArray[k].photoref +
 				'&key=' + ( process.env.clientSecret || keys.placesAPIKey );
