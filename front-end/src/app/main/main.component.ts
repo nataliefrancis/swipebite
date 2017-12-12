@@ -15,11 +15,14 @@ export class MainComponent implements OnInit {
  	newFood;
  	currentUser;
 
-  constructor(private router: Router, private apiService : ApiService) {}
+  constructor(private router: Router, private apiService : ApiService) {
+    this.isCollapsed = true;
+  }
   		
   ngOnInit() {
 
-    this.isCollapsed = true;
+    
+    console.log("hitting SOMETHING on the main.component.ts page");
 
   	// as soon as this page loads, grab the user's lat and long, and call the Google Places API
 		window.navigator.geolocation.getCurrentPosition(position => {
@@ -27,6 +30,7 @@ export class MainComponent implements OnInit {
 		  	latitude: position.coords.latitude,
 		  	longitude: position.coords.longitude
 			}
+      console.log(this.coordinates);
 			this.callGooglePlacesAPI();
 		});	
 
