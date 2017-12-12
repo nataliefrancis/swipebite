@@ -20,15 +20,13 @@ export class MainComponent implements OnInit {
   }
   		
   ngOnInit() {
-    console.log("hitting SOMETHING on the main.component.ts page");
-
   	// as soon as this page loads, grab the user's lat and long, and call the Google Places API
 		window.navigator.geolocation.getCurrentPosition(position => {
 			this.coordinates = {
 		  	latitude: position.coords.latitude,
 		  	longitude: position.coords.longitude
 			}
-      console.log(this.coordinates);
+      
 			this.callGooglePlacesAPI();
 		});	
 
@@ -37,12 +35,10 @@ export class MainComponent implements OnInit {
 
   // Gets Restaurant and Photo from Google Places API
   callGooglePlacesAPI() {
-    console.log("hitting GooglePlacesAPI on main.component.ts");
     let apiObject = {
       coordinates: this.coordinates,
       user: this.currentUser
     }
-    console.log(apiObject);
 		this.apiService.callGooglePlacesAPI(apiObject)
 	    .subscribe(response => {
       console.log(response.json());

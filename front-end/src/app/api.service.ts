@@ -23,7 +23,6 @@ export class ApiService {
   /////////////////////////// API ROUTES /////////////////////////////////
 
   callGooglePlacesAPI(body) {
-    console.log('at the googlecallplaces function on api service');
     // console.log(body);
    	return this.http.post(`${this.baseUrl}/api/places`, body); 
   }
