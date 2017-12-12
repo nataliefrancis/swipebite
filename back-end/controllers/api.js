@@ -25,7 +25,7 @@ function show(reqMaster, resMaster) {
 
 	let options = { 
 		method: 'GET',
-		url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+		url: 'http://maps.googleapis.com/maps/api/place/nearbysearch/json',
 		qs: {
 			location: latitude + ',' + longitude,
 			radius: distance,
@@ -149,5 +149,3 @@ function show(reqMaster, resMaster) {
 }
 
 module.exports.show = show;
-
-				
