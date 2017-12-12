@@ -1,7 +1,9 @@
 const Sequelize = require('sequelize');
+let user_name;
+let keys;
 if(!process.env.DYNO) {
-	const keys = require('../config/env');
-	const user_name = keys.dbUsername;
+	keys = require('../config/env');
+	user_name = keys.dbUsername;
 }
 
 
