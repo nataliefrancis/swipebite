@@ -71,7 +71,7 @@ function show(reqMaster, resMaster) {
 
 		let options = {
 			method: 'GET',
-			url: 'http://maps.googleapis.com/maps/api/place/details/json',
+			url: 'https://maps.googleapis.com/maps/api/place/details/json',
 			qs: {
 				placeid: restaurantsArray[n].placeId,
 				key: process.env.clientSecret || keys.placesAPIKey
@@ -131,7 +131,7 @@ function show(reqMaster, resMaster) {
 			};
 
 			let imageUrl = 
-				'http://maps.googleapis.com/maps/api/place/photo' +
+				'https://maps.googleapis.com/maps/api/place/photo' +
 				'?maxwidth=' + photosArray[k].width +
 				'&photoreference=' + photosArray[k].photoref +
 				'&key=' + ( process.env.clientSecret || keys.placesAPIKey );
