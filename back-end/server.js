@@ -38,8 +38,8 @@ if(!process.env.DYNO) {
 // PERSISTS THE CURRENT USER
 app.use((req,res,next) => {
 	res.locals.currentUser = req.user;
-	console.log('req.user on server.js: ');
-	console.log(req.user);
+	// console.log('req.user on server.js: ');
+	// console.log(req.user);
 	next();
 });
 

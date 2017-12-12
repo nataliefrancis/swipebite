@@ -4,12 +4,12 @@ const User = db.models.User;
 // LOOKS FOR THE CURRENT USER
 // JUST LIKE THE SHOW ROUTE??
 function getInfo(req, res) {
-	console.log('hitting the get info route');
-	console.log(req.user.id);
+	// console.log('hitting the get info route');
+	// console.log(req.user.id);
 	User.findById(req.user.id)
 	.then((user, err) => {
 			if(err) { res.json (err); }
-			console.log('youre hitting the user.show controller');
+			// console.log('youre hitting the user.show controller');
 			res.json(user);
 		});
 }
