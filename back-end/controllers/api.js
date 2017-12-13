@@ -192,13 +192,15 @@ function show(reqMaster, resMaster) {
 			  } 
 			  
 			  if (isFood === true) {
-			  	console.log("serving up the food");
-			  	console.log(visionDescriptions);
+			  	// console.log("serving up the food");
+			  	// console.log(visionDescriptions);
+			  	
 			  	// SERVE UP THE RESTAURANT AND ITS DETAILS TO THE FRONT END
 					resMaster.json(serveUpRestaurantObject);
 			  } else {
-			  	console.log(imageUrl);
-			  	console.log(visionDescriptions);
+			  	// console.log(imageUrl);
+			  	// console.log(visionDescriptions);
+
 			  	//if it's not a food, call the function again!
 			  	show(reqMaster, resMaster);
 			  } 
