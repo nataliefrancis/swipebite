@@ -55,11 +55,19 @@ router.get('/auth/google/redirect', authController.googleCallback);
 ///////////// GOOGLE PLACES API ROUTES //////////////
 /////////////////////////////////////////////////////
 
-router.post('/api/places', apiController.show);
+// router.post('/api/places', function(req, res) {
+// 	apiController.show()
+// 	.then(function() {
+// 		// res.json(serveUpRestaurantObject);
+// 	});
+// }
+/*router.put('/api/update/something/:withParam', function(req, res) {
+    updateSomething(req.params.withParam)
+    .then(function() { res.send(200, 'ok'); });
+});*/
 
-// 	(req, res) => {
-// 	console.log("hitting the GooglePlacesAPICall route on the back end");
-// });	
+// OLD WAY
+router.post('/api/places', apiController.show);
 
 ////////////////////////////////////
 ////////// FOOD ROUTES /////////////

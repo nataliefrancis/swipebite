@@ -14,7 +14,7 @@ const googleCallback = (req, res, next) => {
 
 	//Only needed if on localhost/not on Heroku
 	if(!process.env.DYNO) {
-		baseUrl = 'http://localhost:4200';
+		baseUrl = 'http://localhost:3000';
 	} else {
 		baseUrl = '';
 	}

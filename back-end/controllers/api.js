@@ -21,7 +21,7 @@ function show(reqMaster, resMaster) {
 	//getting details for that specific user
 	let latitude = reqMaster.body.coordinates.latitude || 39.765200;
 	let longitude = reqMaster.body.coordinates.longitude || -104.986117;
-	let distance = reqMaster.body.user.distance || '1500' ; // defaults to restaurants within a mile if no distance is specified
+	let distance = reqMaster.body.user.distance || '1500' ; // defaults to restaurants within a mile (1500 m) if no distance is specified
 
 	let options = { 
 		method: 'GET',
@@ -42,7 +42,7 @@ function show(reqMaster, resMaster) {
 	request(options, function(err1, res1, body1) {
 		if (err1) return err1;
 		body1 = JSON.parse(body1);
-		console.log(body1);
+		// console.log(body1);
 		let restaurantsArray = [];
 
 		// Loops through all the returned restaurants to create a restaurants array 
@@ -105,7 +105,6 @@ function show(reqMaster, resMaster) {
 			// UPDATES DETAILS ABOUT THE RESTAURANT //
 			//////////////////////////////////////////
 
-
 			// Updates details about the restaurant in the array
 			chosenRestaurant = {
 				name: result.name,
@@ -142,8 +141,68 @@ function show(reqMaster, resMaster) {
 				photo: photoInfo
 			};
 
-			// SERVE UP THE RESTAURANT AND ITS DETAILS TO THE FRONT END
-			resMaster.json(serveUpRestaurantObject); 
+			/////////////////////////////////////////////////////////////////
+			// 4. GOOGLE VISION API CALL TO DETERMINE HOTDOG OR NOT HOTDOG //
+			/////////////////////////////////////////////////////////////////
+
+			let options = {
+				method: 'POST',
+				url: 'https://vision.googleapis.com/v1/images:annotate',
+				qs: {
+					key: process.env.placesAPIKey || keys.placesAPIKey
+				},
+				body: {
+					requests: [{
+						image: {
+							source: {
+								imageUri: imageUrl
+							}
+						},
+						features: [{
+							type: 'LABEL_DETECTION', 
+							maxResults: 5
+						}]
+					}]
+				},
+				json: true
+			};
+
+			request(options, function (error, response, body) {
+			  if (error) throw new Error(error);
+
+			  let visionArray = body.responses[0].labelAnnotations;
+			  let visionDescriptions = [];
+			  let isFood = false;
+
+			  if (visionArray.length > 0) {
+			  	for (let i = 0; i < visionArray.length; i ++) {
+
+				  	let currentDescription = visionArray[i].description;
+				  	visionDescriptions.push(currentDescription);
+
+				  	if (currentDescription === 'food' || currentDescription === 'cuisine' || 
+				  		currentDescription === 'dish' || currentDescription === 'meal' ||
+				  		currentDescription === 'sandwich' || currentDescription === 'fast food' ||
+				  		currentDescription === 'vegetarian food' || currentDescription === 'hamburger') {
+
+				  		//set isFood boolean to true
+				  		isFood = true;
+				  	} 
+				  }	
+			  } 
+			  
+			  if (isFood === true) {
+			  	console.log("serving up the food");
+			  	console.log(visionDescriptions);
+			  	// SERVE UP THE RESTAURANT AND ITS DETAILS TO THE FRONT END
+					resMaster.json(serveUpRestaurantObject);
+			  } else {
+			  	console.log(imageUrl);
+			  	console.log(visionDescriptions);
+			  	//if it's not a food, call the function again!
+			  	show(reqMaster, resMaster);
+			  } 
+			});		 
 		});		
 	});	
 }
